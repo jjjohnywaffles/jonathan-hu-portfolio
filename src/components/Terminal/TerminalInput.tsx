@@ -6,6 +6,7 @@ interface TerminalInputProps {
   onChange: (value: string) => void;
   onSubmit: (value: string) => void;
   onNavigateHistory: (direction: 'up' | 'down') => void;
+  onClear?: () => void;
   disabled?: boolean;
 }
 
@@ -14,6 +15,7 @@ export const TerminalInput = ({
   onChange,
   onSubmit,
   onNavigateHistory,
+  onClear,
   disabled = false,
 }: TerminalInputProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -22,20 +24,36 @@ export const TerminalInput = ({
   useEffect(() => {
     if (disabled) return;
 
-    const handleClick = () => {
-      inputRef.current?.focus();
+    const handleMouseUp = () => {
+      // Use setTimeout to let the browser finalize selection first
+      setTimeout(() => {
+        // Don't focus if user has selected text (preserve selection)
+        const selection = window.getSelection();
+        if (selection && selection.toString().length > 0) {
+          return;
+        }
+        inputRef.current?.focus();
+      }, 0);
     };
 
-    document.addEventListener('click', handleClick);
+    document.addEventListener('mouseup', handleMouseUp);
     inputRef.current?.focus();
 
     return () => {
-      document.removeEventListener('click', handleClick);
+      document.removeEventListener('mouseup', handleMouseUp);
     };
   }, [disabled]);
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (disabled) return;
+
+    // Ctrl+C to clear console
+    if (e.ctrlKey && e.key === 'c') {
+      e.preventDefault();
+      onChange('');
+      onClear?.();
+      return;
+    }
 
     if (e.key === 'Enter') {
       e.preventDefault();

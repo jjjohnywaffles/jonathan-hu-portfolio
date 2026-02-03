@@ -12,7 +12,8 @@ type TerminalPhase = 'booting' | 'welcome-animation' | 'ready';
 
 export const Terminal = () => {
   const [phase, setPhase] = useState<TerminalPhase>('booting');
-  const { entries, currentInput, setCurrentInput, processCommand, navigateHistory } = useTerminal();
+  const { entries, currentInput, setCurrentInput, processCommand, navigateHistory, clearEntries } =
+    useTerminal();
   const terminalRef = useRef<HTMLDivElement>(null);
   const outputRef = useRef<HTMLDivElement>(null);
 
@@ -97,6 +98,7 @@ export const Terminal = () => {
               onChange={setCurrentInput}
               onSubmit={processCommand}
               onNavigateHistory={navigateHistory}
+              onClear={clearEntries}
             />
           </div>
         </div>

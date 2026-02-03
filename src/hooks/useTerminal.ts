@@ -39,6 +39,10 @@ export const useTerminal = () => {
     setEntries((prev) => [...prev, newEntry]);
   }, []);
 
+  const clearEntries = useCallback(() => {
+    setEntries([]);
+  }, []);
+
   const navigateHistory = useCallback(
     (direction: 'up' | 'down') => {
       if (commandHistory.length === 0) return;
@@ -69,6 +73,7 @@ export const useTerminal = () => {
     setCurrentInput,
     processCommand,
     navigateHistory,
+    clearEntries,
     commandHistory,
   };
 };
