@@ -49,11 +49,14 @@ export const TerminalApp = ({ isFocused }: AppComponentProps) => {
     }
   }, [entries, phase]);
 
+  const terminalAppClasses = 'w-full h-full bg-bg-terminal flex flex-col overflow-hidden';
+  const terminalBodyClasses = 'flex-1 overflow-y-auto p-6 scroll-smooth custom-scrollbar';
+
   // Boot phase
   if (phase === 'booting') {
     return (
-      <div className="terminal-app" ref={terminalRef}>
-        <div className="terminal-body boot-body">
+      <div className={terminalAppClasses} ref={terminalRef}>
+        <div className={`${terminalBodyClasses} flex items-center justify-center`}>
           <BootSequence onComplete={handleBootComplete} />
         </div>
       </div>
@@ -64,9 +67,9 @@ export const TerminalApp = ({ isFocused }: AppComponentProps) => {
   if (phase === 'welcome-animation') {
     return (
       <TerminalContext.Provider value={contextValue}>
-        <div className="terminal-app" ref={terminalRef}>
-          <div className="terminal-body" ref={outputRef}>
-            <div className="terminal-content">
+        <div className={terminalAppClasses} ref={terminalRef}>
+          <div className={terminalBodyClasses} ref={outputRef}>
+            <div className="flex flex-col gap-4">
               <WelcomeAnimation onComplete={handleWelcomeComplete} />
             </div>
           </div>
@@ -78,9 +81,9 @@ export const TerminalApp = ({ isFocused }: AppComponentProps) => {
   // Ready phase - normal terminal operation
   return (
     <TerminalContext.Provider value={contextValue}>
-      <div className="terminal-app" ref={terminalRef}>
-        <div className="terminal-body" ref={outputRef}>
-          <div className="terminal-content">
+      <div className={terminalAppClasses} ref={terminalRef}>
+        <div className={terminalBodyClasses} ref={outputRef}>
+          <div className="flex flex-col gap-4">
             <WelcomeMessage />
             {entries.map((entry) => (
               <TerminalOutput

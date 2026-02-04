@@ -2,16 +2,18 @@ import { portfolioData } from '../../data/portfolio';
 
 export const About = () => {
   return (
-    <div className="terminal-about">
-      <p className="section-label">// About Me</p>
+    <div className="text-text-primary">
+      <p className="text-text-muted text-xs">// About Me</p>
       <br />
-      <p className="about-bio">{portfolioData.bio}</p>
+      <p className="text-text-primary leading-relaxed">{portfolioData.bio}</p>
       <br />
-      <p className="about-description">{portfolioData.description}</p>
+      <p className="text-text-secondary leading-relaxed">{portfolioData.description}</p>
       <br />
-      <p className="about-hint">
-        Type <span className="cmd-highlight">experience</span> to see my work history, or{' '}
-        <span className="cmd-highlight">contact</span> to get in touch.
+      <p className="text-text-muted text-xs">
+        Type <span className="text-accent bg-accent/10 px-1.5 py-0.5 rounded">experience</span> to
+        see my work history, or{' '}
+        <span className="text-accent bg-accent/10 px-1.5 py-0.5 rounded">contact</span> to get in
+        touch.
       </p>
     </div>
   );

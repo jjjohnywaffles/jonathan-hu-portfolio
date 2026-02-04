@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+/* ========================================
+   Tailwind Theme Configuration
+======================================== */
+@theme {
+  --color-bg-primary: #0d0d0d;
+  --color-bg-terminal: #1a1a1a;
+  --color-bg-header: #2d2d2d;
+  --color-text-primary: #e0e0e0;
+  --color-text-secondary: #888888;
+  --color-text-muted: #555555;
+  --color-accent: #00ff88;
+  --color-accent-secondary: #00aaff;
+  --color-error: #ff5555;
+  --color-warning: #ffaa00;
+  --color-border: #333333;
+  --color-dock-bg: rgba(30, 30, 30, 0.8);
+
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Monaco', monospace;
+
+  --spacing-dock-height: 70px;
+  --spacing-window-header: 38px;
+}
+
+/* ========================================
+   Base Styles
+======================================== */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    font-family: var(--font-mono);
+    background: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    font-size: 14px;
+    overflow: hidden;
+  }
+}
+
+/* ========================================
+   Custom Animations
+======================================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes dotPulse {
+  0%,
+  80%,
+  100% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   Custom Scrollbar Styles
+======================================== */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-bg-terminal);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* ========================================
+   Animation Classes
+======================================== */
+.animate-fade-in {
+  animation: fadeIn 0.3s ease;
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+.animate-dot-pulse {
+  animation: dotPulse 1.4s infinite;
+}
+
+.animate-dot-pulse-delay-1 {
+  animation: dotPulse 1.4s infinite;
+  animation-delay: 0.2s;
+}
+
+.animate-dot-pulse-delay-2 {
+  animation: dotPulse 1.4s infinite;
+  animation-delay: 0.4s;
+}

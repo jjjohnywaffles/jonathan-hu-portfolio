@@ -15,14 +15,14 @@ export const TerminalOutput = ({ id, command, output }: TerminalOutputProps) => 
   return (
     <EntryContext.Provider value={id}>
       <TerminalContext.Provider value={{ activeEntryId, currentEntryId: id }}>
-        <div className="terminal-output">
+        <div className="flex flex-col gap-2">
           {command !== undefined && (
-            <div className="terminal-command-line">
+            <div className="flex items-center gap-2">
               <TerminalPrompt />
-              <span className="terminal-command-text">{command}</span>
+              <span className="text-text-primary">{command}</span>
             </div>
           )}
-          {output && <div className="terminal-output-content">{output}</div>}
+          {output && <div className="mt-2">{output}</div>}
         </div>
       </TerminalContext.Provider>
     </EntryContext.Provider>

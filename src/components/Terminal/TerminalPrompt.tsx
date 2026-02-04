@@ -1,10 +1,10 @@
 export const TerminalPrompt = () => {
   return (
-    <span className="terminal-prompt">
-      <span className="prompt-user">visitor</span>
-      <span className="prompt-at">@</span>
-      <span className="prompt-host">jonathan.hu</span>
-      <span className="prompt-symbol">$</span>
+    <span className="flex shrink-0">
+      <span className="text-accent">visitor</span>
+      <span className="text-text-muted">@</span>
+      <span className="text-accent-secondary">jonathan.hu</span>
+      <span className="text-text-primary ml-2">$</span>
     </span>
   );
 };

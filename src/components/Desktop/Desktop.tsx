@@ -4,7 +4,6 @@ import { useWindowManager } from '../../hooks/useWindowManager';
 import { Window } from '../Window';
 import { Dock } from '../Dock';
 import { apps } from '../../data/apps';
-import './Desktop.css';
 
 const DesktopContent = () => {
   const { windows, focusedWindowId, getApp, openApp } = useWindowManager();
@@ -34,10 +33,16 @@ const DesktopContent = () => {
   );
 
   return (
-    <div className={`desktop ${hasMaximizedWindow ? 'has-maximized' : ''}`}>
-      <div className="desktop-background" />
+    <div className="fixed top-0 left-0 w-screen h-screen overflow-hidden">
+      {/* Background */}
+      <div className="absolute top-0 left-0 w-full h-full bg-bg-primary z-0" />
 
-      <div className="desktop-windows">
+      {/* Windows area */}
+      <div
+        className={`absolute top-0 left-0 w-full z-[1] ${
+          hasMaximizedWindow ? 'h-full' : 'h-[calc(100%-70px)]'
+        }`}
+      >
         {Object.values(windows).map((windowConfig) => {
           const app = getApp(windowConfig.appId);
           if (!app) return null;

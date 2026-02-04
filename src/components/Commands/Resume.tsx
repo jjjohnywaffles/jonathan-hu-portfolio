@@ -40,33 +40,41 @@ export const Resume = () => {
   }, [dismissed, action, isActive, handleDownload, handleCancel]);
 
   if (dismissed) {
-    return <p className="cmd-muted">Cancelled.</p>;
+    return <p className="text-text-muted">Cancelled.</p>;
   }
 
   if (action) {
-    return <p className="cmd-success">{action}</p>;
+    return <p className="text-accent">{action}</p>;
   }
 
   return (
-    <div className="terminal-resume">
-      <p className="section-label">// Resume</p>
+    <div className="text-text-primary">
+      <p className="text-text-muted text-xs">// Resume</p>
       <br />
-      <p className="resume-prompt">What would you like to do?</p>
+      <p className="text-text-secondary">What would you like to do?</p>
       <br />
-      <div className={`resume-options ${!isActive ? 'disabled' : ''}`}>
-        <button className="resume-option" onClick={handleDownload} disabled={!isActive}>
-          <span className="option-key">[D]</span>
-          <span className="option-text">Download PDF</span>
+      <div className="flex flex-col gap-2">
+        <button
+          className={`flex items-center gap-4 px-4 py-3 bg-accent/5 border border-border rounded cursor-pointer font-mono text-sm text-left transition-all hover:bg-accent/10 hover:border-accent disabled:cursor-default disabled:opacity-70 ${!isActive ? '[&_.option-key]:text-text-muted' : ''}`}
+          onClick={handleDownload}
+          disabled={!isActive}
+        >
+          <span className="option-key text-accent font-semibold">[D]</span>
+          <span className="text-text-primary">Download PDF</span>
         </button>
-        <button className="resume-option cancel" onClick={handleCancel} disabled={!isActive}>
-          <span className="option-key">[C]</span>
-          <span className="option-text">Cancel</span>
+        <button
+          className={`flex items-center gap-4 px-4 py-3 bg-transparent border border-border rounded cursor-pointer font-mono text-sm text-left transition-all hover:bg-error/10 hover:border-error disabled:cursor-default disabled:opacity-70 ${!isActive ? '[&_.option-key]:text-text-muted' : ''}`}
+          onClick={handleCancel}
+          disabled={!isActive}
+        >
+          <span className="option-key text-error font-semibold">[C]</span>
+          <span className="text-text-primary">Cancel</span>
         </button>
       </div>
       {isActive && (
         <>
           <br />
-          <p className="resume-hint">Press D or C to select an option.</p>
+          <p className="text-text-muted text-xs">Press D or C to select an option.</p>
         </>
       )}
     </div>

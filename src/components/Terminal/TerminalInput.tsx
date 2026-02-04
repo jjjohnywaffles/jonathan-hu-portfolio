@@ -74,15 +74,17 @@ export const TerminalInput = ({
   };
 
   return (
-    <div className="terminal-input-line">
+    <div className="flex items-center gap-2">
       <TerminalPrompt />
-      <div className="terminal-input-wrapper">
-        <span className="terminal-input-display">{value}</span>
-        {!disabled && <span className="terminal-cursor" />}
+      <div className="flex-1 relative flex items-center">
+        <span className="text-text-primary font-mono text-sm whitespace-pre">{value}</span>
+        {!disabled && (
+          <span className="inline-block w-2 h-[18px] bg-accent animate-blink align-middle ml-px" />
+        )}
         <input
           ref={inputRef}
           type="text"
-          className="terminal-input"
+          className="absolute opacity-0 w-full h-full bg-transparent border-none outline-none text-text-primary font-mono text-sm caret-transparent"
           value={value}
           onChange={handleChange}
           onKeyDown={handleKeyDown}

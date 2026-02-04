@@ -27,10 +27,10 @@ export function renderPreview(appId: string, windowId: string): ReactNode {
   }
   // Default preview
   return (
-    <div className="minimized-preview default-preview">
-      <div className="preview-line" />
-      <div className="preview-line short" />
-      <div className="preview-line medium" />
+    <div className="w-full h-full flex flex-col gap-[3px] pointer-events-none overflow-hidden justify-center">
+      <div className="h-[3px] bg-text-muted rounded-sm opacity-40 w-full" />
+      <div className="h-[3px] bg-text-muted rounded-sm opacity-40 w-1/2" />
+      <div className="h-[3px] bg-text-muted rounded-sm opacity-40 w-3/4" />
     </div>
   );
 }

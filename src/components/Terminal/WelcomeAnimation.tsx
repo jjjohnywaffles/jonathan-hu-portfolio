@@ -96,24 +96,25 @@ export const WelcomeAnimation = ({ onComplete }: WelcomeAnimationProps) => {
 
     if (isTitle) {
       return (
-        <p key={`text-${index}`} className="welcome-title">
+        <p key={`text-${index}`} className="text-accent mb-2">
           {line}
         </p>
       );
     }
     if (isTagline) {
       return (
-        <p key={`text-${index}`} className="welcome-tagline">
+        <p key={`text-${index}`} className="text-text-secondary mb-2">
           {line}
         </p>
       );
     }
     if (isHint) {
       return (
-        <p key={`text-${index}`} className="welcome-hint">
+        <p key={`text-${index}`} className="text-text-muted">
           {line.includes('help') ? (
             <>
-              Type <span className="cmd-highlight">help</span> to see available commands.
+              Type <span className="text-accent bg-accent/10 px-1.5 py-0.5 rounded">help</span> to
+              see available commands.
             </>
           ) : (
             line
@@ -121,24 +122,22 @@ export const WelcomeAnimation = ({ onComplete }: WelcomeAnimationProps) => {
         </p>
       );
     }
-    return (
-      <p key={`text-${index}`} className="welcome-spacer">
-        {line || '\u00A0'}
-      </p>
-    );
+    return <p key={`text-${index}`}>{line || '\u00A0'}</p>;
   };
 
   return (
-    <div className="terminal-welcome typing">
+    <div className="text-text-primary min-h-[200px]">
       {/* ASCII art - all lines typing simultaneously */}
       {ASCII_LINES.map((line, index) => (
-        <pre key={index} className="ascii-art-line">
+        <pre key={index} className="font-mono text-accent m-0 leading-tight text-xs whitespace-pre">
           {line.slice(0, asciiCharIndex)}
         </pre>
       ))}
       {/* Text lines after ASCII */}
       {displayedTextLines.map(renderTextLine)}
-      {!isComplete && <span className="terminal-cursor typing-cursor" />}
+      {!isComplete && (
+        <span className="inline-block w-2 h-[18px] bg-accent animate-blink align-middle ml-0.5" />
+      )}
     </div>
   );
 };

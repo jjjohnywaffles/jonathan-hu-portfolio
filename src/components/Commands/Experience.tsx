@@ -50,27 +50,38 @@ export const Experience = () => {
   if (selectedIndex !== null) {
     const exp = portfolioData.experience[selectedIndex];
     return (
-      <div className="terminal-experience">
-        <p className="section-label">// Experience &gt; {exp.company}</p>
+      <div className="text-text-primary">
+        <p className="text-text-muted text-xs">// Experience &gt; {exp.company}</p>
         <br />
-        <div className="exp-detail">
-          <div className="exp-header">
-            <span className="exp-title">{exp.title}</span>
-            <span className="exp-period">{exp.period}</span>
+        <div className="pl-2">
+          <div className="flex justify-between items-baseline gap-4 flex-wrap max-md:flex-col max-md:gap-1">
+            <span className="text-accent font-semibold">{exp.title}</span>
+            <span className="text-text-muted text-xs">{exp.period}</span>
           </div>
-          <div className="exp-subheader">
-            <span className="exp-company">{exp.company}</span>
-            <span className="exp-location">{exp.location}</span>
+          <div className="flex justify-between items-baseline gap-4 mb-2 flex-wrap max-md:flex-col max-md:gap-1">
+            <span className="text-text-secondary">{exp.company}</span>
+            <span className="text-text-muted text-xs">{exp.location}</span>
           </div>
-          {exp.summary && <p className="exp-summary">{exp.summary}</p>}
+          {exp.summary && (
+            <p className="text-text-primary my-3 pl-4 border-l-2 border-border">{exp.summary}</p>
+          )}
           {exp.sections ? (
-            <div className="exp-sections">
+            <div className="mt-3">
               {exp.sections.map((section, sIdx) => (
-                <div key={sIdx} className="exp-section">
-                  {section.header && <p className="exp-section-header">{section.header}</p>}
-                  <ul className="exp-points">
+                <div key={sIdx} className="mb-4 last:mb-0">
+                  {section.header && (
+                    <p className="text-accent-secondary text-xs uppercase tracking-wide mb-2">
+                      {section.header}
+                    </p>
+                  )}
+                  <ul className="list-none pl-4">
                     {section.points.map((point, pIdx) => (
-                      <li key={pIdx}>{point}</li>
+                      <li
+                        key={pIdx}
+                        className="text-text-secondary mb-1 relative before:content-['›'] before:absolute before:-left-4 before:text-text-muted"
+                      >
+                        {point}
+                      </li>
                     ))}
                   </ul>
                 </div>
@@ -78,9 +89,14 @@ export const Experience = () => {
             </div>
           ) : (
             exp.points && (
-              <ul className="exp-points">
+              <ul className="list-none pl-4">
                 {exp.points.map((point, pIdx) => (
-                  <li key={pIdx}>{point}</li>
+                  <li
+                    key={pIdx}
+                    className="text-text-secondary mb-1 relative before:content-['›'] before:absolute before:-left-4 before:text-text-muted"
+                  >
+                    {point}
+                  </li>
                 ))}
               </ul>
             )
@@ -89,9 +105,12 @@ export const Experience = () => {
         {isActive && (
           <>
             <br />
-            <button className="exp-back-btn" onClick={handleBack}>
-              <span className="option-key">[ESC]</span>
-              <span className="option-text">Back to list</span>
+            <button
+              className="inline-flex items-center gap-3 px-4 py-2 bg-transparent border border-border rounded cursor-pointer font-mono text-sm transition-all hover:bg-accent-secondary/10 hover:border-accent-secondary"
+              onClick={handleBack}
+            >
+              <span className="text-accent-secondary">[ESC]</span>
+              <span className="text-text-primary">Back to list</span>
             </button>
           </>
         )}
@@ -101,30 +120,30 @@ export const Experience = () => {
 
   // Show list view
   return (
-    <div className="terminal-experience">
-      <p className="section-label">// Work Experience</p>
+    <div className="text-text-primary">
+      <p className="text-text-muted text-xs">// Work Experience</p>
       <br />
-      <div className={`exp-list ${!isActive ? 'disabled' : ''}`}>
+      <div className="flex flex-col gap-2">
         {portfolioData.experience.map((exp, index) => (
           <button
             key={exp.id}
-            className="exp-list-item"
+            className={`flex items-center gap-4 px-4 py-3 bg-accent/5 border border-border rounded cursor-pointer font-mono text-sm text-left transition-all w-full hover:bg-accent/10 hover:border-accent disabled:cursor-default disabled:opacity-70 ${!isActive ? '[&_.exp-list-key]:text-text-muted' : ''}`}
             onClick={() => handleSelect(index)}
             disabled={!isActive}
           >
-            <span className="exp-list-key">[{index + 1}]</span>
-            <div className="exp-list-info">
-              <span className="exp-list-title">{exp.title}</span>
-              <span className="exp-list-company">{exp.company}</span>
+            <span className="exp-list-key text-accent font-semibold shrink-0">[{index + 1}]</span>
+            <div className="flex flex-col flex-1 min-w-0">
+              <span className="text-text-primary font-medium">{exp.title}</span>
+              <span className="text-text-secondary text-xs">{exp.company}</span>
             </div>
-            <span className="exp-list-period">{exp.period}</span>
+            <span className="text-text-muted text-xs shrink-0">{exp.period}</span>
           </button>
         ))}
       </div>
       {isActive && (
         <>
           <br />
-          <p className="exp-hint">
+          <p className="text-text-muted text-xs">
             Press 1-{portfolioData.experience.length} or click to view details.
           </p>
         </>

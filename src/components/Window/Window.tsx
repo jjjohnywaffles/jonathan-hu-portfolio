@@ -7,7 +7,6 @@ import { useWindowManager } from '../../hooks/useWindowManager';
 import { useMouseProximity } from '../../hooks/useMouseProximity';
 import { useWindowResize } from '../../hooks/useWindowResize';
 import type { WindowConfig, Position, Size } from '../../types/window';
-import './Window.css';
 
 interface WindowProps {
   windowConfig: WindowConfig;
@@ -60,7 +59,7 @@ export const Window = ({ windowConfig, children, dockPosition }: WindowProps) =>
   // Show header when mouse is near top edge in maximized mode
   const isNearTop = useMouseProximity({
     edge: 'top',
-    threshold: 50,
+    threshold: 30,
     enabled: isMaximized && !isHeaderHovered,
   });
 
@@ -182,9 +181,18 @@ export const Window = ({ windowConfig, children, dockPosition }: WindowProps) =>
     borderRadius: 8,
   };
 
+  const windowClasses = `
+    absolute bg-bg-terminal overflow-hidden flex flex-col
+    shadow-[0_25px_80px_rgba(0,0,0,0.5),0_0_0_1px_var(--color-border)]
+    ${isFocused ? 'shadow-[0_30px_100px_rgba(0,0,0,0.6),0_0_0_1px_var(--color-border),0_0_0_3px_rgba(0,255,136,0.1)]' : ''}
+    ${isMaximized ? 'shadow-none' : ''}
+    ${isDragging || isResizing ? 'select-none' : ''}
+    ${isMinimized ? 'pointer-events-none overflow-hidden' : ''}
+  `;
+
   return (
     <motion.div
-      className={`window ${isFocused ? 'focused' : ''} ${isMaximized ? 'maximized' : ''} ${isDragging || isResizing ? 'dragging' : ''} ${isMinimized ? 'minimized' : ''}`}
+      className={windowClasses}
       style={{
         zIndex: isMinimized ? -1 : zIndex,
         pointerEvents: isMinimized ? 'none' : 'auto',
@@ -207,7 +215,7 @@ export const Window = ({ windowConfig, children, dockPosition }: WindowProps) =>
       <AnimatePresence>
         {showHeader && (
           <motion.div
-            className={`window-header-container ${isMaximized ? 'maximized-header' : ''}`}
+            className={`shrink-0 ${isMaximized ? 'absolute top-0 left-0 right-0 z-10' : ''}`}
             initial={isMaximized ? { y: -38, opacity: 0 } : false}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -38, opacity: 0 }}
@@ -228,7 +236,9 @@ export const Window = ({ windowConfig, children, dockPosition }: WindowProps) =>
       </AnimatePresence>
 
       {/* Window content - always rendered to preserve state */}
-      <div className="window-content">{children}</div>
+      <div className={`flex-1 overflow-hidden flex flex-col ${isMaximized ? 'h-full' : ''}`}>
+        {children}
+      </div>
 
       {/* Resize handles - only show when not maximized/minimized */}
       {!isMaximized && !isMinimized && <WindowResizeHandles onResizeStart={handleResizeStart} />}

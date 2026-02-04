@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { useWindowManager } from '../../hooks/useWindowManager';
 import { DockAppItem } from './DockItem';
 import { DockMinimizedPreview } from './DockMinimizedPreview';
-import './Dock.css';
 
 export const Dock = () => {
   const { apps, windows } = useWindowManager();
@@ -30,21 +29,21 @@ export const Dock = () => {
 
   return (
     <motion.div
-      className="dock"
+      className="fixed bottom-2 left-0 right-0 flex justify-center z-[1000] pointer-events-none"
       initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
     >
-      <div className="dock-container">
+      <div className="flex items-center gap-2 pt-2 px-3 pb-3 bg-dock-bg backdrop-blur-[20px] rounded-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.4),inset_0_0_0_1px_rgba(255,255,255,0.05)] pointer-events-auto">
         {/* App icons */}
-        <div className="dock-apps">
+        <div className="flex items-center gap-1">
           {apps.map((app) => (
             <DockAppItem key={app.id} appId={app.id} />
           ))}
         </div>
 
         {/* Separator and minimized windows */}
-        {minimizedWindows.length > 0 && <div className="dock-separator" />}
+        {minimizedWindows.length > 0 && <div className="w-px h-10 bg-white/20 mx-1" />}
         {minimizedWindows.map((window) => (
           <DockMinimizedPreview key={window.id} windowConfig={window} />
         ))}
