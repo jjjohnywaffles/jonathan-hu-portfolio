@@ -106,6 +106,7 @@ export const portfolioData: PortfolioData = {
         'Developed Python scripts for advanced data preprocessing and applied statistical and machine learning techniques',
         'Collaborated with teams to analyze interview transcripts, uncovering key themes for trauma treatment strategies',
         'Designed Python-based tools to automate data recording, significantly boosting efficiency',
+        `Created efficient data pipelines for analysis and visualization of trauma research data`,
       ],
     },
     {

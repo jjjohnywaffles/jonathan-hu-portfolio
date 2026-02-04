@@ -17,6 +17,16 @@
   --warning: #ffaa00;
   --border: #333333;
   --font-mono: 'JetBrains Mono', 'Fira Code', 'Monaco', monospace;
+
+  /* Desktop & Window System */
+  --dock-height: 70px;
+  --window-header-height: 38px;
+  --dock-bg: rgba(30, 30, 30, 0.8);
+
+  /* Z-index layers */
+  --z-desktop: 0;
+  --z-windows: 100;
+  --z-dock: 1000;
 }
 
 /* ========================================
@@ -28,17 +38,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-/* Text selection styling */
-::selection {
-  background: rgba(0, 255, 136, 0.3);
-  color: var(--text-primary);
-}
-
-::-moz-selection {
-  background: rgba(0, 255, 136, 0.3);
-  color: var(--text-primary);
 }
 
 html,

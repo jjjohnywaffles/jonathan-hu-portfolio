@@ -1,0 +1,89 @@
+/* ========================================
+   Desktop Container
+======================================== */
+.desktop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ========================================
+   Desktop Background
+======================================== */
+.desktop-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-primary, #0d0d0d);
+  z-index: 0;
+}
+
+/* ========================================
+   Desktop Windows Area
+======================================== */
+.desktop-windows {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - var(--dock-height, 70px));
+  z-index: 1;
+}
+
+/* When a window is maximized, windows can use full height */
+.desktop.has-maximized .desktop-windows {
+  height: 100%;
+}
+
+/* ========================================
+   Terminal App Styling
+======================================== */
+.terminal-app {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-terminal);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.terminal-app .terminal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+  scroll-behavior: smooth;
+}
+
+.terminal-app .terminal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-app .terminal-body::-webkit-scrollbar-track {
+  background: var(--bg-terminal);
+}
+
+.terminal-app .terminal-body::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+.terminal-app .terminal-body::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+.terminal-app .terminal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.terminal-app .boot-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
