@@ -2,9 +2,11 @@ import { useRef, useEffect, useState, useCallback } from 'react';
 import type { ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { WindowHeader } from './WindowHeader';
+import { WindowResizeHandles } from './WindowResizeHandles';
 import { useWindowManager } from '../../hooks/useWindowManager';
 import { useMouseProximity } from '../../hooks/useMouseProximity';
-import type { WindowConfig } from '../../types/window';
+import { useWindowResize } from '../../hooks/useWindowResize';
+import type { WindowConfig, Position, Size } from '../../types/window';
 import './Window.css';
 
 interface WindowProps {
@@ -21,6 +23,7 @@ export const Window = ({ windowConfig, children, dockPosition }: WindowProps) =>
     restoreWindow,
     focusWindow,
     updatePosition,
+    updateSize,
     focusedWindowId,
   } = useWindowManager();
 
@@ -35,6 +38,24 @@ export const Window = ({ windowConfig, children, dockPosition }: WindowProps) =>
 
   // Track if header is being hovered in maximized mode
   const [isHeaderHovered, setIsHeaderHovered] = useState(false);
+
+  // Window resize handling
+  const handleResize = useCallback(
+    (newPosition: Position, newSize: Size) => {
+      updatePosition(id, newPosition);
+      updateSize(id, newSize);
+    },
+    [id, updatePosition, updateSize]
+  );
+
+  const { isResizing, handleResizeStart } = useWindowResize({
+    position,
+    size,
+    minWidth: 300,
+    minHeight: 200,
+    onResize: handleResize,
+    enabled: !isMaximized && !isMinimized,
+  });
 
   // Show header when mouse is near top edge in maximized mode
   const isNearTop = useMouseProximity({
@@ -163,7 +184,7 @@ export const Window = ({ windowConfig, children, dockPosition }: WindowProps) =>
 
   return (
     <motion.div
-      className={`window ${isFocused ? 'focused' : ''} ${isMaximized ? 'maximized' : ''} ${isDragging ? 'dragging' : ''} ${isMinimized ? 'minimized' : ''}`}
+      className={`window ${isFocused ? 'focused' : ''} ${isMaximized ? 'maximized' : ''} ${isDragging || isResizing ? 'dragging' : ''} ${isMinimized ? 'minimized' : ''}`}
       style={{
         zIndex: isMinimized ? -1 : zIndex,
         pointerEvents: isMinimized ? 'none' : 'auto',
@@ -171,7 +192,7 @@ export const Window = ({ windowConfig, children, dockPosition }: WindowProps) =>
       initial={initialStyle}
       animate={animatedStyle}
       transition={
-        isDragging
+        isDragging || isResizing
           ? { duration: 0 }
           : {
               type: 'spring',
@@ -208,6 +229,9 @@ export const Window = ({ windowConfig, children, dockPosition }: WindowProps) =>
 
       {/* Window content - always rendered to preserve state */}
       <div className="window-content">{children}</div>
+
+      {/* Resize handles - only show when not maximized/minimized */}
+      {!isMaximized && !isMinimized && <WindowResizeHandles onResizeStart={handleResizeStart} />}
     </motion.div>
   );
 };
