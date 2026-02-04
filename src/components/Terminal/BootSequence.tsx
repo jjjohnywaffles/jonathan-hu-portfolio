@@ -70,11 +70,6 @@ export const BootSequence = ({ onComplete }: BootSequenceProps) => {
             </div>
           ))}
         </div>
-        {complete && (
-          <div className="boot-complete">
-            <span>Press any key or wait to continue...</span>
-          </div>
-        )}
       </div>
     </div>
   );

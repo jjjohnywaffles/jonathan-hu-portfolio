@@ -22,13 +22,13 @@ export const WELCOME_TEXT_LINES = [
 // Boot sequence timing (in milliseconds)
 export const BOOT_TIMING = {
   CONNECTION_START: 0,
-  CONNECTION_DONE: 1200,
-  LOADING_START: 1800,
-  LOADING_DONE: 3000,
-  INIT_START: 3600,
-  INIT_DONE: 4800,
-  COMPLETE: 5400,
-  FADE_DELAY: 600,
+  CONNECTION_DONE: 800,
+  LOADING_START: 1200,
+  LOADING_DONE: 2400,
+  INIT_START: 3000,
+  INIT_DONE: 3600,
+  COMPLETE: 4600,
+  FADE_DELAY: 500,
 } as const;
 
 // Typing animation timing (in milliseconds)
