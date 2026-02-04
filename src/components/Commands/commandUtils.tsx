@@ -68,7 +68,7 @@ export const commands: Record<string, CommandDefinition> = {
   pwd: {
     description: 'Print current directory',
     execute: (_args, ctx) => {
-      if (!ctx?.fs) return <span className="text-cmd-error">File system not available</span>;
+      if (!ctx?.fs) return <span className="text-error">File system not available</span>;
       return <span className="text-text-primary">{ctx.fs.currentPath}</span>;
     },
   },
@@ -77,14 +77,14 @@ export const commands: Record<string, CommandDefinition> = {
     usage: 'ls [path]',
     supportsPathCompletion: true,
     execute: (args, ctx) => {
-      if (!ctx?.fs) return <span className="text-cmd-error">File system not available</span>;
+      if (!ctx?.fs) return <span className="text-error">File system not available</span>;
 
       const path = args[0] || undefined;
       const items = ctx.fs.listDirectory(path);
 
       if (items === null) {
         const targetPath = path ? ctx.fs.resolvePath(path) : ctx.fs.currentPath;
-        return <span className="cmd-error">ls: {targetPath}: No such file or directory</span>;
+        return <span className="text-error">ls: {targetPath}: No such file or directory</span>;
       }
 
       return <DirectoryListing items={items} />;
@@ -95,7 +95,7 @@ export const commands: Record<string, CommandDefinition> = {
     usage: 'cd <path>',
     supportsPathCompletion: true,
     execute: (args, ctx) => {
-      if (!ctx?.fs) return <span className="text-cmd-error">File system not available</span>;
+      if (!ctx?.fs) return <span className="text-error">File system not available</span>;
 
       // cd with no args goes to home
       const path = args[0] || '~';
@@ -103,7 +103,7 @@ export const commands: Record<string, CommandDefinition> = {
 
       if (!success) {
         const targetPath = ctx.fs.resolvePath(path);
-        return <span className="cmd-error">cd: {targetPath}: No such file or directory</span>;
+        return <span className="text-error">cd: {targetPath}: No such file or directory</span>;
       }
 
       return null;
@@ -114,10 +114,10 @@ export const commands: Record<string, CommandDefinition> = {
     usage: 'cat <file>',
     supportsPathCompletion: true,
     execute: (args, ctx) => {
-      if (!ctx?.fs) return <span className="text-cmd-error">File system not available</span>;
+      if (!ctx?.fs) return <span className="text-error">File system not available</span>;
 
       if (!args[0]) {
-        return <span className="cmd-error">cat: missing operand</span>;
+        return <span className="text-error">cat: missing operand</span>;
       }
 
       const path = args[0];
@@ -125,17 +125,17 @@ export const commands: Record<string, CommandDefinition> = {
       const node = ctx.fs.getNode(resolvedPath);
 
       if (!node) {
-        return <span className="cmd-error">cat: {path}: No such file or directory</span>;
+        return <span className="text-error">cat: {path}: No such file or directory</span>;
       }
 
       if (node.type === 'folder') {
-        return <span className="cmd-error">cat: {path}: Is a directory</span>;
+        return <span className="text-error">cat: {path}: Is a directory</span>;
       }
 
       if (node.fileType === 'pdf') {
         return (
           <span className="text-text-muted">
-            {path} is a PDF file. Use <span className="cmd-highlight">open {path}</span> to view it.
+            {path} is a PDF file. Use <span className="text-accent">open {path}</span> to view it.
           </span>
         );
       }
@@ -143,8 +143,8 @@ export const commands: Record<string, CommandDefinition> = {
       if (node.fileType === 'executable') {
         return (
           <span className="text-text-muted">
-            {path} is an application. Use <span className="cmd-highlight">open {path}</span> to
-            launch it.
+            {path} is an application. Use <span className="text-accent">open {path}</span> to launch
+            it.
           </span>
         );
       }
@@ -162,10 +162,10 @@ export const commands: Record<string, CommandDefinition> = {
     usage: 'open <file|app>',
     supportsPathCompletion: true,
     execute: (args, ctx) => {
-      if (!ctx?.fs) return <span className="text-cmd-error">File system not available</span>;
+      if (!ctx?.fs) return <span className="text-error">File system not available</span>;
 
       if (!args[0]) {
-        return <span className="cmd-error">open: missing operand</span>;
+        return <span className="text-error">open: missing operand</span>;
       }
 
       const path = args[0];
@@ -173,7 +173,7 @@ export const commands: Record<string, CommandDefinition> = {
       const node = ctx.fs.getNode(resolvedPath);
 
       if (!node) {
-        return <span className="cmd-error">open: {path}: No such file or directory</span>;
+        return <span className="text-error">open: {path}: No such file or directory</span>;
       }
 
       if (node.type === 'folder') {
@@ -267,10 +267,10 @@ export const executeCommand = (input: string, ctx?: CommandContext): ReactNode =
   }
 
   return (
-    <p className="cmd-error">
-      Command not found: <span className="cmd-input">{command}</span>
+    <p className="text-error">
+      Command not found: <span className="text-accent-secondary">{command}</span>
       <br />
-      Type <span className="cmd-highlight">help</span> to see available commands.
+      Type <span className="text-accent">help</span> to see available commands.
     </p>
   );
 };

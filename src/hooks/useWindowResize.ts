@@ -19,8 +19,8 @@ interface UseWindowResizeReturn {
   handleResizeStart: (direction: ResizeDirection) => (e: React.MouseEvent) => void;
 }
 
-// Dock height constant - should match Dock.css
-const DOCK_HEIGHT = 76;
+// Dock height constant - matches --spacing-dock-height in index.css
+const DOCK_HEIGHT = 70;
 
 export const useWindowResize = ({
   position,

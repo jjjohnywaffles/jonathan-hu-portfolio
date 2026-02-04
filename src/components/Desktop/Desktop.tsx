@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useCallback } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import { WindowManagerProvider } from '../../context/WindowManagerContext';
 import { FileSystemProvider } from '../../context/FileSystemContext';
 import { useWindowManager } from '../../hooks/useWindowManager';
@@ -7,7 +7,7 @@ import { Dock } from '../Dock';
 import { apps } from '../../data/apps';
 
 const DesktopContent = () => {
-  const { windows, focusedWindowId, getApp, openApp } = useWindowManager();
+  const { windows, focusedWindowId, getApp, openApp, hasMaximizedWindow } = useWindowManager();
   const hasInitialized = useRef(false);
 
   // Open terminal on first render
@@ -26,12 +26,6 @@ const DesktopContent = () => {
       y: window.innerHeight - 35,
     };
   }, []);
-
-  // Check if any window is maximized
-  const hasMaximizedWindow = useMemo(
-    () => Object.values(windows).some((w) => w.state === 'maximized'),
-    [windows]
-  );
 
   return (
     <div className="fixed top-0 left-0 w-screen h-screen overflow-hidden">

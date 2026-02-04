@@ -14,6 +14,21 @@ export { WindowManagerContext };
 
 const BASE_Z_INDEX = 100;
 
+// Helper to recalculate z-indices based on window order
+function recalculateZIndices(
+  windows: WindowManagerState['windows'],
+  order: string[]
+): WindowManagerState['windows'] {
+  const updated = { ...windows };
+  order.forEach((id, index) => {
+    updated[id] = {
+      ...updated[id],
+      zIndex: BASE_Z_INDEX + index,
+    };
+  });
+  return updated;
+}
+
 function windowManagerReducer(
   state: WindowManagerState,
   action: WindowManagerAction
@@ -111,15 +126,7 @@ function windowManagerReducer(
       // If restoring from minimized, add back to window order
       const wasMinimized = window.state === 'minimized';
       const newOrder = wasMinimized ? [...state.windowOrder, windowId] : state.windowOrder;
-
-      // Recalculate z-indices
-      const updatedWindows = { ...state.windows };
-      newOrder.forEach((id, index) => {
-        updatedWindows[id] = {
-          ...updatedWindows[id],
-          zIndex: BASE_Z_INDEX + index,
-        };
-      });
+      const updatedWindows = recalculateZIndices(state.windows, newOrder);
 
       return {
         ...state,
@@ -143,15 +150,7 @@ function windowManagerReducer(
 
       // Move to end of order (topmost)
       const newOrder = [...state.windowOrder.filter((id) => id !== windowId), windowId];
-
-      // Recalculate z-indices
-      const updatedWindows = { ...state.windows };
-      newOrder.forEach((id, index) => {
-        updatedWindows[id] = {
-          ...updatedWindows[id],
-          zIndex: BASE_Z_INDEX + index,
-        };
-      });
+      const updatedWindows = recalculateZIndices(state.windows, newOrder);
 
       return {
         ...state,
@@ -281,6 +280,8 @@ export function WindowManagerProvider({ children, apps }: WindowManagerProviderP
     dispatch({ type: 'UPDATE_SIZE', payload: { windowId, size } });
   }, []);
 
+  const hasMaximizedWindow = Object.values(state.windows).some((w) => w.state === 'maximized');
+
   const contextValue = useMemo<WindowManagerContextType>(
     () => ({
       ...state,
@@ -294,6 +295,7 @@ export function WindowManagerProvider({ children, apps }: WindowManagerProviderP
       focusWindow,
       updatePosition,
       updateSize,
+      hasMaximizedWindow,
     }),
     [
       state,
@@ -307,6 +309,7 @@ export function WindowManagerProvider({ children, apps }: WindowManagerProviderP
       focusWindow,
       updatePosition,
       updateSize,
+      hasMaximizedWindow,
     ]
   );
 

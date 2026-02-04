@@ -38,12 +38,7 @@ export const useMouseProximity = ({
   );
 
   useEffect(() => {
-    if (!enabled) {
-      // Return early and reset on cleanup or next render with enabled=true
-      return () => {
-        // State will be reset when effect runs again with enabled=true
-      };
-    }
+    if (!enabled) return;
 
     window.addEventListener('mousemove', checkProximity);
     return () => window.removeEventListener('mousemove', checkProximity);

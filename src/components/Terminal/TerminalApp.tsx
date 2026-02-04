@@ -12,15 +12,8 @@ type TerminalPhase = 'booting' | 'welcome-animation' | 'ready';
 
 export const TerminalApp = ({ isFocused }: AppComponentProps) => {
   const [phase, setPhase] = useState<TerminalPhase>('booting');
-  const {
-    entries,
-    currentInput,
-    setCurrentInput,
-    processCommand,
-    navigateHistory,
-    clearEntries,
-    currentPath,
-  } = useTerminal();
+  const { entries, currentInput, setCurrentInput, processCommand, navigateHistory, clearEntries } =
+    useTerminal();
   const terminalRef = useRef<HTMLDivElement>(null);
   const outputRef = useRef<HTMLDivElement>(null);
 
@@ -106,7 +99,6 @@ export const TerminalApp = ({ isFocused }: AppComponentProps) => {
               onSubmit={processCommand}
               onNavigateHistory={navigateHistory}
               onClear={clearEntries}
-              currentPath={currentPath}
             />
           </div>
         </div>

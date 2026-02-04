@@ -73,19 +73,6 @@ export const FinderApp = () => {
     [navigateTo, openApp]
   );
 
-  const handleSidebarNavigate = useCallback(
-    (path: string) => {
-      const success = fs.navigate(path);
-      if (success) {
-        // Add to history
-        setHistory((prev) => [...prev.slice(0, historyIndex + 1), path]);
-        setHistoryIndex((prev) => prev + 1);
-        setSelectedItem(null);
-      }
-    },
-    [fs, historyIndex]
-  );
-
   const items = fs.listDirectory() || [];
 
   return (
@@ -98,9 +85,9 @@ export const FinderApp = () => {
         onGoBack={goBack}
         onGoForward={goForward}
       />
-      <FinderBreadcrumb currentPath={fs.currentPath} onNavigate={handleSidebarNavigate} />
+      <FinderBreadcrumb currentPath={fs.currentPath} onNavigate={navigateTo} />
       <div className="flex-1 flex overflow-hidden">
-        <FinderSidebar currentPath={fs.currentPath} onNavigate={handleSidebarNavigate} />
+        <FinderSidebar currentPath={fs.currentPath} onNavigate={navigateTo} />
         <FinderMainView
           items={items}
           viewMode={viewMode}

@@ -5,13 +5,7 @@ import { DockAppItem } from './DockItem';
 import { DockMinimizedPreview } from './DockMinimizedPreview';
 
 export const Dock = () => {
-  const { apps, windows } = useWindowManager();
-
-  // Check if any window is maximized
-  const hasMaximizedWindow = useMemo(
-    () => Object.values(windows).some((w) => w.state === 'maximized'),
-    [windows]
-  );
+  const { apps, windows, hasMaximizedWindow } = useWindowManager();
 
   // Get minimized windows sorted by minimizedAt timestamp
   const minimizedWindows = useMemo(

@@ -1,11 +1,9 @@
+import { useFileSystem } from '../../hooks/useFileSystem';
 import { getDisplayPath } from '../../utils/pathUtils';
 
-interface TerminalPromptProps {
-  currentPath?: string;
-}
-
-export const TerminalPrompt = ({ currentPath }: TerminalPromptProps) => {
-  const displayPath = currentPath ? getDisplayPath(currentPath) : '~';
+export const TerminalPrompt = () => {
+  const { currentPath } = useFileSystem();
+  const displayPath = getDisplayPath(currentPath);
 
   return (
     <span className="flex shrink-0">

@@ -72,4 +72,5 @@ export interface WindowManagerActions {
 export interface WindowManagerContextType extends WindowManagerState, WindowManagerActions {
   getApp: (appId: string) => AppDefinition | undefined;
   apps: AppDefinition[];
+  hasMaximizedWindow: boolean;
 }

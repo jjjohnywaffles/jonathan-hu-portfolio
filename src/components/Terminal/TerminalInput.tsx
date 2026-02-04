@@ -10,7 +10,6 @@ interface TerminalInputProps {
   onNavigateHistory: (direction: 'up' | 'down') => void;
   onClear?: () => void;
   disabled?: boolean;
-  currentPath?: string;
 }
 
 export const TerminalInput = ({
@@ -20,7 +19,6 @@ export const TerminalInput = ({
   onNavigateHistory,
   onClear,
   disabled = false,
-  currentPath,
 }: TerminalInputProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const fs = useFileSystem();
@@ -90,7 +88,7 @@ export const TerminalInput = ({
 
   return (
     <div className="flex items-center gap-2">
-      <TerminalPrompt currentPath={currentPath} />
+      <TerminalPrompt />
       <div className="flex-1 relative flex items-center">
         <span className="text-text-primary font-mono text-sm whitespace-pre">{value}</span>
         {!disabled && (

@@ -89,6 +89,5 @@ export const useTerminal = () => {
     navigateHistory,
     clearEntries,
     commandHistory,
-    currentPath: fs.currentPath,
   };
 };
