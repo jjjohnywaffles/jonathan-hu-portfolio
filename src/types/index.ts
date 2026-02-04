@@ -1,3 +1,5 @@
+export * from './filesystem';
+
 export interface Education {
   id: string;
   period: string;

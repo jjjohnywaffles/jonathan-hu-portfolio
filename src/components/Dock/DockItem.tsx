@@ -1,8 +1,9 @@
 import { useState } from 'react';
+import type { ReactNode } from 'react';
 import { useWindowManager } from '../../hooks/useWindowManager';
 
 interface DockItemProps {
-  icon: string;
+  icon: ReactNode;
   name: string;
   isRunning: boolean;
   onClick: () => void;
@@ -23,7 +24,9 @@ export const DockItem = ({ icon, name, isRunning, onClick }: DockItemProps) => {
           {name}
         </span>
       )}
-      <span className="text-2xl leading-none font-mono text-text-primary">{icon}</span>
+      <span className="text-2xl leading-none font-mono text-text-primary flex items-center justify-center">
+        {icon}
+      </span>
       {isRunning && (
         <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 bg-accent rounded-full" />
       )}

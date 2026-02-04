@@ -1,5 +1,7 @@
 import { useState, useCallback, type ReactNode } from 'react';
-import { executeCommand } from '../components/Commands/commandUtils';
+import { executeCommand, type CommandContext } from '../components/Commands/commandUtils';
+import { useFileSystem } from './useFileSystem';
+import { useWindowManager } from './useWindowManager';
 
 export interface TerminalEntry {
   id: string;
@@ -13,31 +15,43 @@ export const useTerminal = () => {
   const [historyIndex, setHistoryIndex] = useState(-1);
   const [currentInput, setCurrentInput] = useState('');
 
-  const processCommand = useCallback((input: string) => {
-    const trimmed = input.trim().toLowerCase();
+  const fs = useFileSystem();
+  const { openApp } = useWindowManager();
 
-    // Add to command history if not empty
-    if (trimmed) {
-      setCommandHistory((prev) => [...prev, trimmed]);
-      setHistoryIndex(-1);
-    }
+  const processCommand = useCallback(
+    (input: string) => {
+      const trimmed = input.trim().toLowerCase();
 
-    // Handle clear command specially
-    if (trimmed === 'clear') {
-      setEntries([]);
-      return;
-    }
+      // Add to command history if not empty
+      if (trimmed) {
+        setCommandHistory((prev) => [...prev, input.trim()]);
+        setHistoryIndex(-1);
+      }
 
-    // Execute command and add output
-    const output = executeCommand(input);
-    const newEntry: TerminalEntry = {
-      id: `cmd-${Date.now()}`,
-      command: input,
-      output,
-    };
+      // Handle clear command specially
+      if (trimmed === 'clear') {
+        setEntries([]);
+        return;
+      }
 
-    setEntries((prev) => [...prev, newEntry]);
-  }, []);
+      // Create command context with file system
+      const ctx: CommandContext = {
+        fs,
+        openApp,
+      };
+
+      // Execute command and add output
+      const output = executeCommand(input, ctx);
+      const newEntry: TerminalEntry = {
+        id: `cmd-${Date.now()}`,
+        command: input,
+        output,
+      };
+
+      setEntries((prev) => [...prev, newEntry]);
+    },
+    [fs, openApp]
+  );
 
   const clearEntries = useCallback(() => {
     setEntries([]);
@@ -75,5 +89,6 @@ export const useTerminal = () => {
     navigateHistory,
     clearEntries,
     commandHistory,
+    currentPath: fs.currentPath,
   };
 };

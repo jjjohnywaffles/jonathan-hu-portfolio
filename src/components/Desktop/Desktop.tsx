@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useCallback } from 'react';
 import { WindowManagerProvider } from '../../context/WindowManagerContext';
+import { FileSystemProvider } from '../../context/FileSystemContext';
 import { useWindowManager } from '../../hooks/useWindowManager';
 import { Window } from '../Window';
 import { Dock } from '../Dock';
@@ -72,8 +73,10 @@ const DesktopContent = () => {
 
 export const Desktop = () => {
   return (
-    <WindowManagerProvider apps={apps}>
-      <DesktopContent />
-    </WindowManagerProvider>
+    <FileSystemProvider>
+      <WindowManagerProvider apps={apps}>
+        <DesktopContent />
+      </WindowManagerProvider>
+    </FileSystemProvider>
   );
 };

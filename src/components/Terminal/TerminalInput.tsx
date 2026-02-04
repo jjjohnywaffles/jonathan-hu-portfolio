@@ -1,5 +1,7 @@
 import { useRef, useEffect, type KeyboardEvent, type ChangeEvent } from 'react';
 import { TerminalPrompt } from './TerminalPrompt';
+import { useFileSystem } from '../../hooks/useFileSystem';
+import { getTabCompletion } from '../../utils/tabCompletion';
 
 interface TerminalInputProps {
   value: string;
@@ -8,6 +10,7 @@ interface TerminalInputProps {
   onNavigateHistory: (direction: 'up' | 'down') => void;
   onClear?: () => void;
   disabled?: boolean;
+  currentPath?: string;
 }
 
 export const TerminalInput = ({
@@ -17,8 +20,10 @@ export const TerminalInput = ({
   onNavigateHistory,
   onClear,
   disabled = false,
+  currentPath,
 }: TerminalInputProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
+  const fs = useFileSystem();
 
   // Focus input on mount and when clicking anywhere in terminal
   useEffect(() => {
@@ -55,6 +60,16 @@ export const TerminalInput = ({
       return;
     }
 
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      const result = getTabCompletion(value, fs);
+      if (result.completed !== value) {
+        onChange(result.completed);
+      }
+      // Could display options if result.options.length > 1
+      return;
+    }
+
     if (e.key === 'Enter') {
       e.preventDefault();
       onSubmit(value);
@@ -75,7 +90,7 @@ export const TerminalInput = ({
 
   return (
     <div className="flex items-center gap-2">
-      <TerminalPrompt />
+      <TerminalPrompt currentPath={currentPath} />
       <div className="flex-1 relative flex items-center">
         <span className="text-text-primary font-mono text-sm whitespace-pre">{value}</span>
         {!disabled && (

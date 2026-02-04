@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
+    "dev": "node scripts/generate-filesystem-manifest.js && vite",
+    "build": "node scripts/generate-filesystem-manifest.js && tsc -b && vite build",
+    "generate-fs": "node scripts/generate-filesystem-manifest.js",
     "lint": "eslint .",
     "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",

@@ -1,0 +1,76 @@
+{
+  "type": "folder",
+  "name": "",
+  "children": {
+    "Applications": {
+      "type": "folder",
+      "name": "Applications",
+      "children": {
+        "Finder.app": {
+          "type": "file",
+          "name": "Finder.app",
+          "fileType": "executable",
+          "content": "finder"
+        },
+        "Terminal.app": {
+          "type": "file",
+          "name": "Terminal.app",
+          "fileType": "executable",
+          "content": "terminal"
+        }
+      }
+    },
+    "home": {
+      "type": "folder",
+      "name": "home",
+      "children": {
+        "visitor": {
+          "type": "folder",
+          "name": "visitor",
+          "children": {
+            "Desktop": {
+              "type": "folder",
+              "name": "Desktop",
+              "children": {}
+            },
+            "Documents": {
+              "type": "folder",
+              "name": "Documents",
+              "children": {
+                "about.md": {
+                  "type": "file",
+                  "name": "about.md",
+                  "fileType": "markdown",
+                  "content": "# About Me\n\nHi! I'm Jonathan Hu, a software engineer passionate about building great user experiences.\n\n## Background\nI enjoy working on full-stack web development, creating intuitive interfaces, and solving complex problems.\n\n## Interests\n- Web Development\n- UI/UX Design\n- Open Source\n- Learning new technologies\n"
+                }
+              }
+            },
+            "Projects": {
+              "type": "folder",
+              "name": "Projects",
+              "children": {
+                "Flappy Bird": {
+                  "type": "folder",
+                  "name": "Flappy Bird",
+                  "children": {}
+                },
+                "portfolio-site": {
+                  "type": "folder",
+                  "name": "portfolio-site",
+                  "children": {
+                    "README.md": {
+                      "type": "file",
+                      "name": "README.md",
+                      "fileType": "markdown",
+                      "content": "# Portfolio Website\n\nThis macOS-inspired portfolio site built with React and TypeScript.\n\n## Features\n- Terminal emulator with custom commands\n- Finder application for file browsing\n- Window management system\n- Virtual file system\n"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

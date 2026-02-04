@@ -1,4 +1,4 @@
-import type { ComponentType } from 'react';
+import type { ComponentType, ReactNode } from 'react';
 
 export type WindowState = 'normal' | 'minimized' | 'maximized';
 
@@ -33,7 +33,7 @@ export interface AppComponentProps {
 export interface AppDefinition {
   id: string;
   name: string;
-  icon: string;
+  icon: ReactNode;
   component: ComponentType<AppComponentProps>;
   defaultSize: Size;
   defaultPosition?: Position;

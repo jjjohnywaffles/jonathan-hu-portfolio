@@ -36,7 +36,7 @@ export const Dock = () => {
     >
       <div className="flex items-center gap-2 pt-2 px-3 pb-3 bg-dock-bg backdrop-blur-[20px] rounded-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.4),inset_0_0_0_1px_rgba(255,255,255,0.05)] pointer-events-auto">
         {/* App icons */}
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-2">
           {apps.map((app) => (
             <DockAppItem key={app.id} appId={app.id} />
           ))}
