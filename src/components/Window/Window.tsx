@@ -59,7 +59,7 @@ export const Window = ({ windowConfig, children, dockPosition }: WindowProps) =>
   // Show header when mouse is near top edge in maximized mode
   const isNearTop = useMouseProximity({
     edge: 'top',
-    threshold: 30,  
+    threshold: 30,
     enabled: isMaximized && !isHeaderHovered,
   });
 

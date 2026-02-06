@@ -1,29 +1,16 @@
-import type { FC, ReactNode } from 'react';
-
-// Preview component props - can be extended with window-specific data if needed
-export interface MinimizedPreviewProps {
-  windowId: string;
-}
+import type { ReactNode } from 'react';
 
 // Preview renderer type - function that returns JSX
-type PreviewRenderer = (windowId: string) => ReactNode;
+type PreviewRenderer = () => ReactNode;
 
 // Registry of app-specific preview renderers
 const previewRegistry: Record<string, PreviewRenderer> = {};
 
-// Get the preview component for an app, or fall back to default
-export function getPreviewComponent(appId: string): FC<MinimizedPreviewProps> | null {
-  const renderer = previewRegistry[appId];
-  if (!renderer) return null;
-  // This is kept for backwards compatibility but shouldn't be used
-  return null;
-}
-
 // Render a preview for an app
-export function renderPreview(appId: string, windowId: string): ReactNode {
+export function renderPreview(appId: string): ReactNode {
   const renderer = previewRegistry[appId];
   if (renderer) {
-    return renderer(windowId);
+    return renderer();
   }
   // Default preview
   return (

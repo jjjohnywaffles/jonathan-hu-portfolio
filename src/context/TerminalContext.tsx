@@ -15,6 +15,3 @@ export const useTerminalContext = () => {
   const isActive = context.currentEntryId === context.activeEntryId;
   return { ...context, isActive };
 };
-
-// Provider for individual entries - used by TerminalOutput to track which entry is being rendered
-export const EntryContext = createContext<string | null>(null);

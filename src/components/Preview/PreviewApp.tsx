@@ -1,8 +1,9 @@
-import type { AppComponentProps } from '../../types/window';
+import type { AppComponentProps, PreviewData } from '../../types/window';
 
 export const PreviewApp = ({ data }: AppComponentProps) => {
-  const url = data?.url as string;
-  const fileName = (data?.fileName as string) || 'Preview';
+  const typed = data as unknown as PreviewData | undefined;
+  const url = typed?.url;
+  const fileName = typed?.fileName || 'Preview';
 
   if (!url) {
     return (
@@ -19,11 +20,7 @@ export const PreviewApp = ({ data }: AppComponentProps) => {
         <span className="truncate">{fileName}</span>
       </div>
 
-      <iframe
-        src={url}
-        className="flex-1 w-full border-none"
-        title={fileName}
-      />
+      <iframe src={url} className="flex-1 w-full border-none" title={fileName} />
     </div>
   );
 };

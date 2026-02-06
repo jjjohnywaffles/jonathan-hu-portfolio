@@ -1,10 +1,11 @@
 import ReactMarkdown from 'react-markdown';
-import type { AppComponentProps } from '../../types/window';
+import type { AppComponentProps, TextEditData } from '../../types/window';
 
 export const TextEditApp = ({ data }: AppComponentProps) => {
-  const fileName = (data?.fileName as string) || 'Untitled';
-  const fileType = (data?.fileType as string) || 'text';
-  const content = (data?.content as string) || '';
+  const typed = data as unknown as TextEditData | undefined;
+  const fileName = typed?.fileName || 'Untitled';
+  const fileType = typed?.fileType || 'text';
+  const content = typed?.content || '';
 
   return (
     <div className="w-full h-full bg-bg-secondary flex flex-col overflow-hidden">
@@ -16,7 +17,8 @@ export const TextEditApp = ({ data }: AppComponentProps) => {
       {/* Content area */}
       <div className="flex-1 overflow-auto p-4">
         {fileType === 'markdown' ? (
-          <div className="prose prose-invert prose-sm max-w-none
+          <div
+            className="prose prose-invert prose-sm max-w-none
             prose-headings:text-text-primary prose-headings:font-semibold
             prose-p:text-text-secondary prose-p:leading-relaxed
             prose-a:text-accent prose-a:no-underline hover:prose-a:underline
@@ -27,7 +29,8 @@ export const TextEditApp = ({ data }: AppComponentProps) => {
             prose-li:text-text-secondary
             prose-hr:border-border-primary
             prose-blockquote:border-border-primary prose-blockquote:text-text-muted
-          ">
+          "
+          >
             <ReactMarkdown>{content}</ReactMarkdown>
           </div>
         ) : (

@@ -100,6 +100,7 @@ export const TerminalApp = ({ isFocused }: AppComponentProps) => {
               onSubmit={processCommand}
               onNavigateHistory={navigateHistory}
               onClear={clearEntries}
+              containerRef={terminalRef}
             />
           </div>
         </div>

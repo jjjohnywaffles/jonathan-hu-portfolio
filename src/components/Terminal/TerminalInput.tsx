@@ -1,4 +1,4 @@
-import { useRef, useEffect, type KeyboardEvent, type ChangeEvent } from 'react';
+import { useRef, useEffect, type KeyboardEvent, type ChangeEvent, type RefObject } from 'react';
 import { TerminalPrompt } from './TerminalPrompt';
 import { useFileSystem } from '../../hooks/useFileSystem';
 import { getTabCompletion } from '../../utils/tabCompletion';
@@ -10,6 +10,7 @@ interface TerminalInputProps {
   onNavigateHistory: (direction: 'up' | 'down') => void;
   onClear?: () => void;
   disabled?: boolean;
+  containerRef?: RefObject<HTMLElement | null>;
 }
 
 export const TerminalInput = ({
@@ -19,13 +20,17 @@ export const TerminalInput = ({
   onNavigateHistory,
   onClear,
   disabled = false,
+  containerRef,
 }: TerminalInputProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const fs = useFileSystem();
 
-  // Focus input on mount and when clicking anywhere in terminal
+  // Focus input on mount and when clicking anywhere in terminal container
   useEffect(() => {
     if (disabled) return;
+
+    const container = containerRef?.current;
+    if (!container) return;
 
     const handleMouseUp = () => {
       // Use setTimeout to let the browser finalize selection first
@@ -39,13 +44,13 @@ export const TerminalInput = ({
       }, 0);
     };
 
-    document.addEventListener('mouseup', handleMouseUp);
+    container.addEventListener('mouseup', handleMouseUp);
     inputRef.current?.focus();
 
     return () => {
-      document.removeEventListener('mouseup', handleMouseUp);
+      container.removeEventListener('mouseup', handleMouseUp);
     };
-  }, [disabled]);
+  }, [disabled, containerRef]);
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (disabled) return;

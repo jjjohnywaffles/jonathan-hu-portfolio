@@ -25,6 +25,17 @@ export interface WindowConfig {
   data?: Record<string, unknown>;
 }
 
+export interface TextEditData {
+  fileName: string;
+  fileType: string;
+  content: string;
+}
+
+export interface PreviewData {
+  fileName: string;
+  url: string;
+}
+
 export interface AppComponentProps {
   windowId: string;
   isMaximized: boolean;
@@ -50,7 +61,14 @@ export interface WindowManagerState {
 export type WindowManagerAction =
   | {
       type: 'OPEN_APP';
-      payload: { appId: string; windowId: string; title: string; position: Position; size: Size; data?: Record<string, unknown> };
+      payload: {
+        appId: string;
+        windowId: string;
+        title: string;
+        position: Position;
+        size: Size;
+        data?: Record<string, unknown>;
+      };
     }
   | { type: 'CLOSE_WINDOW'; payload: { windowId: string } }
   | { type: 'MINIMIZE_WINDOW'; payload: { windowId: string } }

@@ -5,6 +5,7 @@ import { FinderSidebar } from './FinderSidebar';
 import { FinderToolbar } from './FinderToolbar';
 import { FinderBreadcrumb } from './FinderBreadcrumb';
 import { FinderMainView } from './FinderMainView';
+import { openFile } from '../../utils/fileActions';
 import type { FSNode } from '../../types/filesystem';
 
 export type ViewMode = 'icons' | 'list';
@@ -22,10 +23,11 @@ export const FinderApp = () => {
 
   const navigateTo = useCallback(
     (path: string) => {
+      const resolved = fs.resolvePath(path);
       const success = fs.navigate(path);
       if (success) {
         // Add to history, removing any forward history
-        setHistory((prev) => [...prev.slice(0, historyIndex + 1), fs.currentPath]);
+        setHistory((prev) => [...prev.slice(0, historyIndex + 1), resolved]);
         setHistoryIndex((prev) => prev + 1);
         setSelectedItem(null);
       }
@@ -60,21 +62,7 @@ export const FinderApp = () => {
       if (item.type === 'folder') {
         navigateTo(item.name);
       } else if (item.type === 'file') {
-        if (item.fileType === 'executable' && item.content) {
-          openApp(item.content);
-        } else if (item.fileType === 'markdown' || item.fileType === 'text') {
-          openApp('textedit', {
-            title: item.name,
-            data: { fileName: item.name, fileType: item.fileType, content: item.content || '' },
-          });
-        } else if (item.fileType === 'pdf' && item.url) {
-          openApp('preview', {
-            title: item.name,
-            data: { fileName: item.name, url: item.url },
-          });
-        } else if (item.fileType === 'link' && item.url) {
-          window.open(item.url, '_blank');
-        }
+        openFile(item, openApp);
       }
     },
     [navigateTo, openApp]

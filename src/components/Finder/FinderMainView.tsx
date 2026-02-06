@@ -1,5 +1,6 @@
 import type { FSNode } from '../../types/filesystem';
 import { FinderItem } from './FinderItem';
+import { sortFSNodes } from '../../utils/fsUtils';
 import type { ViewMode } from './FinderApp';
 
 interface FinderMainViewProps {
@@ -17,13 +18,7 @@ export const FinderMainView = ({
   onItemClick,
   onItemDoubleClick,
 }: FinderMainViewProps) => {
-  // Sort: folders first, then files, alphabetically within each group
-  const sortedItems = [...items].sort((a, b) => {
-    if (a.type === b.type) {
-      return a.name.localeCompare(b.name);
-    }
-    return a.type === 'folder' ? -1 : 1;
-  });
+  const sortedItems = sortFSNodes(items);
 
   if (items.length === 0) {
     return (

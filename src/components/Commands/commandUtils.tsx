@@ -10,10 +10,11 @@ import { Socials } from './Socials';
 import { Resume } from './Resume';
 import { DirectoryListing } from './DirectoryListing';
 import type { FileSystemContextType } from '../../types/filesystem';
+import { openFile } from '../../utils/fileActions';
 
 export interface CommandContext {
   fs: FileSystemContextType;
-  openApp?: (appId: string, options?: { title?: string; data?: Record<string, unknown> }) => void;
+  openApp: (appId: string, options?: { title?: string; data?: Record<string, unknown> }) => void;
 }
 
 export interface CommandDefinition {
@@ -182,30 +183,9 @@ export const commands: Record<string, CommandDefinition> = {
         return null;
       }
 
-      if (node.fileType === 'executable' && node.content && ctx.openApp) {
-        ctx.openApp(node.content);
-        return <span className="text-text-muted">Opening {node.name}...</span>;
-      }
-
-      if ((node.fileType === 'markdown' || node.fileType === 'text') && ctx.openApp) {
-        ctx.openApp('textedit', {
-          title: node.name,
-          data: { fileName: node.name, fileType: node.fileType, content: node.content || '' },
-        });
-        return <span className="text-text-muted">Opening {node.name}...</span>;
-      }
-
-      if (node.fileType === 'pdf' && node.url && ctx.openApp) {
-        ctx.openApp('preview', {
-          title: node.name,
-          data: { fileName: node.name, url: node.url },
-        });
-        return <span className="text-text-muted">Opening {node.name}...</span>;
-      }
-
-      if (node.fileType === 'link' && node.url) {
-        window.open(node.url, '_blank');
-        return <span className="text-text-muted">Opening {node.name} in new tab...</span>;
+      const result = openFile(node, ctx.openApp);
+      if (result) {
+        return <span className="text-text-muted">{result.message}</span>;
       }
 
       return <span className="text-text-muted">Cannot open {node.name}</span>;

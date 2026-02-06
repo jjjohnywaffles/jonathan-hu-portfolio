@@ -1,4 +1,4 @@
-import { useReducer, useCallback, useMemo } from 'react';
+import { useReducer, useCallback, useMemo, useRef } from 'react';
 import type { ReactNode } from 'react';
 import type {
   WindowManagerState,
@@ -61,8 +61,9 @@ function windowManagerReducer(
 
     case 'CLOSE_WINDOW': {
       const { windowId } = action.payload;
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { [windowId]: removed, ...remainingWindows } = state.windows;
+      const remainingWindows = Object.fromEntries(
+        Object.entries(state.windows).filter(([id]) => id !== windowId)
+      );
       const newOrder = state.windowOrder.filter((id) => id !== windowId);
 
       return {
@@ -211,13 +212,9 @@ interface WindowManagerProviderProps {
   apps: AppDefinition[];
 }
 
-let windowIdCounter = 0;
-function generateWindowId(): string {
-  return `window-${++windowIdCounter}`;
-}
-
 export function WindowManagerProvider({ children, apps }: WindowManagerProviderProps) {
   const [state, dispatch] = useReducer(windowManagerReducer, initialState);
+  const windowIdCounter = useRef(0);
 
   const getApp = useCallback((appId: string) => apps.find((app) => app.id === appId), [apps]);
 
@@ -229,7 +226,7 @@ export function WindowManagerProvider({ children, apps }: WindowManagerProviderP
         return '';
       }
 
-      const windowId = generateWindowId();
+      const windowId = `window-${++windowIdCounter.current}`;
 
       // Center the window if no default position is specified
       const position = app.defaultPosition || {
@@ -282,8 +279,6 @@ export function WindowManagerProvider({ children, apps }: WindowManagerProviderP
     dispatch({ type: 'UPDATE_SIZE', payload: { windowId, size } });
   }, []);
 
-  const hasMaximizedWindow = Object.values(state.windows).some((w) => w.state === 'maximized');
-
   const contextValue = useMemo<WindowManagerContextType>(
     () => ({
       ...state,
@@ -297,7 +292,7 @@ export function WindowManagerProvider({ children, apps }: WindowManagerProviderP
       focusWindow,
       updatePosition,
       updateSize,
-      hasMaximizedWindow,
+      hasMaximizedWindow: Object.values(state.windows).some((w) => w.state === 'maximized'),
     }),
     [
       state,
@@ -311,7 +306,6 @@ export function WindowManagerProvider({ children, apps }: WindowManagerProviderP
       focusWindow,
       updatePosition,
       updateSize,
-      hasMaximizedWindow,
     ]
   );
 

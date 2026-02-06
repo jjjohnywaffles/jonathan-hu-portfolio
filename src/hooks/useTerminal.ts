@@ -21,16 +21,16 @@ export const useTerminal = () => {
 
   const processCommand = useCallback(
     (input: string) => {
-      const trimmed = input.trim().toLowerCase();
+      const trimmed = input.trim();
 
       // Add to command history if not empty
       if (trimmed) {
-        setCommandHistory((prev) => [...prev, input.trim()]);
+        setCommandHistory((prev) => [...prev, trimmed]);
         setHistoryIndex(-1);
       }
 
       // Handle clear command specially
-      if (trimmed === 'clear') {
+      if (trimmed.toLowerCase() === 'clear') {
         setEntries([]);
         return;
       }

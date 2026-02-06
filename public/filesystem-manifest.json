@@ -37,6 +37,12 @@
               "type": "folder",
               "name": "Documents",
               "children": {
+                "Resume.pdf": {
+                  "type": "file",
+                  "name": "Resume.pdf",
+                  "fileType": "pdf",
+                  "url": "/filesystem/home/visitor/Documents/Resume.pdf"
+                },
                 "about.md": {
                   "type": "file",
                   "name": "about.md",

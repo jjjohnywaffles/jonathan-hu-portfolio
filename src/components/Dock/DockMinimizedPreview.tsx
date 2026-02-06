@@ -29,7 +29,7 @@ export const DockMinimizedPreview = ({ windowConfig }: DockMinimizedPreviewProps
       <Tooltip text={windowConfig.title} visible={showTooltip} />
 
       {/* App-specific or default preview */}
-      {renderPreview(windowConfig.appId, windowConfig.id)}
+      {renderPreview(windowConfig.appId)}
 
       {/* App icon badge in bottom right */}
       <span className="absolute bottom-0 right-0 leading-none font-mono text-text-primary bg-black/85 p-[2px] rounded-[2px] [&_svg]:w-2.5 [&_svg]:h-2.5">
