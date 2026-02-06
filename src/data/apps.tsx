@@ -1,7 +1,9 @@
-import { Terminal, FolderOpen } from 'lucide-react';
+import { Terminal, FolderOpen, FileText, Eye } from 'lucide-react';
 import type { AppDefinition } from '../types/window';
 import { TerminalApp } from '../components/Terminal/TerminalApp';
 import { FinderApp } from '../components/Finder';
+import { TextEditApp } from '../components/TextEdit/TextEditApp';
+import { PreviewApp } from '../components/Preview/PreviewApp';
 
 export const apps: AppDefinition[] = [
   {
@@ -22,6 +24,26 @@ export const apps: AppDefinition[] = [
     defaultSize: {
       width: 900,
       height: 600,
+    },
+  },
+  {
+    id: 'textedit',
+    name: 'TextEdit',
+    icon: <FileText size={24} />,
+    component: TextEditApp,
+    defaultSize: {
+      width: 700,
+      height: 550,
+    },
+  },
+  {
+    id: 'preview',
+    name: 'Preview',
+    icon: <Eye size={24} />,
+    component: PreviewApp,
+    defaultSize: {
+      width: 800,
+      height: 650,
     },
   },
 ];

@@ -22,12 +22,14 @@ export interface WindowConfig {
   zIndex: number;
   isOpen: boolean;
   minimizedAt?: number; // timestamp for ordering minimized windows
+  data?: Record<string, unknown>;
 }
 
 export interface AppComponentProps {
   windowId: string;
   isMaximized: boolean;
   isFocused: boolean;
+  data?: Record<string, unknown>;
 }
 
 export interface AppDefinition {
@@ -48,7 +50,7 @@ export interface WindowManagerState {
 export type WindowManagerAction =
   | {
       type: 'OPEN_APP';
-      payload: { appId: string; windowId: string; title: string; position: Position; size: Size };
+      payload: { appId: string; windowId: string; title: string; position: Position; size: Size; data?: Record<string, unknown> };
     }
   | { type: 'CLOSE_WINDOW'; payload: { windowId: string } }
   | { type: 'MINIMIZE_WINDOW'; payload: { windowId: string } }
@@ -59,7 +61,7 @@ export type WindowManagerAction =
   | { type: 'UPDATE_SIZE'; payload: { windowId: string; size: Size } };
 
 export interface WindowManagerActions {
-  openApp: (appId: string) => string; // returns windowId
+  openApp: (appId: string, options?: { title?: string; data?: Record<string, unknown> }) => string; // returns windowId
   closeWindow: (windowId: string) => void;
   minimizeWindow: (windowId: string) => void;
   maximizeWindow: (windowId: string) => void;

@@ -13,7 +13,7 @@ import type { FileSystemContextType } from '../../types/filesystem';
 
 export interface CommandContext {
   fs: FileSystemContextType;
-  openApp?: (appId: string) => void;
+  openApp?: (appId: string, options?: { title?: string; data?: Record<string, unknown> }) => void;
 }
 
 export interface CommandDefinition {
@@ -187,20 +187,25 @@ export const commands: Record<string, CommandDefinition> = {
         return <span className="text-text-muted">Opening {node.name}...</span>;
       }
 
-      if (node.fileType === 'pdf' && node.url) {
-        // Open PDF in new tab
-        window.open(node.url, '_blank');
-        return <span className="text-text-muted">Opening {node.name} in new tab...</span>;
+      if ((node.fileType === 'markdown' || node.fileType === 'text') && ctx.openApp) {
+        ctx.openApp('textedit', {
+          title: node.name,
+          data: { fileName: node.name, fileType: node.fileType, content: node.content || '' },
+        });
+        return <span className="text-text-muted">Opening {node.name}...</span>;
+      }
+
+      if (node.fileType === 'pdf' && node.url && ctx.openApp) {
+        ctx.openApp('preview', {
+          title: node.name,
+          data: { fileName: node.name, url: node.url },
+        });
+        return <span className="text-text-muted">Opening {node.name}...</span>;
       }
 
       if (node.fileType === 'link' && node.url) {
         window.open(node.url, '_blank');
         return <span className="text-text-muted">Opening {node.name} in new tab...</span>;
-      }
-
-      // For text/markdown files, just display content
-      if (node.content) {
-        return <pre className="text-text-primary whitespace-pre-wrap">{node.content}</pre>;
       }
 
       return <span className="text-text-muted">Cannot open {node.name}</span>;

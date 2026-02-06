@@ -35,7 +35,7 @@ function windowManagerReducer(
 ): WindowManagerState {
   switch (action.type) {
     case 'OPEN_APP': {
-      const { windowId, appId, title, position, size } = action.payload;
+      const { windowId, appId, title, position, size, data } = action.payload;
       const newZIndex = BASE_Z_INDEX + state.windowOrder.length;
 
       return {
@@ -51,6 +51,7 @@ function windowManagerReducer(
             size,
             zIndex: newZIndex,
             isOpen: true,
+            data,
           },
         },
         windowOrder: [...state.windowOrder, windowId],
@@ -221,7 +222,7 @@ export function WindowManagerProvider({ children, apps }: WindowManagerProviderP
   const getApp = useCallback((appId: string) => apps.find((app) => app.id === appId), [apps]);
 
   const openApp = useCallback(
-    (appId: string): string => {
+    (appId: string, options?: { title?: string; data?: Record<string, unknown> }): string => {
       const app = getApp(appId);
       if (!app) {
         console.warn(`App not found: ${appId}`);
@@ -241,9 +242,10 @@ export function WindowManagerProvider({ children, apps }: WindowManagerProviderP
         payload: {
           appId,
           windowId,
-          title: app.name,
+          title: options?.title || app.name,
           position,
           size: app.defaultSize,
+          data: options?.data,
         },
       });
 

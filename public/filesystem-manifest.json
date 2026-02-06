@@ -41,7 +41,7 @@
                   "type": "file",
                   "name": "about.md",
                   "fileType": "markdown",
-                  "content": "# About Me\n\nHi! I'm Jonathan Hu, a software engineer passionate about building great user experiences.\n\n## Background\nI enjoy working on full-stack web development, creating intuitive interfaces, and solving complex problems.\n\n## Interests\n- Web Development\n- UI/UX Design\n- Open Source\n- Learning new technologies\n"
+                  "content": "# Jonathan Hu\n\n## CU Boulder Bachelors in Applied Computer Science • NYU Bachelors in Applied Psychology\n\nI'm a Software Engineer at Matrices, focused on building reliable and performant web applications. I work across the stack with TypeScript and React (Next.js), PostgreSQL, and modern tooling, with a strong foundation in Python, SQL, C, and C++.\"\n\nI'm also passionate about data analytics and data science. Deriving insights from complex datasets, creating clear visualizations, and applying machine learning where it adds value. I enjoy solving complex problems end-to-end—from data modeling and APIs to front-end UX—while keeping solutions maintainable and user-focused. My background in Applied Computer Science and Psychology helps me bridge analytics and product engineering to deliver practical, thoughtful software.\n"
                 }
               }
             },

@@ -91,6 +91,7 @@ export const TerminalApp = ({ isFocused }: AppComponentProps) => {
                 id={entry.id}
                 command={entry.command}
                 output={entry.output}
+                path={entry.path}
               />
             ))}
             <TerminalInput

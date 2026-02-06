@@ -60,11 +60,18 @@ export const FinderApp = () => {
       if (item.type === 'folder') {
         navigateTo(item.name);
       } else if (item.type === 'file') {
-        // Handle file opening based on type
         if (item.fileType === 'executable' && item.content) {
           openApp(item.content);
+        } else if (item.fileType === 'markdown' || item.fileType === 'text') {
+          openApp('textedit', {
+            title: item.name,
+            data: { fileName: item.name, fileType: item.fileType, content: item.content || '' },
+          });
         } else if (item.fileType === 'pdf' && item.url) {
-          window.open(item.url, '_blank');
+          openApp('preview', {
+            title: item.name,
+            data: { fileName: item.name, url: item.url },
+          });
         } else if (item.fileType === 'link' && item.url) {
           window.open(item.url, '_blank');
         }

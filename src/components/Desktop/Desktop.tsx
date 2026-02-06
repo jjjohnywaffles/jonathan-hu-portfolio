@@ -54,6 +54,7 @@ const DesktopContent = () => {
                 windowId={windowConfig.id}
                 isMaximized={windowConfig.state === 'maximized'}
                 isFocused={focusedWindowId === windowConfig.id}
+                data={windowConfig.data}
               />
             </Window>
           );

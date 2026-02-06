@@ -7,6 +7,7 @@ export interface TerminalEntry {
   id: string;
   command?: string;
   output: ReactNode;
+  path: string;
 }
 
 export const useTerminal = () => {
@@ -40,12 +41,16 @@ export const useTerminal = () => {
         openApp,
       };
 
+      // Snapshot path before executing (cd may change it)
+      const pathAtExecution = fs.currentPath;
+
       // Execute command and add output
       const output = executeCommand(input, ctx);
       const newEntry: TerminalEntry = {
         id: `cmd-${Date.now()}`,
         command: input,
         output,
+        path: pathAtExecution,
       };
 
       setEntries((prev) => [...prev, newEntry]);
