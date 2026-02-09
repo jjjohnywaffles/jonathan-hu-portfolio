@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { useFileSystem } from '../../hooks/useFileSystem';
+import { useLocalFileSystem } from '../../hooks/useLocalFileSystem';
 import { useWindowManager } from '../../hooks/useWindowManager';
 import { FinderSidebar } from './FinderSidebar';
 import { FinderToolbar } from './FinderToolbar';
@@ -11,7 +11,7 @@ import type { FSNode } from '../../types/filesystem';
 export type ViewMode = 'icons' | 'list';
 
 export const FinderApp = () => {
-  const fs = useFileSystem();
+  const fs = useLocalFileSystem();
   const { openApp } = useWindowManager();
   const [viewMode, setViewMode] = useState<ViewMode>('icons');
   const [history, setHistory] = useState<string[]>([fs.currentPath]);

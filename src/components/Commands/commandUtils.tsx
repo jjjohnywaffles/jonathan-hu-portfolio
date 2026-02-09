@@ -22,6 +22,7 @@ export interface CommandDefinition {
   usage?: string;
   execute: (args: string[], ctx?: CommandContext) => ReactNode;
   supportsPathCompletion?: boolean;
+  showInHelp?: boolean;
 }
 
 // Single source of truth for all commands
@@ -68,6 +69,7 @@ export const commands: Record<string, CommandDefinition> = {
   },
   pwd: {
     description: 'Print current directory',
+    showInHelp: false,
     execute: (_args, ctx) => {
       if (!ctx?.fs) return <span className="text-error">File system not available</span>;
       return <span className="text-text-primary">{ctx.fs.currentPath}</span>;
@@ -76,6 +78,7 @@ export const commands: Record<string, CommandDefinition> = {
   ls: {
     description: 'List directory contents',
     usage: 'ls [path]',
+    showInHelp: false,
     supportsPathCompletion: true,
     execute: (args, ctx) => {
       if (!ctx?.fs) return <span className="text-error">File system not available</span>;
@@ -94,6 +97,7 @@ export const commands: Record<string, CommandDefinition> = {
   cd: {
     description: 'Change directory',
     usage: 'cd <path>',
+    showInHelp: false,
     supportsPathCompletion: true,
     execute: (args, ctx) => {
       if (!ctx?.fs) return <span className="text-error">File system not available</span>;
@@ -113,6 +117,7 @@ export const commands: Record<string, CommandDefinition> = {
   cat: {
     description: 'Display file contents',
     usage: 'cat <file>',
+    showInHelp: false,
     supportsPathCompletion: true,
     execute: (args, ctx) => {
       if (!ctx?.fs) return <span className="text-error">File system not available</span>;
@@ -161,6 +166,7 @@ export const commands: Record<string, CommandDefinition> = {
   open: {
     description: 'Open a file or application',
     usage: 'open <file|app>',
+    showInHelp: false,
     supportsPathCompletion: true,
     execute: (args, ctx) => {
       if (!ctx?.fs) return <span className="text-error">File system not available</span>;
@@ -232,7 +238,9 @@ export const parseCommandLine = (input: string): { command: string; args: string
 
 // Get command names and descriptions for help display
 export const getCommandList = () =>
-  Object.entries(commands).map(([name, { description }]) => ({ name, description }));
+  Object.entries(commands)
+    .filter(([, def]) => def.showInHelp !== false)
+    .map(([name, { description }]) => ({ name, description }));
 
 // Get commands that support path completion
 export const getPathCommands = (): string[] =>

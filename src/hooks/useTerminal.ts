@@ -1,6 +1,6 @@
 import { useState, useCallback, type ReactNode } from 'react';
 import { executeCommand, type CommandContext } from '../components/Commands/commandUtils';
-import { useFileSystem } from './useFileSystem';
+import { useLocalFileSystem } from './useLocalFileSystem';
 import { useWindowManager } from './useWindowManager';
 
 export interface TerminalEntry {
@@ -16,7 +16,7 @@ export const useTerminal = () => {
   const [historyIndex, setHistoryIndex] = useState(-1);
   const [currentInput, setCurrentInput] = useState('');
 
-  const fs = useFileSystem();
+  const fs = useLocalFileSystem();
   const { openApp } = useWindowManager();
 
   const processCommand = useCallback(
@@ -94,5 +94,6 @@ export const useTerminal = () => {
     navigateHistory,
     clearEntries,
     commandHistory,
+    fs,
   };
 };

@@ -1,7 +1,7 @@
 import { useRef, useEffect, type KeyboardEvent, type ChangeEvent, type RefObject } from 'react';
 import { TerminalPrompt } from './TerminalPrompt';
-import { useFileSystem } from '../../hooks/useFileSystem';
 import { getTabCompletion } from '../../utils/tabCompletion';
+import type { FileSystemContextType } from '../../types/filesystem';
 
 interface TerminalInputProps {
   value: string;
@@ -11,6 +11,7 @@ interface TerminalInputProps {
   onClear?: () => void;
   disabled?: boolean;
   containerRef?: RefObject<HTMLElement | null>;
+  fs: FileSystemContextType;
 }
 
 export const TerminalInput = ({
@@ -21,9 +22,9 @@ export const TerminalInput = ({
   onClear,
   disabled = false,
   containerRef,
+  fs,
 }: TerminalInputProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const fs = useFileSystem();
 
   // Focus input on mount and when clicking anywhere in terminal container
   useEffect(() => {
@@ -93,7 +94,7 @@ export const TerminalInput = ({
 
   return (
     <div className="flex items-center gap-2">
-      <TerminalPrompt />
+      <TerminalPrompt path={fs.currentPath} />
       <div className="flex-1 relative flex items-center">
         <span className="text-text-primary font-mono text-sm whitespace-pre">{value}</span>
         {!disabled && (

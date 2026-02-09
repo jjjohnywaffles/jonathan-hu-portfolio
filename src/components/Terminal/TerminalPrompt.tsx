@@ -1,4 +1,3 @@
-import { useFileSystem } from '../../hooks/useFileSystem';
 import { getDisplayPath } from '../../utils/pathUtils';
 
 const PromptDisplay = ({ displayPath }: { displayPath: string }) => (
@@ -16,8 +15,7 @@ export const StaticPrompt = ({ path }: { path: string }) => {
   return <PromptDisplay displayPath={getDisplayPath(path)} />;
 };
 
-/** Shows prompt with the live current path (for the active input line). */
-export const TerminalPrompt = () => {
-  const { currentPath } = useFileSystem();
-  return <PromptDisplay displayPath={getDisplayPath(currentPath)} />;
+/** Shows prompt with the current path (for the active input line). */
+export const TerminalPrompt = ({ path }: { path: string }) => {
+  return <PromptDisplay displayPath={getDisplayPath(path)} />;
 };

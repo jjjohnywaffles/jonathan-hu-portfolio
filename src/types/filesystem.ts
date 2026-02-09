@@ -22,6 +22,12 @@ export interface FileSystemState {
   root: FolderNode;
 }
 
+export interface FileSystemTreeContextType {
+  root: FolderNode;
+  getNode: (path: string) => FSNode | null;
+  isLoading: boolean;
+}
+
 export interface FileSystemContextType extends FileSystemState {
   navigate: (path: string) => boolean;
   listDirectory: (path?: string) => FSNode[] | null;

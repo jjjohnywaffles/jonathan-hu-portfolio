@@ -34,7 +34,7 @@ const DesktopContent = () => {
 
       {/* Windows area */}
       <div
-        className={`absolute top-0 left-0 w-full z-[1] ${
+        className={`absolute top-0 left-0 w-full z-1 ${
           hasMaximizedWindow ? 'h-full' : 'h-[calc(100%-70px)]'
         }`}
       >
