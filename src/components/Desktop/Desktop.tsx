@@ -30,7 +30,10 @@ const DesktopContent = () => {
   return (
     <div className="fixed top-0 left-0 w-screen h-screen overflow-hidden">
       {/* Background */}
-      <div className="absolute top-0 left-0 w-full h-full bg-bg-primary z-0" />
+      <div
+        className="absolute top-0 left-0 w-full h-full z-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: 'url(/background/background.jpg)' }}
+      />
 
       {/* Windows area */}
       <div
