@@ -1,12 +1,12 @@
 import { commands, parseCommandLine, getPathCommands } from '../components/Commands/commandUtils';
-import type { FileSystemContextType } from '../types/filesystem';
+import type { LocalFileSystem } from '../types/filesystem';
 
 export interface TabCompletionResult {
   completed: string;
   options: string[];
 }
 
-export function getTabCompletion(input: string, fs: FileSystemContextType): TabCompletionResult {
+export function getTabCompletion(input: string, fs: LocalFileSystem): TabCompletionResult {
   const trimmed = input.trimStart();
 
   // No input - nothing to complete

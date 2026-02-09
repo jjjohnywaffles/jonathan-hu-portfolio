@@ -17,22 +17,19 @@ export interface FolderNode {
 
 export type FSNode = FileNode | FolderNode;
 
-export interface FileSystemState {
-  currentPath: string;
-  root: FolderNode;
-}
-
-export interface FileSystemTreeContextType {
+export interface FileSystemContextType {
   root: FolderNode;
   getNode: (path: string) => FSNode | null;
   isLoading: boolean;
 }
 
-export interface FileSystemContextType extends FileSystemState {
+export interface LocalFileSystem {
+  currentPath: string;
+  root: FolderNode;
   navigate: (path: string) => boolean;
   listDirectory: (path?: string) => FSNode[] | null;
   getNode: (path: string) => FSNode | null;
   resolvePath: (relativePath: string) => string;
   getCompletions: (partial: string) => string[];
-  isLoading?: boolean;
+  isLoading: boolean;
 }

@@ -9,11 +9,11 @@ import { Contact } from './Contact';
 import { Socials } from './Socials';
 import { Resume } from './Resume';
 import { DirectoryListing } from './DirectoryListing';
-import type { FileSystemContextType } from '../../types/filesystem';
+import type { LocalFileSystem } from '../../types/filesystem';
 import { openFile } from '../../utils/fileActions';
 
 export interface CommandContext {
-  fs: FileSystemContextType;
+  fs: LocalFileSystem;
   openApp: (appId: string, options?: { title?: string; data?: Record<string, unknown> }) => void;
 }
 

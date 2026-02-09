@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo, useEffect } from 'react';
 import type { ReactNode } from 'react';
-import type { FileSystemTreeContextType, FSNode, FolderNode } from '../types/filesystem';
+import type { FileSystemContextType, FSNode, FolderNode } from '../types/filesystem';
 import { normalizePath } from '../utils/pathUtils';
 import { FileSystemContext } from './fileSystemContextDef';
 
@@ -63,7 +63,7 @@ export function FileSystemProvider({ children }: FileSystemProviderProps) {
     [fileSystem]
   );
 
-  const contextValue = useMemo<FileSystemTreeContextType>(
+  const contextValue = useMemo<FileSystemContextType>(
     () => ({
       root: fileSystem,
       getNode,

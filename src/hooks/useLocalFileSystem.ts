@@ -1,11 +1,15 @@
-import { useState, useCallback, useMemo } from 'react';
-import { useFileSystem } from './useFileSystem';
+import { useState, useCallback, useMemo, useContext } from 'react';
+import { FileSystemContext } from '../context/fileSystemContextDef';
 import { HOME_PATH } from '../data/filesystem';
 import { resolvePath } from '../utils/pathUtils';
-import type { FileSystemContextType, FSNode } from '../types/filesystem';
+import type { LocalFileSystem, FSNode } from '../types/filesystem';
 
-export function useLocalFileSystem(): FileSystemContextType {
-  const { root, getNode, isLoading } = useFileSystem();
+export function useLocalFileSystem(): LocalFileSystem {
+  const context = useContext(FileSystemContext);
+  if (!context) {
+    throw new Error('useLocalFileSystem must be used within a FileSystemProvider');
+  }
+  const { root, getNode, isLoading } = context;
   const [currentPath, setCurrentPath] = useState(HOME_PATH);
 
   const navigate = useCallback(
@@ -88,7 +92,7 @@ export function useLocalFileSystem(): FileSystemContextType {
     [currentPath, listDirectory, getNode]
   );
 
-  return useMemo<FileSystemContextType>(
+  return useMemo<LocalFileSystem>(
     () => ({
       currentPath,
       root,

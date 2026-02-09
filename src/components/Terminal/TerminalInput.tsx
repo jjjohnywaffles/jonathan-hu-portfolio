@@ -1,7 +1,7 @@
 import { useRef, useEffect, type KeyboardEvent, type ChangeEvent, type RefObject } from 'react';
 import { TerminalPrompt } from './TerminalPrompt';
 import { getTabCompletion } from '../../utils/tabCompletion';
-import type { FileSystemContextType } from '../../types/filesystem';
+import type { LocalFileSystem } from '../../types/filesystem';
 
 interface TerminalInputProps {
   value: string;
@@ -11,7 +11,7 @@ interface TerminalInputProps {
   onClear?: () => void;
   disabled?: boolean;
   containerRef?: RefObject<HTMLElement | null>;
-  fs: FileSystemContextType;
+  fs: LocalFileSystem;
 }
 
 export const TerminalInput = ({

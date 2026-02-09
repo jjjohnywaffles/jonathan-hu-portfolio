@@ -1,4 +1,4 @@
 import { createContext } from 'react';
-import type { FileSystemTreeContextType } from '../types/filesystem';
+import type { FileSystemContextType } from '../types/filesystem';
 
-export const FileSystemContext = createContext<FileSystemTreeContextType | null>(null);
+export const FileSystemContext = createContext<FileSystemContextType | null>(null);

@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { useContext } from 'react';
 import { TerminalContext } from '../../context/TerminalContext';
-import { StaticPrompt } from './TerminalPrompt';
+import { TerminalPrompt } from './TerminalPrompt';
 
 interface TerminalOutputProps {
   id: string;
@@ -18,7 +18,7 @@ export const TerminalOutput = ({ id, command, output, path }: TerminalOutputProp
       <div className="flex flex-col gap-2">
         {command !== undefined && (
           <div className="flex items-center gap-2">
-            <StaticPrompt path={path} />
+            <TerminalPrompt path={path} />
             <span className="text-text-primary">{command}</span>
           </div>
         )}
