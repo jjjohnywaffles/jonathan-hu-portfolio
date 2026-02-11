@@ -28,11 +28,6 @@
           "type": "folder",
           "name": "visitor",
           "children": {
-            "Desktop": {
-              "type": "folder",
-              "name": "Desktop",
-              "children": {}
-            },
             "Documents": {
               "type": "folder",
               "name": "Documents",
@@ -55,11 +50,6 @@
               "type": "folder",
               "name": "Projects",
               "children": {
-                "Flappy Bird": {
-                  "type": "folder",
-                  "name": "Flappy Bird",
-                  "children": {}
-                },
                 "portfolio-site": {
                   "type": "folder",
                   "name": "portfolio-site",

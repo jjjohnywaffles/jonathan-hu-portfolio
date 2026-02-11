@@ -22,7 +22,7 @@ export const FinderBreadcrumb = ({ currentPath, onNavigate }: FinderBreadcrumbPr
     <div className="flex items-center gap-0.5 px-3 py-1.5 bg-bg-secondary border-b border-border-primary overflow-x-auto">
       {allSegments.map((segment, index) => (
         <div key={segment.path} className="flex items-center gap-0.5">
-          {index > 0 && <ChevronRight size={12} className="text-text-muted flex-shrink-0" />}
+          {index > 0 && <ChevronRight size={12} className="text-text-muted shrink-0" />}
           <button
             onClick={() => onNavigate(segment.path)}
             className={`px-1.5 py-0.5 text-sm rounded transition-colors whitespace-nowrap ${
