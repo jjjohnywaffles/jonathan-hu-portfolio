@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { portfolioData } from '../../data/portfolio';
 import { useTerminalContext } from '../../context/TerminalContext';
+import { CommandHeader, ListItemButton, ActionButton, ListHint } from './CommandList';
 
 export const Experience = () => {
   const { isActive } = useTerminalContext();
@@ -51,7 +52,7 @@ export const Experience = () => {
     const exp = portfolioData.experience[selectedIndex];
     return (
       <div className="text-text-primary">
-        <p className="text-text-muted text-xs">// Experience &gt; {exp.company}</p>
+        <CommandHeader>Experience &gt; {exp.company}</CommandHeader>
         <br />
         <div className="pl-2">
           <div className="flex justify-between items-baseline gap-4 flex-wrap max-md:flex-col max-md:gap-1">
@@ -105,13 +106,9 @@ export const Experience = () => {
         {isActive && (
           <>
             <br />
-            <button
-              className="inline-flex items-center gap-3 px-4 py-2 bg-transparent border border-border rounded cursor-pointer font-mono text-sm transition-all hover:bg-accent-secondary/10 hover:border-accent-secondary"
-              onClick={handleBack}
-            >
-              <span className="text-accent-secondary">[ESC]</span>
-              <span className="text-text-primary">Back to list</span>
-            </button>
+            <ActionButton keyLabel="ESC" onClick={handleBack}>
+              Back to list
+            </ActionButton>
           </>
         )}
       </div>
@@ -121,32 +118,23 @@ export const Experience = () => {
   // Show list view
   return (
     <div className="text-text-primary">
-      <p className="text-text-muted text-xs">// Work Experience</p>
+      <CommandHeader>Work Experience</CommandHeader>
       <br />
       <div className="flex flex-col gap-2">
         {portfolioData.experience.map((exp, index) => (
-          <button
+          <ListItemButton
             key={exp.id}
-            className={`flex items-center gap-4 px-4 py-3 bg-accent/5 border border-border rounded cursor-pointer font-mono text-sm text-left transition-all w-full hover:bg-accent/10 hover:border-accent disabled:cursor-default disabled:opacity-70 ${!isActive ? '[&_.exp-list-key]:text-text-muted' : ''}`}
-            onClick={() => handleSelect(index)}
-            disabled={!isActive}
-          >
-            <span className="exp-list-key text-accent font-semibold shrink-0">[{index + 1}]</span>
-            <div className="flex flex-col flex-1 min-w-0">
-              <span className="text-text-primary font-medium">{exp.title}</span>
-              <span className="text-text-secondary text-xs">{exp.company}</span>
-            </div>
-            <span className="text-text-muted text-xs shrink-0">{exp.period}</span>
-          </button>
+            index={index + 1}
+            title={exp.title}
+            subtitle={exp.company}
+            trailing={exp.period}
+            isActive={isActive}
+            onSelect={() => handleSelect(index)}
+          />
         ))}
       </div>
       {isActive && (
-        <>
-          <br />
-          <p className="text-text-muted text-xs">
-            Press 1-{portfolioData.experience.length} or click to view details.
-          </p>
-        </>
+        <ListHint>Press 1-{portfolioData.experience.length} or click to view details.</ListHint>
       )}
     </div>
   );

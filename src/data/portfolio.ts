@@ -10,7 +10,7 @@ export const portfolioData: PortfolioData = {
   contact: {
     phone: '916-960-3725',
     email: 'jonathan.q.hu@gmail.com',
-    website: 'jjjohnywaffles.github.io',
+    website: 'jonathanqhu.com (You are currently on it!)',
   },
 
   education: [
