@@ -1,6 +1,6 @@
 # Jonathan Hu - Terminal Portfolio
 
-An interactive terminal-style portfolio built with React and TypeScript.
+An interactive terminal-style portfolio built with React and TypeScript with Desktop OS Sim.
 
 ## Features
 
@@ -8,6 +8,9 @@ An interactive terminal-style portfolio built with React and TypeScript.
 - Blinking cursor and command history (↑/↓ arrows)
 - Preset commands to navigate portfolio sections
 - macOS-style terminal window design
+- macOS-style desktop OS
+- Desktop filesystem
+- Built in markdown editor and PDF viewer
 
 ## Available Commands
 
@@ -26,10 +29,9 @@ An interactive terminal-style portfolio built with React and TypeScript.
 
 ## Tech Stack
 
-- React 19
+- React
 - TypeScript
 - Vite
-- Custom terminal emulator
 
 ## Getting Started
 

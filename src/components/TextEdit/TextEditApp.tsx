@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import type { AppComponentProps, TextEditData } from '../../types/window';
 
 const MARKDOWN_CLASSES = `p-4 prose prose-invert prose-sm max-w-none
@@ -12,7 +13,10 @@ const MARKDOWN_CLASSES = `p-4 prose prose-invert prose-sm max-w-none
   prose-ul:text-text-secondary prose-ol:text-text-secondary
   prose-li:text-text-secondary
   prose-hr:border-border-primary
-  prose-blockquote:border-border-primary prose-blockquote:text-text-muted`;
+  prose-blockquote:border-border-primary prose-blockquote:text-text-muted
+  prose-table:text-text-secondary
+  prose-th:text-text-primary prose-th:border-border-primary prose-th:px-3 prose-th:py-1.5
+  prose-td:border-border-primary prose-td:px-3 prose-td:py-1.5`;
 
 export const TextEditApp = ({ data }: AppComponentProps) => {
   const typed = data as unknown as TextEditData | undefined;
@@ -72,7 +76,7 @@ export const TextEditApp = ({ data }: AppComponentProps) => {
             }
           >
             {fileType === 'markdown' ? (
-              <ReactMarkdown>{text}</ReactMarkdown>
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{text}</ReactMarkdown>
             ) : (
               <pre className="text-text-primary text-sm whitespace-pre-wrap font-mono leading-relaxed">
                 {text}

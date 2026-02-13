@@ -58,7 +58,7 @@
                       "type": "file",
                       "name": "README.md",
                       "fileType": "markdown",
-                      "content": "# Portfolio Website\n\nThis macOS-inspired portfolio site built with React and TypeScript.\n\n## Features\n- Terminal emulator with custom commands\n- Finder application for file browsing\n- Window management system\n- Virtual file system\n"
+                      "content": "# Jonathan Hu - Terminal Portfolio\n\nAn interactive terminal-style portfolio built with React and TypeScript.\n\n## Features\n\n- Terminal emulator interface with command input\n- Blinking cursor and command history (↑/↓ arrows)\n- Preset commands to navigate portfolio sections\n- macOS-style terminal window design\n- macOS-style desktop OS\n- Desktop filesystem\n- Built in markdown editor and PDF viewer\n\n## Available Commands\n\n| Command      | Description                  |\n| ------------ | ---------------------------- |\n| `help`       | Show available commands      |\n| `about`      | Learn more about me          |\n| `experience` | View my work experience      |\n| `education`  | View my education background |\n| `skills`     | List my technical skills     |\n| `projects`   | Browse my projects           |\n| `contact`    | Get my contact information   |\n| `socials`    | View my social links         |\n| `resume`     | Download my resume           |\n| `clear`      | Clear the terminal           |\n\n## Tech Stack\n\n- React\n- TypeScript\n- Vite\n\n## Getting Started\n\n```bash\n# Install dependencies\nnpm install\n\n# Start development server\nnpm run dev\n\n# Build for production\nnpm run build\n```\n"
                     }
                   }
                 }
