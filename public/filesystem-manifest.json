@@ -6,12 +6,6 @@
       "type": "folder",
       "name": "Applications",
       "children": {
-        "Finder.app": {
-          "type": "file",
-          "name": "Finder.app",
-          "fileType": "executable",
-          "content": "finder"
-        },
         "Terminal.app": {
           "type": "file",
           "name": "Terminal.app",

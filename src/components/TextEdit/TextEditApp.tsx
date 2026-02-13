@@ -21,7 +21,7 @@ const MARKDOWN_CLASSES = `p-4 prose prose-invert prose-sm max-w-none
 export const TextEditApp = ({ data }: AppComponentProps) => {
   const typed = data as unknown as TextEditData | undefined;
   const fileName = typed?.fileName || 'Untitled';
-  const fileType = typed?.fileType || 'text';
+  const fileType = typed?.fileType || 'markdown';
   const initialContent = typed?.content || '';
 
   const [text, setText] = useState(initialContent);

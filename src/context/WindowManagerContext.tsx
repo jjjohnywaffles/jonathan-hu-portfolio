@@ -1,4 +1,4 @@
-import { useReducer, useCallback, useMemo, useRef } from 'react';
+import { useReducer, useCallback, useEffect, useMemo, useRef } from 'react';
 import type { ReactNode } from 'react';
 import type {
   WindowManagerState,
@@ -215,8 +215,16 @@ interface WindowManagerProviderProps {
 export function WindowManagerProvider({ children, apps }: WindowManagerProviderProps) {
   const [state, dispatch] = useReducer(windowManagerReducer, initialState);
   const windowIdCounter = useRef(0);
+  const stateRef = useRef(state);
+
+  useEffect(() => {
+    stateRef.current = state;
+  }, [state]);
 
   const getApp = useCallback((appId: string) => apps.find((app) => app.id === appId), [apps]);
+
+  // Apps that should only have one window (focus existing instead of opening duplicate)
+  const SINGLETON_APPS = useMemo(() => new Set(['terminal', 'finder']), []);
 
   const openApp = useCallback(
     (appId: string, options?: { title?: string; data?: Record<string, unknown> }): string => {
@@ -224,6 +232,20 @@ export function WindowManagerProvider({ children, apps }: WindowManagerProviderP
       if (!app) {
         console.warn(`App not found: ${appId}`);
         return '';
+      }
+
+      // For singleton apps without custom data, focus existing window instead of opening a new one
+      if (SINGLETON_APPS.has(appId) && !options?.data) {
+        const currentWindows = stateRef.current.windows;
+        const existing = Object.values(currentWindows).find((w) => w.appId === appId);
+        if (existing) {
+          if (existing.state === 'minimized') {
+            dispatch({ type: 'RESTORE_WINDOW', payload: { windowId: existing.id } });
+          } else {
+            dispatch({ type: 'FOCUS_WINDOW', payload: { windowId: existing.id } });
+          }
+          return existing.id;
+        }
       }
 
       const windowId = `window-${++windowIdCounter.current}`;
@@ -248,7 +270,7 @@ export function WindowManagerProvider({ children, apps }: WindowManagerProviderP
 
       return windowId;
     },
-    [getApp]
+    [getApp, SINGLETON_APPS]
   );
 
   const closeWindow = useCallback((windowId: string) => {
