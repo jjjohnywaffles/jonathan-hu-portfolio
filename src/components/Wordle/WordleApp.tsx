@@ -271,6 +271,7 @@ export const WordleApp = ({ isFocused }: AppComponentProps) => {
     removeLetter,
     submitGuess,
     newGame,
+    gameMode,
     getTileState,
     getLetterStates,
   } = useWordle();
@@ -367,7 +368,9 @@ export const WordleApp = ({ isFocused }: AppComponentProps) => {
     <div className="w-full h-full bg-bg-secondary flex flex-col overflow-hidden relative">
       {/* Header */}
       <div className="relative flex items-center justify-between px-4 py-2 border-b border-border">
-        <span className="text-text-muted text-xs">#{dayIndex}</span>
+        <span className="text-text-muted text-xs">
+          {gameMode === 'daily' ? `Daily #${dayIndex}` : 'Free Play'}
+        </span>
         <span className="absolute left-1/2 -translate-x-1/2 text-text-primary font-bold text-sm tracking-widest uppercase pointer-events-none">
           Wordle
         </span>

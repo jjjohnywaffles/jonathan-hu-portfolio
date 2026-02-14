@@ -1,4 +1,4 @@
-const EPOCH = new Date('2024-01-01').getTime();
+const EPOCH = new Date('2026-02-11').getTime();
 
 let targetWords: string[] = [];
 let validGuesses: Set<string> = new Set();

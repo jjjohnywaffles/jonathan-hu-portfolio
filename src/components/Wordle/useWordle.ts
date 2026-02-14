@@ -3,12 +3,14 @@ import { loadWords, getDailyWord, getRandomWord, isValidWord } from './words';
 
 export type TileState = 'correct' | 'present' | 'absent' | 'empty' | 'tbd';
 export type GameStatus = 'playing' | 'won' | 'lost';
+export type GameMode = 'daily' | 'free';
 
 interface GameState {
   targetWord: string;
   dayIndex: number;
   guesses: string[];
   gameStatus: GameStatus;
+  mode: GameMode;
 }
 
 interface WordleStats {
@@ -21,6 +23,7 @@ interface WordleStats {
 
 const GAME_STATE_KEY = 'wordle-game-state';
 const STATS_KEY = 'wordle-stats';
+const DAILY_COMPLETED_KEY = 'wordle-daily-completed';
 const MAX_GUESSES = 6;
 
 function loadGameState(): GameState | null {
@@ -57,6 +60,20 @@ function saveStats(stats: WordleStats) {
   localStorage.setItem(STATS_KEY, JSON.stringify(stats));
 }
 
+function getDailyCompleted(): number | null {
+  try {
+    const raw = localStorage.getItem(DAILY_COMPLETED_KEY);
+    if (!raw) return null;
+    return JSON.parse(raw) as number;
+  } catch {
+    return null;
+  }
+}
+
+function saveDailyCompleted(dayIndex: number) {
+  localStorage.setItem(DAILY_COMPLETED_KEY, JSON.stringify(dayIndex));
+}
+
 export function evaluateGuess(guess: string, target: string): TileState[] {
   const result: TileState[] = Array(5).fill('absent');
   const targetCounts: Record<string, number> = {};
@@ -91,6 +108,7 @@ export function useWordle() {
   const [dayIndex, setDayIndex] = useState(0);
   const [guesses, setGuesses] = useState<string[]>([]);
   const [gameStatus, setGameStatus] = useState<GameStatus>('playing');
+  const [gameMode, setGameMode] = useState<GameMode>('daily');
   const [currentGuess, setCurrentGuess] = useState('');
   const [shakeRow, setShakeRow] = useState(false);
   const [revealRow, setRevealRow] = useState<number | null>(null);
@@ -102,15 +120,32 @@ export function useWordle() {
     loadWords().then(() => {
       const { word: dailyWord, dayIndex: di } = getDailyWord();
       const saved = loadGameState();
+      const dailyCompleted = getDailyCompleted();
 
-      if (saved && saved.dayIndex === di) {
+      if (saved && saved.dayIndex === di && saved.mode === 'daily') {
+        // Restore in-progress or completed daily game
         setTargetWord(saved.targetWord);
         setDayIndex(di);
         setGuesses(saved.guesses);
         setGameStatus(saved.gameStatus);
+        setGameMode('daily');
+      } else if (saved && saved.mode === 'free' && saved.gameStatus === 'playing') {
+        // Restore in-progress free play game
+        setTargetWord(saved.targetWord);
+        setDayIndex(di);
+        setGuesses(saved.guesses);
+        setGameStatus(saved.gameStatus);
+        setGameMode('free');
+      } else if (dailyCompleted === di) {
+        // Daily already completed, start free play
+        setTargetWord(getRandomWord());
+        setDayIndex(di);
+        setGameMode('free');
       } else {
+        // Fresh daily game
         setTargetWord(dailyWord);
         setDayIndex(di);
+        setGameMode('daily');
       }
 
       setWordsReady(true);
@@ -120,8 +155,8 @@ export function useWordle() {
   // Persist game state on change
   useEffect(() => {
     if (!wordsReady) return;
-    saveGameState({ targetWord, dayIndex, guesses, gameStatus });
-  }, [wordsReady, targetWord, dayIndex, guesses, gameStatus]);
+    saveGameState({ targetWord, dayIndex, guesses, gameStatus, mode: gameMode });
+  }, [wordsReady, targetWord, dayIndex, guesses, gameStatus, gameMode]);
 
   // Persist stats on change
   useEffect(() => {
@@ -166,6 +201,9 @@ export function useWordle() {
         setGameStatus('won');
         setBounceRow(rowIndex);
         setTimeout(() => setBounceRow(null), 1500);
+        if (gameMode === 'daily') {
+          saveDailyCompleted(dayIndex);
+        }
         setStats((prev) => {
           const newStreak = prev.currentStreak + 1;
           const newDist = [...prev.guessDistribution];
@@ -180,6 +218,9 @@ export function useWordle() {
         });
       } else if (newGuesses.length >= MAX_GUESSES) {
         setGameStatus('lost');
+        if (gameMode === 'daily') {
+          saveDailyCompleted(dayIndex);
+        }
         setStats((prev) => ({
           ...prev,
           gamesPlayed: prev.gamesPlayed + 1,
@@ -190,7 +231,7 @@ export function useWordle() {
 
     setGuesses(newGuesses);
     setCurrentGuess('');
-  }, [gameStatus, currentGuess, guesses, targetWord]);
+  }, [gameStatus, currentGuess, guesses, targetWord, gameMode, dayIndex]);
 
   const getTileState = useCallback(
     (rowIndex: number, colIndex: number): TileState => {
@@ -238,6 +279,7 @@ export function useWordle() {
     setTargetWord(getRandomWord());
     setGuesses([]);
     setGameStatus('playing');
+    setGameMode('free');
     setCurrentGuess('');
     setRevealRow(null);
     setBounceRow(null);
@@ -251,6 +293,7 @@ export function useWordle() {
     guesses,
     currentGuess,
     gameStatus,
+    gameMode,
     shakeRow,
     revealRow,
     bounceRow,
