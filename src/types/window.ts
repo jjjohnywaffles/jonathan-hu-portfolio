@@ -50,6 +50,7 @@ export interface AppDefinition {
   component: ComponentType<AppComponentProps>;
   defaultSize: Size;
   defaultPosition?: Position;
+  pinToDock?: boolean;
 }
 
 export interface WindowManagerState {

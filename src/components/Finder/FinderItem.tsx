@@ -61,16 +61,18 @@ export const FinderItem = ({
       <button
         onClick={onClick}
         onDoubleClick={onDoubleClick}
-        className={`flex flex-col items-center gap-1 p-2 rounded-lg transition-colors ${
-          isSelected ? 'bg-accent/20' : 'hover:bg-bg-hover'
-        }`}
+        className="flex flex-col items-center gap-1 p-2 rounded-lg transition-colors hover:bg-bg-hover"
       >
-        <div className={`${item.type === 'folder' ? 'text-accent-secondary' : 'text-text-muted'}`}>
+        <div
+          className={`p-1 rounded-lg transition-colors ${
+            isSelected ? 'bg-accent/20' : ''
+          } ${item.type === 'folder' ? 'text-accent-secondary' : 'text-text-muted'}`}
+        >
           {item.type === 'folder' ? <Folder size={40} /> : getFileIcon(item.fileType, 40)}
         </div>
         <span
-          className={`text-xs text-center line-clamp-2 ${
-            isSelected ? 'text-accent' : 'text-text-primary'
+          className={`text-xs text-center line-clamp-2 px-1 rounded transition-colors ${
+            isSelected ? 'text-white bg-accent/50' : 'text-text-primary'
           }`}
         >
           {item.name.includes(' ') ? (

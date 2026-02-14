@@ -1,4 +1,4 @@
-import { Terminal, FolderOpen, FileText, Eye, LayoutGrid } from 'lucide-react';
+import { Terminal, FolderOpen, FileText, Eye } from 'lucide-react';
 import type { AppDefinition } from '../types/window';
 import { TerminalApp } from '../components/Terminal/TerminalApp';
 import { FinderApp } from '../components/Finder';
@@ -50,8 +50,9 @@ export const apps: AppDefinition[] = [
   {
     id: 'wordle',
     name: 'Wordle',
-    icon: <LayoutGrid size={24} />,
+    icon: <span className="font-bold text-lg leading-none">W</span>,
     component: WordleApp,
+    pinToDock: false,
     defaultSize: {
       width: 500,
       height: 650,

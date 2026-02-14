@@ -7,6 +7,16 @@ import { DockMinimizedPreview } from './DockMinimizedPreview';
 export const Dock = () => {
   const { apps, windows, hasMaximizedWindow } = useWindowManager();
 
+  // Show pinned apps (default) + unpinned apps that have open windows
+  const dockApps = useMemo(
+    () =>
+      apps.filter((app) => {
+        if (app.pinToDock !== false) return true;
+        return Object.values(windows).some((w) => w.appId === app.id);
+      }),
+    [apps, windows]
+  );
+
   // Get minimized windows sorted by minimizedAt timestamp
   const minimizedWindows = useMemo(
     () =>
@@ -23,7 +33,7 @@ export const Dock = () => {
 
   return (
     <motion.div
-      className="fixed bottom-2 left-0 right-0 flex justify-center z-[1000] pointer-events-none"
+      className="fixed bottom-2 left-0 right-0 flex justify-center z-1000 pointer-events-none"
       initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
@@ -31,7 +41,7 @@ export const Dock = () => {
       <div className="flex items-center gap-2 pt-2 px-3 pb-3 bg-dock-bg backdrop-blur-[20px] rounded-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.4),inset_0_0_0_1px_rgba(255,255,255,0.05)] pointer-events-auto">
         {/* App icons */}
         <div className="flex items-center gap-2">
-          {apps.map((app) => (
+          {dockApps.map((app) => (
             <DockAppItem key={app.id} appId={app.id} />
           ))}
         </div>
