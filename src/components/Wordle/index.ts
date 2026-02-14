@@ -1,0 +1,1 @@
+export { WordleApp } from './WordleApp';

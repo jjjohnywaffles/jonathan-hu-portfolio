@@ -4,6 +4,7 @@ import { FileSystemProvider } from '../../context/FileSystemContext';
 import { useWindowManager } from '../../hooks/useWindowManager';
 import { Window } from '../Window';
 import { Dock } from '../Dock';
+import { DesktopIcons } from './DesktopIcons';
 import { apps } from '../../data/apps';
 
 const DesktopContent = () => {
@@ -34,6 +35,9 @@ const DesktopContent = () => {
         className="absolute top-0 left-0 w-full h-full z-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: 'url(/background/background.jpg)' }}
       />
+
+      {/* Desktop Icons */}
+      <DesktopIcons />
 
       {/* Windows area */}
       <div

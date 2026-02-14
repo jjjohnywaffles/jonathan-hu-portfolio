@@ -1,9 +1,10 @@
-import { Terminal, FolderOpen, FileText, Eye } from 'lucide-react';
+import { Terminal, FolderOpen, FileText, Eye, LayoutGrid } from 'lucide-react';
 import type { AppDefinition } from '../types/window';
 import { TerminalApp } from '../components/Terminal/TerminalApp';
 import { FinderApp } from '../components/Finder';
 import { TextEditApp } from '../components/TextEdit/TextEditApp';
 import { PreviewApp } from '../components/Preview/PreviewApp';
+import { WordleApp } from '../components/Wordle';
 
 export const apps: AppDefinition[] = [
   {
@@ -43,6 +44,16 @@ export const apps: AppDefinition[] = [
     component: PreviewApp,
     defaultSize: {
       width: 800,
+      height: 650,
+    },
+  },
+  {
+    id: 'wordle',
+    name: 'Wordle',
+    icon: <LayoutGrid size={24} />,
+    component: WordleApp,
+    defaultSize: {
+      width: 500,
       height: 650,
     },
   },

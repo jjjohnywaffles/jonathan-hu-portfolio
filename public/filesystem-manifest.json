@@ -11,6 +11,12 @@
           "name": "Terminal.app",
           "fileType": "executable",
           "content": "terminal"
+        },
+        "Wordle.app": {
+          "type": "file",
+          "name": "Wordle.app",
+          "fileType": "executable",
+          "content": "wordle"
         }
       }
     },
@@ -22,6 +28,18 @@
           "type": "folder",
           "name": "visitor",
           "children": {
+            "Desktop": {
+              "type": "folder",
+              "name": "Desktop",
+              "children": {
+                "Wordle.app": {
+                  "type": "file",
+                  "name": "Wordle.app",
+                  "fileType": "executable",
+                  "content": "wordle"
+                }
+              }
+            },
             "Documents": {
               "type": "folder",
               "name": "Documents",
