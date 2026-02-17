@@ -109,11 +109,21 @@ export function useWordle() {
   const [guesses, setGuesses] = useState<string[]>([]);
   const [gameStatus, setGameStatus] = useState<GameStatus>('playing');
   const [gameMode, setGameMode] = useState<GameMode>('daily');
+  const [dailyAvailable, setDailyAvailable] = useState(false);
   const [currentGuess, setCurrentGuess] = useState('');
   const [shakeRow, setShakeRow] = useState(false);
   const [revealRow, setRevealRow] = useState<number | null>(null);
   const [bounceRow, setBounceRow] = useState<number | null>(null);
   const [stats, setStats] = useState<WordleStats>(loadStats);
+
+  // Check if a new daily puzzle is available (not yet completed)
+  const checkDailyAvailable = useCallback(() => {
+    if (!wordsReady) return;
+    const { dayIndex: currentDi } = getDailyWord();
+    const dailyCompleted = getDailyCompleted();
+    setDayIndex(currentDi);
+    setDailyAvailable(dailyCompleted !== currentDi);
+  }, [wordsReady]);
 
   // Load word lists, then initialize game state
   useEffect(() => {
@@ -121,6 +131,8 @@ export function useWordle() {
       const { word: dailyWord, dayIndex: di } = getDailyWord();
       const saved = loadGameState();
       const dailyCompleted = getDailyCompleted();
+
+      const isDailyDone = dailyCompleted === di;
 
       if (saved && saved.dayIndex === di && saved.mode === 'daily') {
         // Restore in-progress or completed daily game
@@ -136,7 +148,9 @@ export function useWordle() {
         setGuesses(saved.guesses);
         setGameStatus(saved.gameStatus);
         setGameMode('free');
-      } else if (dailyCompleted === di) {
+        // If the daily hasn't been completed, show the button
+        setDailyAvailable(!isDailyDone);
+      } else if (isDailyDone) {
         // Daily already completed, start free play
         setTargetWord(getRandomWord());
         setDayIndex(di);
@@ -151,6 +165,13 @@ export function useWordle() {
       setWordsReady(true);
     });
   }, []);
+
+  // Poll for new daily puzzle every 60 seconds
+  useEffect(() => {
+    if (!wordsReady) return;
+    const interval = setInterval(checkDailyAvailable, 60_000);
+    return () => clearInterval(interval);
+  }, [wordsReady, checkDailyAvailable]);
 
   // Persist game state on change
   useEffect(() => {
@@ -203,6 +224,7 @@ export function useWordle() {
         setTimeout(() => setBounceRow(null), 1500);
         if (gameMode === 'daily') {
           saveDailyCompleted(dayIndex);
+          setDailyAvailable(false);
         }
         setStats((prev) => {
           const newStreak = prev.currentStreak + 1;
@@ -220,6 +242,7 @@ export function useWordle() {
         setGameStatus('lost');
         if (gameMode === 'daily') {
           saveDailyCompleted(dayIndex);
+          setDailyAvailable(false);
         }
         setStats((prev) => ({
           ...prev,
@@ -284,6 +307,22 @@ export function useWordle() {
     setRevealRow(null);
     setBounceRow(null);
     setShakeRow(false);
+    // Check if a new daily became available while playing
+    checkDailyAvailable();
+  }, [checkDailyAvailable]);
+
+  const playDaily = useCallback(() => {
+    const { word: dailyWord, dayIndex: di } = getDailyWord();
+    setTargetWord(dailyWord);
+    setDayIndex(di);
+    setGuesses([]);
+    setGameStatus('playing');
+    setGameMode('daily');
+    setDailyAvailable(false);
+    setCurrentGuess('');
+    setRevealRow(null);
+    setBounceRow(null);
+    setShakeRow(false);
   }, []);
 
   return {
@@ -294,6 +333,7 @@ export function useWordle() {
     currentGuess,
     gameStatus,
     gameMode,
+    dailyAvailable,
     shakeRow,
     revealRow,
     bounceRow,
@@ -302,6 +342,7 @@ export function useWordle() {
     removeLetter,
     submitGuess,
     newGame,
+    playDaily,
     getTileState,
     getLetterStates,
   };
