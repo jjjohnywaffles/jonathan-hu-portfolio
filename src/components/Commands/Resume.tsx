@@ -9,7 +9,7 @@ export const Resume = () => {
   const handleDownload = useCallback(() => {
     if (!isActive) return;
     const link = document.createElement('a');
-    link.href = '/Resume.pdf';
+    link.href = '/filesystem/home/visitor/Documents/Resume.pdf';
     link.download = 'Jonathan_Hu_Resume.pdf';
     link.click();
     setAction('Downloading resume...');
