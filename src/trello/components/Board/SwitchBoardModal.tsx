@@ -380,7 +380,10 @@ const SwitchBoardModal: FC<SwitchBoardModalProps> = memo(function SwitchBoardMod
   return (
     <>
       {/* Backdrop with correct blur effect */}
-      <div className="fixed inset-0 z-50 bg-black/20 backdrop-blur-[2px] transition-opacity" />
+      <div
+        className="fixed inset-0 z-50 transition-opacity"
+        style={{ backgroundColor: 'rgba(0,0,0,0.2)', backdropFilter: 'blur(2px)' }}
+      />
 
       <CardModal
         ref={modalRef}
