@@ -32,6 +32,12 @@
               "type": "folder",
               "name": "Desktop",
               "children": {
+                "SpeedRead.app": {
+                  "type": "file",
+                  "name": "SpeedRead.app",
+                  "fileType": "executable",
+                  "content": "speedread"
+                },
                 "Trello.link": {
                   "type": "file",
                   "name": "Trello.link",

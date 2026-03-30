@@ -5,6 +5,7 @@ import { FinderApp } from '../components/Finder';
 import { TextEditApp } from '../components/TextEdit/TextEditApp';
 import { PreviewApp } from '../components/Preview/PreviewApp';
 import { WordleApp } from '../components/Wordle';
+import { SpeedReadApp, SpeedReadReaderApp } from '../components/SpeedRead';
 
 export const apps: AppDefinition[] = [
   {
@@ -56,6 +57,56 @@ export const apps: AppDefinition[] = [
     defaultSize: {
       width: 500,
       height: 650,
+    },
+  },
+  {
+    id: 'speedread',
+    name: 'SpeedRead',
+    icon: (
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+      </svg>
+    ),
+    component: SpeedReadApp,
+    pinToDock: false,
+    defaultSize: {
+      width: 550,
+      height: 600,
+    },
+  },
+  {
+    id: 'speedread-reader',
+    name: 'SpeedRead Reader',
+    icon: (
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+      </svg>
+    ),
+    component: SpeedReadReaderApp,
+    pinToDock: false,
+    defaultSize: {
+      width: 500,
+      height: 400,
     },
   },
 ];

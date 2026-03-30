@@ -71,7 +71,7 @@ export const DesktopIcons = () => {
           <button
             key={item.name}
             data-desktop-icon
-            className="flex flex-col items-center gap-1.5 select-none cursor-pointer"
+            className="flex w-16 flex-col items-center gap-1.5 select-none cursor-pointer"
             onClick={() => handleClick(item)}
           >
             <div
