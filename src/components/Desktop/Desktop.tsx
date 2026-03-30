@@ -19,9 +19,17 @@ const DesktopContent = () => {
     }
   }, [openApp]);
 
-  // Calculate dock item positions for minimize animation
-  const getDockPosition = useCallback(() => {
-    // Default to center-bottom of screen
+  // Find the dock icon position for a specific app
+  const getDockPosition = useCallback((appId: string) => {
+    const dockEl = document.querySelector(`[data-dock-app-id="${appId}"]`);
+    if (dockEl) {
+      const rect = dockEl.getBoundingClientRect();
+      return {
+        x: rect.left + rect.width / 2,
+        y: rect.top + rect.height / 2,
+      };
+    }
+    // Fallback to center-bottom
     return {
       x: window.innerWidth / 2,
       y: window.innerHeight - 35,
@@ -55,7 +63,7 @@ const DesktopContent = () => {
             <Window
               key={windowConfig.id}
               windowConfig={windowConfig}
-              dockPosition={getDockPosition()}
+              dockPosition={getDockPosition(windowConfig.appId)}
             >
               <AppComponent
                 windowId={windowConfig.id}

@@ -65,5 +65,9 @@ export const DockAppItem = ({ appId }: DockAppItemProps) => {
     }
   };
 
-  return <DockItem icon={app.icon} name={app.name} isRunning={isRunning} onClick={handleClick} />;
+  return (
+    <div data-dock-app-id={appId}>
+      <DockItem icon={app.icon} name={app.name} isRunning={isRunning} onClick={handleClick} />
+    </div>
+  );
 };
