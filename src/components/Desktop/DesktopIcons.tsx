@@ -4,8 +4,28 @@ import { FileSystemContext } from '../../context/fileSystemContextDef';
 import { useWindowManager } from '../../hooks/useWindowManager';
 import { openFile } from '../../utils/fileActions';
 import type { FileNode, FSNode } from '../../types/filesystem';
+import { DraggableDesktopIcon } from './DraggableDesktopIcon';
+import type { Position } from '../../hooks/useDraggable';
 
 const DESKTOP_PATH = '/home/visitor/Desktop';
+const ICON_SPACING = 80;
+const ICON_MARGIN = 16;
+
+function getSortedItems(desktopNode: FSNode | null): FSNode[] {
+  if (!desktopNode || desktopNode.type !== 'folder') return [];
+  return Object.values(desktopNode.children).sort((a, b) => {
+    const aIsApp = a.name.endsWith('.app') ? 0 : 1;
+    const bIsApp = b.name.endsWith('.app') ? 0 : 1;
+    return aIsApp - bIsApp || a.name.localeCompare(b.name);
+  });
+}
+
+function getDefaultPosition(index: number): Position {
+  return {
+    x: window.innerWidth - ICON_SPACING - ICON_MARGIN,
+    y: ICON_MARGIN + index * ICON_SPACING,
+  };
+}
 
 export const DesktopIcons = () => {
   const fsContext = useContext(FileSystemContext);
@@ -25,20 +45,13 @@ export const DesktopIcons = () => {
     return () => window.removeEventListener('mousedown', handleBackgroundClick);
   }, [handleBackgroundClick]);
 
-  if (!fsContext || fsContext.isLoading) return null;
+  const desktopNode = fsContext && !fsContext.isLoading ? fsContext.getNode(DESKTOP_PATH) : null;
+  const items = getSortedItems(desktopNode ?? null);
 
-  const desktopNode = fsContext.getNode(DESKTOP_PATH);
-  if (!desktopNode || desktopNode.type !== 'folder') return null;
-
-  const items = Object.values(desktopNode.children).sort((a, b) => {
-    // Sort .app files before .link files so apps appear on top
-    const aIsApp = a.name.endsWith('.app') ? 0 : 1;
-    const bIsApp = b.name.endsWith('.app') ? 0 : 1;
-    return aIsApp - bIsApp || a.name.localeCompare(b.name);
-  });
   if (items.length === 0) return null;
 
-  const handleClick = (item: FSNode) => {
+  const handleClick = (item: FSNode, wasDragged: boolean) => {
+    if (wasDragged) return;
     if (item.type !== 'file') return;
 
     if (selectedIcon === item.name) {
@@ -64,35 +77,17 @@ export const DesktopIcons = () => {
   };
 
   return (
-    <div className="absolute top-4 right-4 z-0 flex flex-col flex-wrap-reverse items-end gap-3 max-h-[calc(100vh-100px)]">
-      {items.map((item) => {
-        const isSelected = selectedIcon === item.name;
-        return (
-          <button
-            key={item.name}
-            data-desktop-icon
-            className="flex w-16 flex-col items-center gap-1.5 select-none cursor-pointer"
-            onClick={() => handleClick(item)}
-          >
-            <div
-              className={`w-12 h-12 flex items-center justify-center border rounded-[10px] transition-colors duration-200 ${
-                isSelected
-                  ? 'bg-white/20 border-accent'
-                  : 'bg-transparent border-accent hover:bg-white/10'
-              }`}
-            >
-              {getIcon(item)}
-            </div>
-            <span
-              className={`text-[10px] text-center line-clamp-2 leading-tight font-mono px-1 rounded ${
-                isSelected ? 'text-white bg-accent/50' : 'text-text-primary'
-              }`}
-            >
-              {item.name.replace('.app', '').replace('.link', '')}
-            </span>
-          </button>
-        );
-      })}
-    </div>
+    <>
+      {items.map((item, i) => (
+        <DraggableDesktopIcon
+          key={item.name}
+          name={item.name}
+          icon={getIcon(item)}
+          isSelected={selectedIcon === item.name}
+          position={getDefaultPosition(i)}
+          onClick={(wasDragged) => handleClick(item, wasDragged)}
+        />
+      ))}
+    </>
   );
 };
