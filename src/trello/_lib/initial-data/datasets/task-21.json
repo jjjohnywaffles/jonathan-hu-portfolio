@@ -1,0 +1,144 @@
+{
+  "currentBoardId": "board-active-projects",
+  "lastCardAction": null,
+  "boards": {
+    "board-active-projects": {
+      "id": "board-active-projects",
+      "title": "Active Projects",
+      "description": "Current active projects and ongoing work",
+      "background": "#0079BF",
+      "starred": false,
+      "workspace": "workspace-project-management",
+      "visibility": "workspace",
+      "createdAt": "2029-12-14T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "labelIds": [],
+      "collapsedListIds": [],
+      "commentIds": [],
+      "activityIds": [],
+      "customFieldDefinitionIds": []
+    },
+    "board-q3-completed": {
+      "id": "board-q3-completed",
+      "title": "Q3 Completed",
+      "description": "Completed projects and tasks from Q3",
+      "background": "#519839",
+      "starred": false,
+      "workspace": "workspace-project-management",
+      "visibility": "workspace",
+      "createdAt": "2029-12-14T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "labelIds": [],
+      "collapsedListIds": [],
+      "commentIds": [],
+      "activityIds": [],
+      "customFieldDefinitionIds": []
+    }
+  },
+  "lists": {},
+  "cards": {},
+  "workspaces": {
+    "workspace-project-management": {
+      "id": "workspace-project-management",
+      "name": "Project Management",
+      "description": "Workspace for managing all project-related boards",
+      "type": "team",
+      "createdAt": "2029-12-14T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "members": ["shaya", "nicholas", "deepak", "xavier", "cat", "nicolas"]
+    }
+  },
+  "users": {
+    "shaya": {
+      "id": "shaya",
+      "email": "shaya@anthropic.com",
+      "displayName": "Shaya Zarkesh",
+      "avatar": "/avatars/shaya.jpg"
+    },
+    "nicholas": {
+      "id": "nicholas",
+      "email": "nicholas@anthropic.com",
+      "displayName": "Nicholas Marwell",
+      "avatar": "/avatars/nicholas.jpg"
+    },
+    "deepak": {
+      "id": "deepak",
+      "email": "deepak@anthropic.com",
+      "displayName": "Deepak Moparthi",
+      "avatar": "/avatars/deepak.jpg"
+    },
+    "xavier": {
+      "id": "xavier",
+      "email": "xavier@anthropic.com",
+      "displayName": "Xavier Garcia",
+      "avatar": "/avatars/xavier.jpg"
+    },
+    "cat": {
+      "id": "cat",
+      "email": "cat@anthropic.com",
+      "displayName": "Cat Wu",
+      "avatar": "/avatars/cat.jpg"
+    },
+    "nicolas": {
+      "id": "nicolas",
+      "email": "nicolas@anthropic.com",
+      "displayName": "Nicolas Thiébaud",
+      "avatar": "/avatars/nicolas.jpg"
+    }
+  },
+  "currentUser": {
+    "id": "shaya",
+    "email": "shaya@anthropic.com",
+    "displayName": "Shaya Zarkesh",
+    "avatar": "/avatars/shaya.jpg",
+    "timezone": "America/Los_Angeles"
+  },
+  "search": {
+    "query": "",
+    "isActive": false,
+    "recentSearches": [],
+    "recentBoards": [],
+    "results": {
+      "cards": [],
+      "lists": [],
+      "totalCount": 0
+    }
+  },
+  "boardFilters": {
+    "keyword": "",
+    "members": {
+      "noMembers": false,
+      "assignedToMe": false,
+      "selectedMembers": [],
+      "enableDropdown": false
+    },
+    "cardStatus": {
+      "markedComplete": false,
+      "notMarkedComplete": false
+    },
+    "dueDate": {
+      "noDates": false,
+      "overdue": false,
+      "nextDay": false,
+      "nextWeek": false,
+      "nextMonth": false
+    },
+    "labels": {
+      "noLabels": false,
+      "selectedLabels": [],
+      "enableDropdown": false
+    },
+    "activity": {
+      "lastWeek": false,
+      "lastTwoWeeks": false,
+      "lastFourWeeks": false,
+      "withoutActivity": false
+    }
+  },
+  "suggestedFieldTemplates": [],
+  "comments": {},
+  "activities": {},
+  "labels": {},
+  "checklists": {},
+  "customFieldDefinitions": {}
+}

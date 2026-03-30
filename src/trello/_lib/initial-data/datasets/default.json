@@ -1,0 +1,1136 @@
+{
+  "currentUser": {
+    "id": "shaya",
+    "email": "shaya@anthropic.com",
+    "displayName": "Shaya Zarkesh",
+    "avatar": "/avatars/shaya.jpg",
+    "timezone": "America/Los_Angeles"
+  },
+  "users": {
+    "shaya": {
+      "id": "shaya",
+      "email": "shaya@anthropic.com",
+      "displayName": "Shaya Zarkesh",
+      "avatar": "/avatars/shaya.jpg"
+    },
+    "nicholas": {
+      "id": "nicholas",
+      "email": "nicholas@anthropic.com",
+      "displayName": "Nicholas Marwell",
+      "avatar": "/avatars/nicholas.jpg"
+    },
+    "deepak": {
+      "id": "deepak",
+      "email": "deepak@anthropic.com",
+      "displayName": "Deepak Moparthi",
+      "avatar": "/avatars/deepak.jpg"
+    },
+    "xavier": {
+      "id": "xavier",
+      "email": "xavier@anthropic.com",
+      "displayName": "Xavier Garcia",
+      "avatar": "/avatars/xavier.jpg"
+    },
+    "cat": {
+      "id": "cat",
+      "email": "cat@anthropic.com",
+      "displayName": "Cat Wu",
+      "avatar": "/avatars/cat.jpg"
+    },
+    "nicolas": {
+      "id": "nicolas",
+      "email": "nicolas@anthropic.com",
+      "displayName": "Nicolas Thiébaud",
+      "avatar": "/avatars/nicolas.jpg"
+    }
+  },
+  "workspaces": {
+    "workspace-dev-team": {
+      "id": "workspace-dev-team",
+      "name": "Development Team",
+      "description": "Main workspace for development projects",
+      "type": "team",
+      "members": ["shaya", "nicholas", "deepak", "xavier", "cat", "nicolas"],
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya"
+    }
+  },
+  "boards": {
+    "board-comprehensive-demo": {
+      "id": "board-comprehensive-demo",
+      "title": "Comprehensive Feature Demo",
+      "description": "A board showcasing all Trello features and card states",
+      "background": "#0079BF",
+      "starred": true,
+      "workspace": "workspace-dev-team",
+      "visibility": "workspace",
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "updatedAt": "2030-03-14T13:14:00.000-05:00",
+      "labelIds": [
+        "board-comprehensive-demo-label-green",
+        "board-comprehensive-demo-label-yellow",
+        "board-comprehensive-demo-label-orange",
+        "board-comprehensive-demo-label-red",
+        "board-comprehensive-demo-label-purple",
+        "board-comprehensive-demo-label-blue",
+        "board-comprehensive-demo-label-sky",
+        "board-comprehensive-demo-label-lime",
+        "board-comprehensive-demo-label-pink",
+        "board-comprehensive-demo-label-black"
+      ],
+      "collapsedListIds": [],
+      "commentIds": [
+        "comment-1",
+        "comment-2",
+        "comment-3",
+        "comment-4",
+        "comment-5",
+        "comment-6"
+      ],
+      "activityIds": [
+        "activity-1",
+        "activity-2",
+        "activity-3",
+        "activity-4",
+        "activity-5",
+        "activity-6",
+        "activity-7"
+      ],
+      "customFieldDefinitionIds": [
+        "board-comprehensive-demo-field-priority",
+        "board-comprehensive-demo-field-effort",
+        "board-comprehensive-demo-field-status"
+      ]
+    }
+  },
+  "lists": {
+    "list-backlog": {
+      "id": "list-backlog",
+      "boardId": "board-comprehensive-demo",
+      "title": "📋 Backlog",
+      "cardRefs": [
+        {
+          "type": "card",
+          "cardId": "card-simple"
+        },
+        {
+          "type": "card",
+          "cardId": "card-inbox-item"
+        }
+      ],
+      "order": 0,
+      "isDraggable": true,
+      "watched": true
+    },
+    "list-todo": {
+      "id": "list-todo",
+      "boardId": "board-comprehensive-demo",
+      "title": "📝 To Do",
+      "cardRefs": [
+        {
+          "type": "card",
+          "cardId": "card-with-labels"
+        },
+        {
+          "type": "card",
+          "cardId": "card-due-soon"
+        },
+        {
+          "type": "card",
+          "cardId": "card-with-media"
+        }
+      ],
+      "order": 1,
+      "isDraggable": true,
+      "watched": true
+    },
+    "list-in-progress": {
+      "id": "list-in-progress",
+      "boardId": "board-comprehensive-demo",
+      "title": "🚀 In Progress",
+      "cardRefs": [
+        {
+          "type": "card",
+          "cardId": "card-with-checklists"
+        },
+        {
+          "type": "card",
+          "cardId": "card-with-custom-fields"
+        },
+        {
+          "type": "card",
+          "cardId": "card-overdue"
+        },
+        {
+          "type": "card",
+          "cardId": "card-mirrored"
+        }
+      ],
+      "order": 2,
+      "isDraggable": true,
+      "watched": false
+    },
+    "list-review": {
+      "id": "list-review",
+      "boardId": "board-comprehensive-demo",
+      "title": "👀 Review",
+      "cardRefs": [
+        {
+          "type": "card",
+          "cardId": "card-mirrored-review-mirror"
+        }
+      ],
+      "order": 3,
+      "isDraggable": true
+    },
+    "list-done": {
+      "id": "list-done",
+      "boardId": "board-comprehensive-demo",
+      "title": "✅ Done",
+      "cardRefs": [
+        {
+          "type": "card",
+          "cardId": "card-completed"
+        }
+      ],
+      "order": 4,
+      "isDraggable": true
+    },
+    "inbox": {
+      "id": "inbox",
+      "boardId": "board-comprehensive-demo",
+      "title": "Inbox",
+      "cardRefs": [
+        {
+          "type": "card",
+          "cardId": "card-template"
+        }
+      ],
+      "order": 6,
+      "isDraggable": false
+    }
+  },
+  "cards": {
+    "card-simple": {
+      "id": "card-simple",
+      "boardId": "board-comprehensive-demo",
+      "title": "Simple Task Example",
+      "description": "This is a basic card with minimal information to demonstrate the simplest use case.",
+      "createdBy": "shaya",
+      "createdAt": "2030-03-09T15:14:00.000-06:00",
+      "customFields": [
+        {
+          "id": "board-comprehensive-demo-field-priority"
+        },
+        {
+          "id": "board-comprehensive-demo-field-effort"
+        },
+        {
+          "id": "board-comprehensive-demo-field-status"
+        }
+      ]
+    },
+    "card-with-labels": {
+      "id": "card-with-labels",
+      "boardId": "board-comprehensive-demo",
+      "title": "High Priority Feature with Multiple Labels",
+      "description": "This card demonstrates multiple labels being applied to categorize and prioritize work.",
+      "labelIds": [
+        "board-comprehensive-demo-label-green",
+        "board-comprehensive-demo-label-purple",
+        "board-comprehensive-demo-label-pink"
+      ],
+      "createdBy": "nicholas",
+      "assignedTo": ["nicholas", "cat"],
+      "createdAt": "2030-03-10T15:14:00.000-05:00",
+      "updatedAt": "2030-03-14T09:14:00.000-05:00",
+      "customFields": [
+        {
+          "id": "board-comprehensive-demo-field-priority"
+        },
+        {
+          "id": "board-comprehensive-demo-field-effort"
+        },
+        {
+          "id": "board-comprehensive-demo-field-status"
+        }
+      ]
+    },
+    "card-with-checklists": {
+      "id": "card-with-checklists",
+      "boardId": "board-comprehensive-demo",
+      "title": "Task with Detailed Checklists",
+      "description": "This card shows how checklists can be used to break down complex tasks into manageable steps.",
+      "labelIds": ["board-comprehensive-demo-label-blue"],
+      "checklistIds": [
+        "checklist-planning",
+        "checklist-development",
+        "checklist-deployment"
+      ],
+      "createdBy": "deepak",
+      "assignedTo": ["deepak", "xavier", "nicolas"],
+      "createdAt": "2030-03-11T15:14:00.000-05:00",
+      "updatedAt": "2030-03-14T12:14:00.000-05:00",
+      "customFields": [
+        {
+          "id": "board-comprehensive-demo-field-priority"
+        },
+        {
+          "id": "board-comprehensive-demo-field-effort"
+        },
+        {
+          "id": "board-comprehensive-demo-field-status"
+        }
+      ]
+    },
+    "card-with-custom-fields": {
+      "id": "card-with-custom-fields",
+      "boardId": "board-comprehensive-demo",
+      "title": "Feature with Custom Field Data",
+      "description": "This card demonstrates how custom fields can be used to track additional metadata.",
+      "labelIds": [
+        "board-comprehensive-demo-label-purple",
+        "board-comprehensive-demo-label-green"
+      ],
+      "customFields": [
+        {
+          "id": "board-comprehensive-demo-field-priority",
+          "value": "High"
+        },
+        {
+          "id": "board-comprehensive-demo-field-effort",
+          "value": "8"
+        },
+        {
+          "id": "board-comprehensive-demo-field-status",
+          "value": "In Progress"
+        }
+      ],
+      "createdBy": "xavier",
+      "assignedTo": ["xavier", "deepak"],
+      "createdAt": "2030-03-08T15:14:00.000-06:00",
+      "updatedAt": "2030-03-14T14:14:00.000-05:00"
+    },
+    "card-overdue": {
+      "id": "card-overdue",
+      "boardId": "board-comprehensive-demo",
+      "title": "Overdue Bug Fix",
+      "description": "This card demonstrates an overdue task that needs immediate attention.",
+      "labelIds": [
+        "board-comprehensive-demo-label-red",
+        "board-comprehensive-demo-label-orange"
+      ],
+      "dueDate": "2030-03-12T15:14:00.000-05:00",
+      "createdBy": "cat",
+      "assignedTo": ["nicolas"],
+      "createdAt": "2030-03-04T15:14:00.000-06:00",
+      "updatedAt": "2030-03-13T15:14:00.000-05:00",
+      "customFields": [
+        {
+          "id": "board-comprehensive-demo-field-priority"
+        },
+        {
+          "id": "board-comprehensive-demo-field-effort"
+        },
+        {
+          "id": "board-comprehensive-demo-field-status"
+        }
+      ]
+    },
+    "card-due-soon": {
+      "id": "card-due-soon",
+      "boardId": "board-comprehensive-demo",
+      "title": "Upcoming Deadline Task",
+      "description": "This card has a due date coming up soon.",
+      "labelIds": ["board-comprehensive-demo-label-yellow"],
+      "startDate": "2030-03-12T15:14:00.000-05:00",
+      "dueDate": "2030-03-15T15:14:00.000-05:00",
+      "createdBy": "nicolas",
+      "assignedTo": ["cat", "shaya"],
+      "joined": true,
+      "createdAt": "2030-03-07T15:14:00.000-06:00",
+      "watched": true,
+      "customFields": [
+        {
+          "id": "board-comprehensive-demo-field-priority"
+        },
+        {
+          "id": "board-comprehensive-demo-field-effort"
+        },
+        {
+          "id": "board-comprehensive-demo-field-status"
+        }
+      ]
+    },
+    "card-completed": {
+      "id": "card-completed",
+      "boardId": "board-comprehensive-demo",
+      "title": "Completed Feature Implementation",
+      "description": "This card shows a completed task with all checkboxes marked as done.",
+      "labelIds": [
+        "board-comprehensive-demo-label-green",
+        "board-comprehensive-demo-label-purple"
+      ],
+      "completed": true,
+      "checklistIds": ["checklist-completed"],
+      "createdBy": "shaya",
+      "assignedTo": ["shaya", "nicholas"],
+      "joined": true,
+      "watched": true,
+      "createdAt": "2030-02-27T15:14:00.000-06:00",
+      "updatedAt": "2030-03-13T15:14:00.000-05:00",
+      "customFields": [
+        {
+          "id": "board-comprehensive-demo-field-priority"
+        },
+        {
+          "id": "board-comprehensive-demo-field-effort"
+        },
+        {
+          "id": "board-comprehensive-demo-field-status"
+        }
+      ]
+    },
+    "card-template": {
+      "id": "card-template",
+      "boardId": "board-comprehensive-demo",
+      "title": "Bug Report Template",
+      "description": "# Bug Report Template\n\n## Description\nBrief description of the bug\n\n## Steps to Reproduce\n1. Step one\n2. Step two\n3. Step three\n\n## Expected Behavior\nWhat should happen\n\n## Actual Behavior\nWhat actually happens\n\n## Environment\n- Browser:\n- OS:\n- Version:\n\n## Screenshots\nAttach any relevant screenshots",
+      "labelIds": ["board-comprehensive-demo-label-red"],
+      "checklistIds": ["checklist-bug-template"],
+      "isTemplate": true,
+      "createdBy": "deepak",
+      "createdAt": "2030-02-22T15:14:00.000-06:00",
+      "customFields": [
+        {
+          "id": "board-comprehensive-demo-field-priority"
+        },
+        {
+          "id": "board-comprehensive-demo-field-effort"
+        },
+        {
+          "id": "board-comprehensive-demo-field-status"
+        }
+      ]
+    },
+    "card-archived": {
+      "id": "card-archived",
+      "boardId": "board-comprehensive-demo",
+      "title": "Old Feature Request",
+      "description": "This feature was requested but later deemed unnecessary.",
+      "labelIds": ["board-comprehensive-demo-label-purple"],
+      "archived": true,
+      "archivedAt": "2030-03-06T15:14:00.000-06:00",
+      "createdBy": "xavier",
+      "createdAt": "2030-02-17T15:14:00.000-06:00",
+      "customFields": [
+        {
+          "id": "board-comprehensive-demo-field-priority"
+        },
+        {
+          "id": "board-comprehensive-demo-field-effort"
+        },
+        {
+          "id": "board-comprehensive-demo-field-status"
+        }
+      ]
+    },
+    "card-mirrored": {
+      "id": "card-mirrored",
+      "boardId": "board-comprehensive-demo",
+      "title": "Cross-Team Collaboration Task",
+      "description": "This task requires coordination across multiple teams and appears in multiple lists.",
+      "labelIds": [
+        "board-comprehensive-demo-label-orange",
+        "board-comprehensive-demo-label-purple"
+      ],
+      "createdBy": "cat",
+      "assignedTo": ["cat", "nicolas", "deepak"],
+      "mirroredBy": ["card-mirrored-review-mirror"],
+      "createdAt": "2030-03-06T15:14:00.000-06:00",
+      "updatedAt": "2030-03-14T11:14:00.000-05:00",
+      "customFields": [
+        {
+          "id": "board-comprehensive-demo-field-priority"
+        },
+        {
+          "id": "board-comprehensive-demo-field-effort"
+        },
+        {
+          "id": "board-comprehensive-demo-field-status"
+        }
+      ]
+    },
+    "card-mirrored-review-mirror": {
+      "id": "card-mirrored-review-mirror",
+      "boardId": "board-comprehensive-demo",
+      "title": "Cross-Team Collaboration Task",
+      "description": "This task requires coordination across multiple teams and appears in multiple lists.",
+      "labelIds": [
+        "board-comprehensive-demo-label-orange",
+        "board-comprehensive-demo-label-purple"
+      ],
+      "createdBy": "cat",
+      "assignedTo": ["cat", "nicolas", "deepak"],
+      "createdAt": "2030-03-14T12:00:00.000-05:00",
+      "isMirror": true,
+      "mirrorOf": "card-mirrored",
+      "customFields": [
+        {
+          "id": "board-comprehensive-demo-field-priority"
+        },
+        {
+          "id": "board-comprehensive-demo-field-effort"
+        },
+        {
+          "id": "board-comprehensive-demo-field-status"
+        }
+      ]
+    },
+    "card-with-media": {
+      "id": "card-with-media",
+      "boardId": "board-comprehensive-demo",
+      "title": "Design Review with Mockups",
+      "description": "Review the new design mockups and provide feedback.",
+      "image": "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=400",
+      "attachments": [
+        "design-mockup-v1.png",
+        "user-flow-diagram.pdf",
+        "style-guide.sketch"
+      ],
+      "labelIds": [
+        "board-comprehensive-demo-label-pink",
+        "board-comprehensive-demo-label-yellow"
+      ],
+      "createdBy": "cat",
+      "assignedTo": ["cat", "shaya", "nicholas"],
+      "joined": true,
+      "createdAt": "2030-03-12T15:14:00.000-05:00",
+      "watched": true,
+      "customFields": [
+        {
+          "id": "board-comprehensive-demo-field-priority"
+        },
+        {
+          "id": "board-comprehensive-demo-field-effort"
+        },
+        {
+          "id": "board-comprehensive-demo-field-status"
+        }
+      ]
+    },
+    "card-inbox-item": {
+      "id": "card-inbox-item",
+      "boardId": "board-comprehensive-demo",
+      "title": "New Feature Request from Customer",
+      "description": "Customer requested ability to export data in CSV format.",
+      "labelIds": ["board-comprehensive-demo-label-purple"],
+      "createdBy": "nicolas",
+      "createdAt": "2030-03-14T07:14:00.000-05:00",
+      "customFields": [
+        {
+          "id": "board-comprehensive-demo-field-priority"
+        },
+        {
+          "id": "board-comprehensive-demo-field-effort"
+        },
+        {
+          "id": "board-comprehensive-demo-field-status"
+        }
+      ]
+    }
+  },
+  "comments": {
+    "comment-1": {
+      "id": "comment-1",
+      "cardId": "card-with-checklists",
+      "userId": "nicholas",
+      "boardId": "board-comprehensive-demo",
+      "content": "Great breakdown of the tasks! I think we should prioritize the mockup creation first.",
+      "createdAt": "2030-03-14T03:14:00.000-05:00"
+    },
+    "comment-2": {
+      "id": "comment-2",
+      "cardId": "card-with-checklists",
+      "userId": "cat",
+      "boardId": "board-comprehensive-demo",
+      "content": "I can start working on the mockups today. Should be ready by the due date.",
+      "createdAt": "2030-03-14T05:14:00.000-05:00"
+    },
+    "comment-3": {
+      "id": "comment-3",
+      "cardId": "card-overdue",
+      "userId": "nicolas",
+      "boardId": "board-comprehensive-demo",
+      "content": "This is taking longer than expected. The issue is more complex than initially thought.",
+      "createdAt": "2030-03-14T09:14:00.000-05:00"
+    },
+    "comment-4": {
+      "id": "comment-4",
+      "cardId": "card-overdue",
+      "userId": "shaya",
+      "boardId": "board-comprehensive-demo",
+      "content": "Let's schedule a quick call to discuss this. I might be able to help.",
+      "createdAt": "2030-03-14T11:14:00.000-05:00"
+    },
+    "comment-5": {
+      "id": "comment-5",
+      "cardId": "card-with-media",
+      "userId": "shaya",
+      "boardId": "board-comprehensive-demo",
+      "content": "The mockups look great! Just a few minor adjustments needed on the color scheme.",
+      "createdAt": "2030-03-14T13:14:00.000-05:00"
+    },
+    "comment-6": {
+      "id": "comment-6",
+      "cardId": "card-mirrored",
+      "userId": "deepak",
+      "boardId": "board-comprehensive-demo",
+      "content": "This will require coordination with the API team. I'll reach out to them.",
+      "createdAt": "2030-03-14T07:14:00.000-05:00"
+    }
+  },
+  "activities": {
+    "activity-1": {
+      "id": "activity-1",
+      "cardId": "card-simple",
+      "userId": "shaya",
+      "boardId": "board-comprehensive-demo",
+      "type": "create",
+      "details": {},
+      "createdAt": "2030-03-09T15:14:00.000-06:00"
+    },
+    "activity-2": {
+      "id": "activity-2",
+      "cardId": "card-with-labels",
+      "userId": "nicholas",
+      "boardId": "board-comprehensive-demo",
+      "type": "create",
+      "details": {},
+      "createdAt": "2030-03-10T15:14:00.000-05:00"
+    },
+    "activity-3": {
+      "id": "activity-3",
+      "cardId": "card-with-labels",
+      "userId": "cat",
+      "boardId": "board-comprehensive-demo",
+      "type": "join",
+      "details": {},
+      "createdAt": "2030-03-11T15:14:00.000-05:00"
+    },
+    "activity-4": {
+      "id": "activity-4",
+      "cardId": "card-completed",
+      "userId": "shaya",
+      "boardId": "board-comprehensive-demo",
+      "type": "complete",
+      "details": {},
+      "createdAt": "2030-03-13T15:14:00.000-05:00"
+    },
+    "activity-5": {
+      "id": "activity-5",
+      "cardId": "card-archived",
+      "userId": "xavier",
+      "boardId": "board-comprehensive-demo",
+      "type": "archive",
+      "details": {},
+      "createdAt": "2030-03-06T15:14:00.000-06:00"
+    },
+    "activity-6": {
+      "id": "activity-6",
+      "cardId": "card-mirrored",
+      "userId": "cat",
+      "boardId": "board-comprehensive-demo",
+      "type": "create",
+      "details": {},
+      "createdAt": "2030-03-06T15:14:00.000-06:00"
+    },
+    "activity-7": {
+      "id": "activity-7",
+      "cardId": "card-template",
+      "userId": "deepak",
+      "boardId": "board-comprehensive-demo",
+      "type": "template",
+      "details": {},
+      "createdAt": "2030-02-22T15:14:00.000-06:00"
+    }
+  },
+  "labels": {
+    "board-comprehensive-demo-label-green": {
+      "id": "board-comprehensive-demo-label-green",
+      "title": "Priority: High",
+      "color": "green",
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "boardId": "board-comprehensive-demo"
+    },
+    "board-comprehensive-demo-label-yellow": {
+      "id": "board-comprehensive-demo-label-yellow",
+      "title": "In Review",
+      "color": "yellow",
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "boardId": "board-comprehensive-demo"
+    },
+    "board-comprehensive-demo-label-orange": {
+      "id": "board-comprehensive-demo-label-orange",
+      "title": "Blocked",
+      "color": "orange",
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "boardId": "board-comprehensive-demo"
+    },
+    "board-comprehensive-demo-label-red": {
+      "id": "board-comprehensive-demo-label-red",
+      "title": "Bug",
+      "color": "red",
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "boardId": "board-comprehensive-demo"
+    },
+    "board-comprehensive-demo-label-purple": {
+      "id": "board-comprehensive-demo-label-purple",
+      "title": "Feature",
+      "color": "purple",
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "boardId": "board-comprehensive-demo"
+    },
+    "board-comprehensive-demo-label-blue": {
+      "id": "board-comprehensive-demo-label-blue",
+      "title": "Documentation",
+      "color": "blue",
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "boardId": "board-comprehensive-demo"
+    },
+    "board-comprehensive-demo-label-sky": {
+      "id": "board-comprehensive-demo-label-sky",
+      "title": "Research",
+      "color": "sky",
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "boardId": "board-comprehensive-demo"
+    },
+    "board-comprehensive-demo-label-lime": {
+      "id": "board-comprehensive-demo-label-lime",
+      "title": "Testing",
+      "color": "lime",
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "boardId": "board-comprehensive-demo"
+    },
+    "board-comprehensive-demo-label-pink": {
+      "id": "board-comprehensive-demo-label-pink",
+      "title": "Design",
+      "color": "pink",
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "boardId": "board-comprehensive-demo"
+    },
+    "board-comprehensive-demo-label-black": {
+      "id": "board-comprehensive-demo-label-black",
+      "title": "Technical Debt",
+      "color": "black",
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "boardId": "board-comprehensive-demo"
+    }
+  },
+  "checklists": {
+    "checklist-planning": {
+      "id": "checklist-planning",
+      "cardId": "card-with-checklists",
+      "title": "📋 Planning Phase",
+      "items": [
+        {
+          "label": "Define requirements",
+          "checked": true
+        },
+        {
+          "label": "Create user stories",
+          "checked": true
+        },
+        {
+          "label": "Design mockups",
+          "checked": false,
+          "assignedTo": "cat",
+          "dueDate": "2030-03-16T15:14:00.000-05:00"
+        },
+        {
+          "label": "Review with stakeholders",
+          "checked": false,
+          "dueDate": "2030-03-18T15:14:00.000-05:00"
+        }
+      ]
+    },
+    "checklist-development": {
+      "id": "checklist-development",
+      "cardId": "card-with-checklists",
+      "title": "💻 Development Phase",
+      "items": [
+        {
+          "label": "Set up development environment",
+          "checked": false,
+          "assignedTo": "deepak"
+        },
+        {
+          "label": "Implement core functionality",
+          "checked": false,
+          "assignedTo": "xavier"
+        },
+        {
+          "label": "Add error handling",
+          "checked": false
+        },
+        {
+          "label": "Write unit tests",
+          "checked": false,
+          "assignedTo": "nicolas",
+          "dueDate": "2030-03-21T15:14:00.000-05:00"
+        }
+      ]
+    },
+    "checklist-deployment": {
+      "id": "checklist-deployment",
+      "cardId": "card-with-checklists",
+      "title": "🚀 Deployment Phase",
+      "items": [
+        {
+          "label": "Deploy to staging",
+          "checked": false
+        },
+        {
+          "label": "Run integration tests",
+          "checked": false
+        },
+        {
+          "label": "Deploy to production",
+          "checked": false
+        },
+        {
+          "label": "Monitor for issues",
+          "checked": false,
+          "dueDate": "2030-03-24T15:14:00.000-05:00"
+        }
+      ]
+    },
+    "checklist-completed": {
+      "id": "checklist-completed",
+      "cardId": "card-completed",
+      "title": "✅ Completed Tasks",
+      "items": [
+        {
+          "label": "Initial implementation",
+          "checked": true
+        },
+        {
+          "label": "Code review",
+          "checked": true
+        },
+        {
+          "label": "Testing",
+          "checked": true
+        },
+        {
+          "label": "Documentation",
+          "checked": true
+        },
+        {
+          "label": "Deployment",
+          "checked": true
+        }
+      ]
+    },
+    "checklist-bug-template": {
+      "id": "checklist-bug-template",
+      "cardId": "card-template",
+      "title": "🐛 Bug Investigation Checklist",
+      "items": [
+        {
+          "label": "Reproduce the issue",
+          "checked": false
+        },
+        {
+          "label": "Check logs for errors",
+          "checked": false
+        },
+        {
+          "label": "Identify root cause",
+          "checked": false
+        },
+        {
+          "label": "Implement fix",
+          "checked": false
+        },
+        {
+          "label": "Test fix",
+          "checked": false
+        },
+        {
+          "label": "Update documentation",
+          "checked": false
+        }
+      ]
+    }
+  },
+  "currentBoardId": "board-comprehensive-demo",
+  "lastCardAction": null,
+  "suggestedFieldTemplates": [
+    {
+      "id": "priority-template",
+      "name": "Priority",
+      "type": "list",
+      "options": [
+        {
+          "label": "Highest",
+          "color": "#EB5A46"
+        },
+        {
+          "label": "High",
+          "color": "#FF9F1A"
+        },
+        {
+          "label": "Medium",
+          "color": "#F2D600"
+        },
+        {
+          "label": "Low",
+          "color": "#00C2E0"
+        },
+        {
+          "label": "Lowest",
+          "color": "#0079BF"
+        },
+        {
+          "label": "Not sure",
+          "color": ""
+        }
+      ],
+      "showOnFront": true,
+      "description": "Set task priority levels",
+      "category": "productivity"
+    },
+    {
+      "id": "status-template",
+      "name": "Status",
+      "type": "list",
+      "options": [
+        {
+          "label": "To do",
+          "color": "#FF9F1A"
+        },
+        {
+          "label": "In progress",
+          "color": "#00C2E0"
+        },
+        {
+          "label": "Done",
+          "color": "#0079BF"
+        },
+        {
+          "label": "In review",
+          "color": "#FF78CB"
+        },
+        {
+          "label": "Approved",
+          "color": "#C377E0"
+        },
+        {
+          "label": "Not sure",
+          "color": ""
+        }
+      ],
+      "showOnFront": true,
+      "description": "Track task status",
+      "category": "productivity"
+    },
+    {
+      "id": "risk-template",
+      "name": "Risk",
+      "type": "list",
+      "options": [
+        {
+          "label": "Highest",
+          "color": "#EB5A46"
+        },
+        {
+          "label": "High",
+          "color": "#FF9F1A"
+        },
+        {
+          "label": "Medium",
+          "color": "#F2D600"
+        },
+        {
+          "label": "Low",
+          "color": "#00C2E0"
+        },
+        {
+          "label": "Lowest",
+          "color": "#0079BF"
+        },
+        {
+          "label": "Not sure",
+          "color": ""
+        }
+      ],
+      "showOnFront": true,
+      "description": "Assess task risk level",
+      "category": "tracking"
+    },
+    {
+      "id": "effort-template",
+      "name": "Effort",
+      "type": "list",
+      "options": [
+        {
+          "label": "XL",
+          "color": "#B04632"
+        },
+        {
+          "label": "L",
+          "color": "#EB5A46"
+        },
+        {
+          "label": "M",
+          "color": "#FF9F1A"
+        },
+        {
+          "label": "S",
+          "color": "#F2D600"
+        },
+        {
+          "label": "XS",
+          "color": "#61BD4F"
+        }
+      ],
+      "showOnFront": true,
+      "description": "Estimate effort required",
+      "category": "tracking"
+    }
+  ],
+  "search": {
+    "query": "",
+    "isActive": false,
+    "recentSearches": [],
+    "recentBoards": [
+      {
+        "id": "board-comprehensive-demo",
+        "title": "Comprehensive Feature Demo",
+        "lastViewed": "2030-03-14T15:14:00.000-05:00",
+        "starred": true
+      }
+    ],
+    "results": {
+      "cards": [],
+      "lists": [],
+      "boards": [],
+      "totalCount": 0
+    }
+  },
+  "boardFilters": {
+    "keyword": "",
+    "members": {
+      "noMembers": false,
+      "assignedToMe": false,
+      "selectedMembers": [],
+      "enableDropdown": false
+    },
+    "cardStatus": {
+      "markedComplete": false,
+      "notMarkedComplete": false
+    },
+    "dueDate": {
+      "noDates": false,
+      "overdue": false,
+      "nextDay": false,
+      "nextWeek": false,
+      "nextMonth": false
+    },
+    "labels": {
+      "noLabels": false,
+      "selectedLabels": [],
+      "enableDropdown": false
+    },
+    "activity": {
+      "lastWeek": false,
+      "lastTwoWeeks": false,
+      "lastFourWeeks": false,
+      "withoutActivity": false
+    }
+  },
+  "customFieldDefinitions": {
+    "board-comprehensive-demo-field-priority": {
+      "id": "board-comprehensive-demo-field-priority",
+      "name": "Priority Level",
+      "type": "list",
+      "options": [
+        {
+          "label": "Critical",
+          "color": "#f87168"
+        },
+        {
+          "label": "High",
+          "color": "#fca701"
+        },
+        {
+          "label": "Medium",
+          "color": "#eed12a"
+        },
+        {
+          "label": "Low",
+          "color": "#4cce97"
+        }
+      ],
+      "showOnFront": true,
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "order": 0,
+      "boardId": "board-comprehensive-demo"
+    },
+    "board-comprehensive-demo-field-effort": {
+      "id": "board-comprehensive-demo-field-effort",
+      "name": "Story Points",
+      "type": "number",
+      "showOnFront": true,
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "order": 1,
+      "boardId": "board-comprehensive-demo"
+    },
+    "board-comprehensive-demo-field-status": {
+      "id": "board-comprehensive-demo-field-status",
+      "name": "Development Status",
+      "type": "list",
+      "options": [
+        {
+          "label": "Not Started",
+          "color": "#8b8f97"
+        },
+        {
+          "label": "In Progress",
+          "color": "#659df1"
+        },
+        {
+          "label": "Code Review",
+          "color": "#eed12a"
+        },
+        {
+          "label": "Testing",
+          "color": "#fca701"
+        },
+        {
+          "label": "Done",
+          "color": "#4cce97"
+        }
+      ],
+      "showOnFront": false,
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "order": 2,
+      "boardId": "board-comprehensive-demo"
+    }
+  }
+}

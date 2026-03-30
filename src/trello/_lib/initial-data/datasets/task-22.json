@@ -1,0 +1,577 @@
+{
+  "currentBoardId": "board-basic",
+  "boards": {
+    "board-development": {
+      "id": "board-development",
+      "title": "Development Board",
+      "description": "Product development and feature tracking",
+      "workspace": "workspace-product-team",
+      "visibility": "workspace",
+      "createdAt": "2029-12-14T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "lists": [
+        {
+          "id": "backlog",
+          "title": "Backlog",
+          "cardIds": [
+            "feature-backlog-1",
+            "feature-backlog-2",
+            "feature-backlog-3"
+          ],
+          "isDraggable": true
+        },
+        {
+          "id": "in-development",
+          "title": "In Development",
+          "cardIds": ["feature-dev-1", "feature-dev-2"],
+          "isDraggable": true
+        },
+        {
+          "id": "testing",
+          "title": "Testing",
+          "cardIds": ["feature-test-1", "feature-test-2"],
+          "isDraggable": true
+        },
+        {
+          "id": "ready-for-launch",
+          "title": "Ready for Launch",
+          "cardIds": ["feature-launch-ready"],
+          "isDraggable": true
+        },
+        {
+          "id": "launched",
+          "title": "Launched",
+          "cardIds": ["feature-launched-1", "feature-launched-2"],
+          "isDraggable": true
+        }
+      ],
+      "cards": [
+        {
+          "id": "feature-backlog-1",
+          "listId": "backlog",
+          "title": "Advanced Analytics Dashboard",
+          "description": "Create comprehensive analytics dashboard with real-time metrics and custom reports",
+          "labelIds": ["label-feature", "label-analytics"],
+          "attachments": [],
+          "completed": false,
+          "createdAt": "2030-02-12T15:14:00.000-06:00",
+          "createdBy": "deepak",
+          "assignedTo": ["deepak"]
+        },
+        {
+          "id": "feature-backlog-2",
+          "listId": "backlog",
+          "title": "Mobile App Push Notifications",
+          "description": "Implement push notification system for mobile app with user preferences",
+          "labelIds": ["label-feature", "label-mobile"],
+          "attachments": [],
+          "completed": false,
+          "createdAt": "2030-02-12T15:14:00.000-06:00",
+          "createdBy": "nicholas",
+          "assignedTo": ["nicholas"]
+        },
+        {
+          "id": "feature-backlog-3",
+          "listId": "backlog",
+          "title": "API Rate Limiting",
+          "description": "Add rate limiting to API endpoints to prevent abuse",
+          "labelIds": ["label-feature", "label-backend"],
+          "attachments": [],
+          "completed": false,
+          "createdAt": "2030-02-28T15:14:00.000-06:00",
+          "createdBy": "xavier",
+          "assignedTo": ["xavier"]
+        },
+        {
+          "id": "feature-dev-1",
+          "listId": "in-development",
+          "title": "User Authentication 2.0",
+          "description": "Upgrade authentication system with OAuth2 and multi-factor authentication",
+          "labelIds": ["label-feature", "label-security"],
+          "attachments": [],
+          "completed": false,
+          "createdAt": "2030-02-21T15:14:00.000-06:00",
+          "createdBy": "xavier",
+          "assignedTo": ["xavier", "deepak"]
+        },
+        {
+          "id": "feature-dev-2",
+          "listId": "in-development",
+          "title": "Dark Mode Theme",
+          "description": "Implement dark mode theme across the entire application",
+          "labelIds": ["label-feature", "label-ui"],
+          "attachments": [],
+          "completed": false,
+          "createdAt": "2030-02-28T15:14:00.000-06:00",
+          "createdBy": "nicholas",
+          "assignedTo": ["nicholas", "cat"]
+        },
+        {
+          "id": "feature-test-1",
+          "listId": "testing",
+          "title": "Payment Gateway Integration",
+          "description": "Integrate new payment gateway with enhanced security features",
+          "labelIds": ["label-feature", "label-payment"],
+          "attachments": [],
+          "completed": false,
+          "createdAt": "2030-03-07T15:14:00.000-06:00",
+          "createdBy": "deepak",
+          "assignedTo": ["deepak"]
+        },
+        {
+          "id": "feature-test-2",
+          "listId": "testing",
+          "title": "Email Template System",
+          "description": "Create customizable email template system with dynamic content",
+          "labelIds": ["label-feature", "label-email"],
+          "attachments": [],
+          "completed": false,
+          "createdAt": "2030-03-07T15:14:00.000-06:00",
+          "createdBy": "cat",
+          "assignedTo": ["cat"]
+        },
+        {
+          "id": "feature-launch-ready",
+          "listId": "ready-for-launch",
+          "title": "AI-Powered Search Engine",
+          "description": "Advanced search functionality with machine learning algorithms for better results and recommendations. Features include natural language processing, semantic search, and personalized recommendations based on user behavior.",
+          "labelIds": [
+            "label-feature",
+            "label-ai",
+            "label-search",
+            "label-ready-for-launch"
+          ],
+          "attachments": [],
+          "completed": true,
+          "createdAt": "2030-02-28T15:14:00.000-06:00",
+          "createdBy": "deepak",
+          "assignedTo": ["deepak", "xavier"],
+          "dueDate": "2030-03-14T15:14:00.000-05:00"
+        },
+        {
+          "id": "feature-launched-1",
+          "listId": "launched",
+          "title": "User Profile Management",
+          "description": "Comprehensive user profile system with avatar upload and preferences",
+          "labelIds": ["label-feature", "label-launched"],
+          "attachments": [],
+          "completed": true,
+          "createdAt": "2030-01-13T15:14:00.000-06:00",
+          "createdBy": "nicholas",
+          "assignedTo": ["nicholas"],
+          "dueDate": "2030-01-13T15:14:00.000-06:00"
+        },
+        {
+          "id": "feature-launched-2",
+          "listId": "launched",
+          "title": "Real-time Chat System",
+          "description": "Real-time messaging system with file sharing and group chat",
+          "labelIds": ["label-feature", "label-launched"],
+          "attachments": [],
+          "completed": true,
+          "createdAt": "2030-02-12T15:14:00.000-06:00",
+          "createdBy": "cat",
+          "assignedTo": ["cat", "deepak"],
+          "dueDate": "2030-02-12T15:14:00.000-06:00"
+        }
+      ],
+      "labels": [
+        {
+          "id": "label-feature",
+          "title": "feature",
+          "color": "blue",
+          "createdAt": "2030-03-14T15:14:00.000-05:00",
+          "createdBy": "shaya"
+        },
+        {
+          "id": "label-analytics",
+          "title": "analytics",
+          "color": "green",
+          "createdAt": "2030-03-14T15:14:00.000-05:00",
+          "createdBy": "shaya"
+        },
+        {
+          "id": "label-mobile",
+          "title": "mobile",
+          "color": "purple",
+          "createdAt": "2030-03-14T15:14:00.000-05:00",
+          "createdBy": "shaya"
+        },
+        {
+          "id": "label-backend",
+          "title": "backend",
+          "color": "orange",
+          "createdAt": "2030-03-14T15:14:00.000-05:00",
+          "createdBy": "shaya"
+        },
+        {
+          "id": "label-security",
+          "title": "security",
+          "color": "red",
+          "createdAt": "2030-03-14T15:14:00.000-05:00",
+          "createdBy": "shaya"
+        },
+        {
+          "id": "label-ui",
+          "title": "UI",
+          "color": "pink",
+          "createdAt": "2030-03-14T15:14:00.000-05:00",
+          "createdBy": "shaya"
+        },
+        {
+          "id": "label-payment",
+          "title": "payment",
+          "color": "green",
+          "createdAt": "2030-03-14T15:14:00.000-05:00",
+          "createdBy": "shaya"
+        },
+        {
+          "id": "label-email",
+          "title": "email",
+          "color": "blue",
+          "createdAt": "2030-03-14T15:14:00.000-05:00",
+          "createdBy": "shaya"
+        },
+        {
+          "id": "label-ai",
+          "title": "AI",
+          "color": "purple",
+          "createdAt": "2030-03-14T15:14:00.000-05:00",
+          "createdBy": "shaya"
+        },
+        {
+          "id": "label-search",
+          "title": "search",
+          "color": "sky",
+          "createdAt": "2030-03-14T15:14:00.000-05:00",
+          "createdBy": "shaya"
+        },
+        {
+          "id": "label-ready-for-launch",
+          "title": "ready-for-launch",
+          "color": "green",
+          "createdAt": "2030-03-14T15:14:00.000-05:00",
+          "createdBy": "shaya"
+        },
+        {
+          "id": "label-launched",
+          "title": "launched",
+          "color": "green",
+          "createdAt": "2030-03-14T15:14:00.000-05:00",
+          "createdBy": "shaya"
+        }
+      ],
+      "collapsedListIds": [],
+      "comments": [
+        {
+          "id": "comment1",
+          "cardId": "feature-launch-ready",
+          "userId": "deepak",
+          "content": "AI search engine is fully tested and ready for launch. All performance benchmarks met.",
+          "createdAt": "2030-03-13T15:14:00.000-05:00"
+        },
+        {
+          "id": "comment2",
+          "cardId": "feature-launch-ready",
+          "userId": "xavier",
+          "content": "Security review completed. No vulnerabilities found.",
+          "createdAt": "2030-03-14T15:14:00.000-05:00"
+        }
+      ],
+      "activities": [],
+      "customFieldDefinitionIds": []
+    },
+    "board-marketing": {
+      "id": "board-marketing",
+      "title": "Marketing Board",
+      "description": "Marketing campaigns and launch coordination",
+      "workspace": "workspace-product-team",
+      "visibility": "workspace",
+      "createdAt": "2029-12-14T15:14:00.000-06:00",
+      "createdBy": "cat",
+      "lists": [
+        {
+          "id": "campaign-planning",
+          "title": "Campaign Planning",
+          "cardIds": ["campaign-plan-1", "campaign-plan-2"],
+          "isDraggable": true
+        },
+        {
+          "id": "launch-preparation",
+          "title": "Launch Preparation",
+          "cardIds": [],
+          "isDraggable": true
+        },
+        {
+          "id": "active-campaigns",
+          "title": "Active Campaigns",
+          "cardIds": ["campaign-active-1", "campaign-active-2"],
+          "isDraggable": true
+        },
+        {
+          "id": "campaigns-complete",
+          "title": "Campaigns Complete",
+          "cardIds": ["campaign-complete-1", "campaign-complete-2"],
+          "isDraggable": true
+        }
+      ],
+      "cards": [
+        {
+          "id": "campaign-plan-1",
+          "listId": "campaign-planning",
+          "title": "Q4 Holiday Campaign",
+          "description": "Plan holiday season marketing campaign with special offers and promotions",
+          "labelIds": ["label-campaign", "label-planning"],
+          "attachments": [],
+          "completed": false,
+          "createdAt": "2030-03-07T15:14:00.000-06:00",
+          "createdBy": "cat",
+          "assignedTo": ["cat", "nicholas"]
+        },
+        {
+          "id": "campaign-plan-2",
+          "listId": "campaign-planning",
+          "title": "User Onboarding Campaign",
+          "description": "Design campaign to improve new user onboarding experience",
+          "labelIds": ["label-campaign", "label-onboarding"],
+          "attachments": [],
+          "completed": false,
+          "createdAt": "2030-02-28T15:14:00.000-06:00",
+          "createdBy": "nicholas",
+          "assignedTo": ["nicholas"]
+        },
+        {
+          "id": "campaign-active-1",
+          "listId": "active-campaigns",
+          "title": "Social Media Awareness",
+          "description": "Ongoing social media campaign to increase brand awareness",
+          "labelIds": ["label-campaign", "label-social"],
+          "attachments": [],
+          "completed": false,
+          "createdAt": "2030-02-12T15:14:00.000-06:00",
+          "createdBy": "cat",
+          "assignedTo": ["cat"]
+        },
+        {
+          "id": "campaign-active-2",
+          "listId": "active-campaigns",
+          "title": "Email Newsletter",
+          "description": "Weekly email newsletter to engage existing users",
+          "labelIds": ["label-campaign", "label-email"],
+          "attachments": [],
+          "completed": false,
+          "createdAt": "2030-01-13T15:14:00.000-06:00",
+          "createdBy": "nicholas",
+          "assignedTo": ["nicholas"]
+        },
+        {
+          "id": "campaign-complete-1",
+          "listId": "campaigns-complete",
+          "title": "Beta Launch Campaign",
+          "description": "Successfully launched beta version with 1000+ signups",
+          "labelIds": ["label-campaign", "label-completed"],
+          "attachments": [],
+          "completed": true,
+          "createdAt": "2029-12-14T15:14:00.000-06:00",
+          "createdBy": "cat",
+          "assignedTo": ["cat", "nicholas"],
+          "dueDate": "2029-12-14T15:14:00.000-06:00"
+        },
+        {
+          "id": "campaign-complete-2",
+          "listId": "campaigns-complete",
+          "title": "Product Demo Webinar",
+          "description": "Hosted successful product demo webinar with 500+ attendees",
+          "labelIds": ["label-campaign", "label-completed"],
+          "attachments": [],
+          "completed": true,
+          "createdAt": "2030-01-13T15:14:00.000-06:00",
+          "createdBy": "nicholas",
+          "assignedTo": ["nicholas"],
+          "dueDate": "2030-01-13T15:14:00.000-06:00"
+        }
+      ],
+      "labels": [
+        {
+          "id": "label-campaign",
+          "title": "campaign",
+          "color": "purple",
+          "createdAt": "2030-03-14T15:14:00.000-05:00",
+          "createdBy": "cat"
+        },
+        {
+          "id": "label-planning",
+          "title": "planning",
+          "color": "blue",
+          "createdAt": "2030-03-14T15:14:00.000-05:00",
+          "createdBy": "cat"
+        },
+        {
+          "id": "label-onboarding",
+          "title": "onboarding",
+          "color": "green",
+          "createdAt": "2030-03-14T15:14:00.000-05:00",
+          "createdBy": "cat"
+        },
+        {
+          "id": "label-social",
+          "title": "social",
+          "color": "pink",
+          "createdAt": "2030-03-14T15:14:00.000-05:00",
+          "createdBy": "cat"
+        },
+        {
+          "id": "label-email",
+          "title": "email",
+          "color": "blue",
+          "createdAt": "2030-03-14T15:14:00.000-05:00",
+          "createdBy": "cat"
+        },
+        {
+          "id": "label-completed",
+          "title": "completed",
+          "color": "green",
+          "createdAt": "2030-03-14T15:14:00.000-05:00",
+          "createdBy": "cat"
+        }
+      ],
+      "collapsedListIds": [],
+      "comments": [
+        {
+          "id": "comment3",
+          "cardId": "campaign-complete-1",
+          "userId": "cat",
+          "content": "Beta launch exceeded expectations! Great work team.",
+          "createdAt": "2029-12-14T15:14:00.000-06:00"
+        },
+        {
+          "id": "comment4",
+          "cardId": "campaign-active-1",
+          "userId": "nicholas",
+          "content": "Social media engagement is up 25% this month.",
+          "createdAt": "2030-03-13T15:14:00.000-05:00"
+        }
+      ],
+      "activities": [],
+      "customFieldDefinitionIds": []
+    }
+  },
+  "lists": {},
+  "cards": {},
+  "workspaces": {
+    "workspace-product-team": {
+      "id": "workspace-product-team",
+      "name": "Product Team",
+      "description": "Product development and marketing coordination",
+      "type": "team",
+      "members": ["shaya", "nicholas", "deepak", "xavier", "cat", "nicolas"],
+      "createdAt": "2029-12-14T15:14:00.000-06:00",
+      "createdBy": "shaya"
+    }
+  },
+  "users": {
+    "shaya": {
+      "id": "shaya",
+      "email": "shaya@anthropic.com",
+      "displayName": "Shaya Zarkesh",
+      "avatar": "/avatars/shaya.jpg"
+    },
+    "nicholas": {
+      "id": "nicholas",
+      "email": "nicholas@anthropic.com",
+      "displayName": "Nicholas Marwell",
+      "avatar": "/avatars/nicholas.jpg"
+    },
+    "deepak": {
+      "id": "deepak",
+      "email": "deepak@anthropic.com",
+      "displayName": "Deepak Moparthi",
+      "avatar": "/avatars/deepak.jpg"
+    },
+    "xavier": {
+      "id": "xavier",
+      "email": "xavier@anthropic.com",
+      "displayName": "Xavier Garcia",
+      "avatar": "/avatars/xavier.jpg"
+    },
+    "cat": {
+      "id": "cat",
+      "email": "cat@anthropic.com",
+      "displayName": "Cat Wu",
+      "avatar": "/avatars/cat.jpg"
+    },
+    "nicolas": {
+      "id": "nicolas",
+      "email": "nicolas@anthropic.com",
+      "displayName": "Nicolas Thiébaud",
+      "avatar": "/avatars/nicolas.jpg"
+    }
+  },
+  "currentUser": {
+    "id": "shaya",
+    "email": "shaya@anthropic.com",
+    "displayName": "Shaya Zarkesh",
+    "avatar": "/avatars/shaya.jpg",
+    "timezone": "America/Los_Angeles"
+  },
+  "search": {
+    "query": "",
+    "isActive": false,
+    "recentSearches": [],
+    "recentBoards": [
+      {
+        "id": "board-development",
+        "title": "Development Board",
+        "lastViewed": "2030-03-14T15:14:00.000-05:00"
+      },
+      {
+        "id": "board-marketing",
+        "title": "Marketing Board",
+        "lastViewed": "2030-03-13T15:14:00.000-05:00"
+      }
+    ],
+    "results": {
+      "cards": [],
+      "lists": [],
+      "totalCount": 0
+    }
+  },
+  "boardFilters": {
+    "keyword": "",
+    "members": {
+      "noMembers": false,
+      "assignedToMe": false,
+      "selectedMembers": [],
+      "enableDropdown": false
+    },
+    "cardStatus": {
+      "markedComplete": false,
+      "notMarkedComplete": false
+    },
+    "dueDate": {
+      "noDates": false,
+      "overdue": false,
+      "nextDay": false,
+      "nextWeek": false,
+      "nextMonth": false
+    },
+    "labels": {
+      "noLabels": false,
+      "selectedLabels": [],
+      "enableDropdown": false
+    },
+    "activity": {
+      "lastWeek": false,
+      "lastTwoWeeks": false,
+      "lastFourWeeks": false,
+      "withoutActivity": false
+    }
+  },
+  "suggestedFieldTemplates": [],
+  "lastCardAction": null,
+  "comments": {},
+  "activities": {},
+  "labels": {},
+  "checklists": {},
+  "customFieldDefinitions": {}
+}

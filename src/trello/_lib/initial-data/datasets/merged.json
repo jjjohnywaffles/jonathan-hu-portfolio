@@ -1,0 +1,1872 @@
+{
+  "currentUser": {
+    "id": "shaya",
+    "email": "shaya@anthropic.com",
+    "displayName": "Shaya Zarkesh",
+    "avatar": "/avatars/shaya.jpg",
+    "timezone": "America/Los_Angeles"
+  },
+  "users": {
+    "shaya": {
+      "id": "shaya",
+      "email": "shaya@anthropic.com",
+      "displayName": "Shaya Zarkesh",
+      "avatar": "/avatars/shaya.jpg"
+    },
+    "nicholas": {
+      "id": "nicholas",
+      "email": "nicholas@anthropic.com",
+      "displayName": "Nicholas Marwell",
+      "avatar": "/avatars/nicholas.jpg"
+    },
+    "deepak": {
+      "id": "deepak",
+      "email": "deepak@anthropic.com",
+      "displayName": "Deepak Moparthi",
+      "avatar": "/avatars/deepak.jpg"
+    },
+    "xavier": {
+      "id": "xavier",
+      "email": "xavier@anthropic.com",
+      "displayName": "Xavier Garcia",
+      "avatar": "/avatars/xavier.jpg"
+    },
+    "cat": {
+      "id": "cat",
+      "email": "cat@anthropic.com",
+      "displayName": "Cat Wu",
+      "avatar": "/avatars/cat.jpg"
+    },
+    "nicolas": {
+      "id": "nicolas",
+      "email": "nicolas@anthropic.com",
+      "displayName": "Nicolas Thiébaud",
+      "avatar": "/avatars/nicolas.jpg"
+    }
+  },
+  "workspaces": {
+    "workspace-dev-team": {
+      "id": "workspace-dev-team",
+      "name": "Development Team",
+      "description": "Main workspace for development projects",
+      "type": "team",
+      "members": [
+        "shaya",
+        "nicholas",
+        "deepak",
+        "xavier",
+        "cat",
+        "nicolas"
+      ],
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya"
+    },
+    "workspace-product-team": {
+      "id": "workspace-product-team",
+      "name": "Product Team",
+      "description": "Product development and marketing coordination",
+      "type": "team",
+      "members": [
+        "shaya",
+        "nicholas",
+        "deepak",
+        "xavier",
+        "cat",
+        "nicolas"
+      ],
+      "createdAt": "2029-12-14T15:14:00.000-06:00",
+      "createdBy": "shaya"
+    }
+  },
+  "boards": {
+    "board-comprehensive-demo": {
+      "id": "board-comprehensive-demo",
+      "title": "Comprehensive Feature Demo",
+      "description": "A board showcasing all Trello features and card states",
+      "background": "#0079BF",
+      "starred": true,
+      "workspace": "workspace-dev-team",
+      "visibility": "workspace",
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "updatedAt": "2030-03-14T13:14:00.000-05:00",
+      "labelIds": [
+        "board-comprehensive-demo-label-green",
+        "board-comprehensive-demo-label-yellow",
+        "board-comprehensive-demo-label-orange",
+        "board-comprehensive-demo-label-red",
+        "board-comprehensive-demo-label-purple",
+        "board-comprehensive-demo-label-blue",
+        "board-comprehensive-demo-label-sky",
+        "board-comprehensive-demo-label-lime",
+        "board-comprehensive-demo-label-pink",
+        "board-comprehensive-demo-label-black"
+      ],
+      "collapsedListIds": [],
+      "commentIds": [
+        "comment-1",
+        "comment-2",
+        "comment-3",
+        "comment-4",
+        "comment-5",
+        "comment-6"
+      ],
+      "activityIds": [
+        "activity-1",
+        "activity-2",
+        "activity-3",
+        "activity-4",
+        "activity-5",
+        "activity-6",
+        "activity-7"
+      ],
+      "customFieldDefinitionIds": [
+        "board-comprehensive-demo-field-priority",
+        "board-comprehensive-demo-field-effort",
+        "board-comprehensive-demo-field-status"
+      ]
+    },
+    "board-development": {
+      "id": "board-development",
+      "title": "Development Board",
+      "description": "Product development and feature tracking",
+      "workspace": "workspace-product-team",
+      "visibility": "workspace",
+      "createdAt": "2029-12-14T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "labelIds": [
+        "label-feature",
+        "label-analytics",
+        "label-mobile",
+        "label-backend",
+        "label-security",
+        "label-ui",
+        "label-payment",
+        "label-email",
+        "label-ai",
+        "label-search",
+        "label-ready-for-launch",
+        "label-launched"
+      ],
+      "collapsedListIds": [],
+      "commentIds": [
+        "comment1",
+        "comment2"
+      ],
+      "activityIds": [],
+      "customFieldDefinitionIds": []
+    },
+    "board-marketing": {
+      "id": "board-marketing",
+      "title": "Marketing Board",
+      "description": "Marketing campaigns and launch coordination",
+      "workspace": "workspace-product-team",
+      "visibility": "workspace",
+      "createdAt": "2029-12-14T15:14:00.000-06:00",
+      "createdBy": "cat",
+      "labelIds": [
+        "label-campaign",
+        "label-planning",
+        "label-onboarding",
+        "label-social",
+        "label-email",
+        "label-completed"
+      ],
+      "collapsedListIds": [],
+      "commentIds": [
+        "comment3",
+        "comment4"
+      ],
+      "activityIds": [],
+      "customFieldDefinitionIds": []
+    }
+  },
+  "lists": {
+    "list-backlog": {
+      "id": "list-backlog",
+      "boardId": "board-comprehensive-demo",
+      "title": "📋 Backlog",
+      "cardRefs": [
+        {
+          "type": "card",
+          "cardId": "card-simple"
+        },
+        {
+          "type": "card",
+          "cardId": "card-inbox-item"
+        }
+      ],
+      "order": 0,
+      "isDraggable": true,
+      "watched": true
+    },
+    "list-todo": {
+      "id": "list-todo",
+      "boardId": "board-comprehensive-demo",
+      "title": "📝 To Do",
+      "cardRefs": [
+        {
+          "type": "card",
+          "cardId": "card-with-labels"
+        },
+        {
+          "type": "card",
+          "cardId": "card-due-soon"
+        },
+        {
+          "type": "card",
+          "cardId": "card-with-media"
+        }
+      ],
+      "order": 1,
+      "isDraggable": true,
+      "watched": true
+    },
+    "list-in-progress": {
+      "id": "list-in-progress",
+      "boardId": "board-comprehensive-demo",
+      "title": "🚀 In Progress",
+      "cardRefs": [
+        {
+          "type": "card",
+          "cardId": "card-with-checklists"
+        },
+        {
+          "type": "card",
+          "cardId": "card-with-custom-fields"
+        },
+        {
+          "type": "card",
+          "cardId": "card-overdue"
+        },
+        {
+          "type": "card",
+          "cardId": "card-mirrored"
+        }
+      ],
+      "order": 2,
+      "isDraggable": true,
+      "watched": false
+    },
+    "list-review": {
+      "id": "list-review",
+      "boardId": "board-comprehensive-demo",
+      "title": "👀 Review",
+      "cardRefs": [
+        {
+          "type": "card",
+          "cardId": "card-mirrored-review-mirror"
+        }
+      ],
+      "order": 3,
+      "isDraggable": true
+    },
+    "list-done": {
+      "id": "list-done",
+      "boardId": "board-comprehensive-demo",
+      "title": "✅ Done",
+      "cardRefs": [
+        {
+          "type": "card",
+          "cardId": "card-completed"
+        }
+      ],
+      "order": 4,
+      "isDraggable": true
+    },
+    "inbox": {
+      "id": "inbox",
+      "boardId": "board-comprehensive-demo",
+      "title": "Inbox",
+      "cardRefs": [
+        {
+          "type": "card",
+          "cardId": "card-template"
+        }
+      ],
+      "order": 6,
+      "isDraggable": false
+    },
+    "backlog": {
+      "id": "backlog",
+      "boardId": "board-development",
+      "title": "Backlog",
+      "cardRefs": [
+        {
+          "type": "card",
+          "cardId": "feature-backlog-1"
+        },
+        {
+          "type": "card",
+          "cardId": "feature-backlog-2"
+        },
+        {
+          "type": "card",
+          "cardId": "feature-backlog-3"
+        }
+      ],
+      "order": 0,
+      "isDraggable": true
+    },
+    "in-development": {
+      "id": "in-development",
+      "boardId": "board-development",
+      "title": "In Development",
+      "cardRefs": [
+        {
+          "type": "card",
+          "cardId": "feature-dev-1"
+        },
+        {
+          "type": "card",
+          "cardId": "feature-dev-2"
+        }
+      ],
+      "order": 1,
+      "isDraggable": true
+    },
+    "testing": {
+      "id": "testing",
+      "boardId": "board-development",
+      "title": "Testing",
+      "cardRefs": [
+        {
+          "type": "card",
+          "cardId": "feature-test-1"
+        },
+        {
+          "type": "card",
+          "cardId": "feature-test-2"
+        }
+      ],
+      "order": 2,
+      "isDraggable": true
+    },
+    "ready-for-launch": {
+      "id": "ready-for-launch",
+      "boardId": "board-development",
+      "title": "Ready for Launch",
+      "cardRefs": [
+        {
+          "type": "card",
+          "cardId": "feature-launch-ready"
+        }
+      ],
+      "order": 3,
+      "isDraggable": true
+    },
+    "launched": {
+      "id": "launched",
+      "boardId": "board-development",
+      "title": "Launched",
+      "cardRefs": [
+        {
+          "type": "card",
+          "cardId": "feature-launched-1"
+        },
+        {
+          "type": "card",
+          "cardId": "feature-launched-2"
+        }
+      ],
+      "order": 4,
+      "isDraggable": true
+    },
+    "campaign-planning": {
+      "id": "campaign-planning",
+      "boardId": "board-marketing",
+      "title": "Campaign Planning",
+      "cardRefs": [
+        {
+          "type": "card",
+          "cardId": "campaign-plan-1"
+        },
+        {
+          "type": "card",
+          "cardId": "campaign-plan-2"
+        }
+      ],
+      "order": 0,
+      "isDraggable": true
+    },
+    "launch-preparation": {
+      "id": "launch-preparation",
+      "boardId": "board-marketing",
+      "title": "Launch Preparation",
+      "cardRefs": [],
+      "order": 1,
+      "isDraggable": true
+    },
+    "active-campaigns": {
+      "id": "active-campaigns",
+      "boardId": "board-marketing",
+      "title": "Active Campaigns",
+      "cardRefs": [
+        {
+          "type": "card",
+          "cardId": "campaign-active-1"
+        },
+        {
+          "type": "card",
+          "cardId": "campaign-active-2"
+        }
+      ],
+      "order": 2,
+      "isDraggable": true
+    },
+    "campaigns-complete": {
+      "id": "campaigns-complete",
+      "boardId": "board-marketing",
+      "title": "Campaigns Complete",
+      "cardRefs": [
+        {
+          "type": "card",
+          "cardId": "campaign-complete-1"
+        },
+        {
+          "type": "card",
+          "cardId": "campaign-complete-2"
+        }
+      ],
+      "order": 3,
+      "isDraggable": true
+    }
+  },
+  "cards": {
+    "card-simple": {
+      "id": "card-simple",
+      "boardId": "board-comprehensive-demo",
+      "title": "Simple Task Example",
+      "description": "This is a basic card with minimal information to demonstrate the simplest use case.",
+      "createdBy": "shaya",
+      "createdAt": "2030-03-09T15:14:00.000-06:00",
+      "customFields": [
+        {
+          "id": "board-comprehensive-demo-field-priority"
+        },
+        {
+          "id": "board-comprehensive-demo-field-effort"
+        },
+        {
+          "id": "board-comprehensive-demo-field-status"
+        }
+      ]
+    },
+    "card-with-labels": {
+      "id": "card-with-labels",
+      "boardId": "board-comprehensive-demo",
+      "title": "High Priority Feature with Multiple Labels",
+      "description": "This card demonstrates multiple labels being applied to categorize and prioritize work.",
+      "labelIds": [
+        "board-comprehensive-demo-label-green",
+        "board-comprehensive-demo-label-purple",
+        "board-comprehensive-demo-label-pink"
+      ],
+      "createdBy": "nicholas",
+      "assignedTo": [
+        "nicholas",
+        "cat"
+      ],
+      "createdAt": "2030-03-10T15:14:00.000-05:00",
+      "updatedAt": "2030-03-14T09:14:00.000-05:00",
+      "customFields": [
+        {
+          "id": "board-comprehensive-demo-field-priority"
+        },
+        {
+          "id": "board-comprehensive-demo-field-effort"
+        },
+        {
+          "id": "board-comprehensive-demo-field-status"
+        }
+      ]
+    },
+    "card-with-checklists": {
+      "id": "card-with-checklists",
+      "boardId": "board-comprehensive-demo",
+      "title": "Task with Detailed Checklists",
+      "description": "This card shows how checklists can be used to break down complex tasks into manageable steps.",
+      "labelIds": [
+        "board-comprehensive-demo-label-blue"
+      ],
+      "checklistIds": [
+        "checklist-planning",
+        "checklist-development",
+        "checklist-deployment"
+      ],
+      "createdBy": "deepak",
+      "assignedTo": [
+        "deepak",
+        "xavier",
+        "nicolas"
+      ],
+      "createdAt": "2030-03-11T15:14:00.000-05:00",
+      "updatedAt": "2030-03-14T12:14:00.000-05:00",
+      "customFields": [
+        {
+          "id": "board-comprehensive-demo-field-priority"
+        },
+        {
+          "id": "board-comprehensive-demo-field-effort"
+        },
+        {
+          "id": "board-comprehensive-demo-field-status"
+        }
+      ]
+    },
+    "card-with-custom-fields": {
+      "id": "card-with-custom-fields",
+      "boardId": "board-comprehensive-demo",
+      "title": "Feature with Custom Field Data",
+      "description": "This card demonstrates how custom fields can be used to track additional metadata.",
+      "labelIds": [
+        "board-comprehensive-demo-label-purple",
+        "board-comprehensive-demo-label-green"
+      ],
+      "customFields": [
+        {
+          "id": "board-comprehensive-demo-field-priority",
+          "value": "High"
+        },
+        {
+          "id": "board-comprehensive-demo-field-effort",
+          "value": "8"
+        },
+        {
+          "id": "board-comprehensive-demo-field-status",
+          "value": "In Progress"
+        }
+      ],
+      "createdBy": "xavier",
+      "assignedTo": [
+        "xavier",
+        "deepak"
+      ],
+      "createdAt": "2030-03-08T15:14:00.000-06:00",
+      "updatedAt": "2030-03-14T14:14:00.000-05:00"
+    },
+    "card-overdue": {
+      "id": "card-overdue",
+      "boardId": "board-comprehensive-demo",
+      "title": "Overdue Bug Fix",
+      "description": "This card demonstrates an overdue task that needs immediate attention.",
+      "labelIds": [
+        "board-comprehensive-demo-label-red",
+        "board-comprehensive-demo-label-orange"
+      ],
+      "dueDate": "2030-03-12T15:14:00.000-05:00",
+      "createdBy": "cat",
+      "assignedTo": [
+        "nicolas"
+      ],
+      "createdAt": "2030-03-04T15:14:00.000-06:00",
+      "updatedAt": "2030-03-13T15:14:00.000-05:00",
+      "customFields": [
+        {
+          "id": "board-comprehensive-demo-field-priority"
+        },
+        {
+          "id": "board-comprehensive-demo-field-effort"
+        },
+        {
+          "id": "board-comprehensive-demo-field-status"
+        }
+      ]
+    },
+    "card-due-soon": {
+      "id": "card-due-soon",
+      "boardId": "board-comprehensive-demo",
+      "title": "Upcoming Deadline Task",
+      "description": "This card has a due date coming up soon.",
+      "labelIds": [
+        "board-comprehensive-demo-label-yellow"
+      ],
+      "startDate": "2030-03-12T15:14:00.000-05:00",
+      "dueDate": "2030-03-15T15:14:00.000-05:00",
+      "createdBy": "nicolas",
+      "assignedTo": [
+        "cat",
+        "shaya"
+      ],
+      "joined": true,
+      "createdAt": "2030-03-07T15:14:00.000-06:00",
+      "watched": true,
+      "customFields": [
+        {
+          "id": "board-comprehensive-demo-field-priority"
+        },
+        {
+          "id": "board-comprehensive-demo-field-effort"
+        },
+        {
+          "id": "board-comprehensive-demo-field-status"
+        }
+      ]
+    },
+    "card-completed": {
+      "id": "card-completed",
+      "boardId": "board-comprehensive-demo",
+      "title": "Completed Feature Implementation",
+      "description": "This card shows a completed task with all checkboxes marked as done.",
+      "labelIds": [
+        "board-comprehensive-demo-label-green",
+        "board-comprehensive-demo-label-purple"
+      ],
+      "completed": true,
+      "checklistIds": [
+        "checklist-completed"
+      ],
+      "createdBy": "shaya",
+      "assignedTo": [
+        "shaya",
+        "nicholas"
+      ],
+      "joined": true,
+      "watched": true,
+      "createdAt": "2030-02-27T15:14:00.000-06:00",
+      "updatedAt": "2030-03-13T15:14:00.000-05:00",
+      "customFields": [
+        {
+          "id": "board-comprehensive-demo-field-priority"
+        },
+        {
+          "id": "board-comprehensive-demo-field-effort"
+        },
+        {
+          "id": "board-comprehensive-demo-field-status"
+        }
+      ]
+    },
+    "card-template": {
+      "id": "card-template",
+      "boardId": "board-comprehensive-demo",
+      "title": "Bug Report Template",
+      "description": "# Bug Report Template\n\n## Description\nBrief description of the bug\n\n## Steps to Reproduce\n1. Step one\n2. Step two\n3. Step three\n\n## Expected Behavior\nWhat should happen\n\n## Actual Behavior\nWhat actually happens\n\n## Environment\n- Browser:\n- OS:\n- Version:\n\n## Screenshots\nAttach any relevant screenshots",
+      "labelIds": [
+        "board-comprehensive-demo-label-red"
+      ],
+      "checklistIds": [
+        "checklist-bug-template"
+      ],
+      "isTemplate": true,
+      "createdBy": "deepak",
+      "createdAt": "2030-02-22T15:14:00.000-06:00",
+      "customFields": [
+        {
+          "id": "board-comprehensive-demo-field-priority"
+        },
+        {
+          "id": "board-comprehensive-demo-field-effort"
+        },
+        {
+          "id": "board-comprehensive-demo-field-status"
+        }
+      ]
+    },
+    "card-archived": {
+      "id": "card-archived",
+      "boardId": "board-comprehensive-demo",
+      "title": "Old Feature Request",
+      "description": "This feature was requested but later deemed unnecessary.",
+      "labelIds": [
+        "board-comprehensive-demo-label-purple"
+      ],
+      "archived": true,
+      "archivedAt": "2030-03-06T15:14:00.000-06:00",
+      "createdBy": "xavier",
+      "createdAt": "2030-02-17T15:14:00.000-06:00",
+      "customFields": [
+        {
+          "id": "board-comprehensive-demo-field-priority"
+        },
+        {
+          "id": "board-comprehensive-demo-field-effort"
+        },
+        {
+          "id": "board-comprehensive-demo-field-status"
+        }
+      ]
+    },
+    "card-mirrored": {
+      "id": "card-mirrored",
+      "boardId": "board-comprehensive-demo",
+      "title": "Cross-Team Collaboration Task",
+      "description": "This task requires coordination across multiple teams and appears in multiple lists.",
+      "labelIds": [
+        "board-comprehensive-demo-label-orange",
+        "board-comprehensive-demo-label-purple"
+      ],
+      "createdBy": "cat",
+      "assignedTo": [
+        "cat",
+        "nicolas",
+        "deepak"
+      ],
+      "mirroredBy": [
+        "card-mirrored-review-mirror"
+      ],
+      "createdAt": "2030-03-06T15:14:00.000-06:00",
+      "updatedAt": "2030-03-14T11:14:00.000-05:00",
+      "customFields": [
+        {
+          "id": "board-comprehensive-demo-field-priority"
+        },
+        {
+          "id": "board-comprehensive-demo-field-effort"
+        },
+        {
+          "id": "board-comprehensive-demo-field-status"
+        }
+      ]
+    },
+    "card-mirrored-review-mirror": {
+      "id": "card-mirrored-review-mirror",
+      "boardId": "board-comprehensive-demo",
+      "title": "Cross-Team Collaboration Task",
+      "description": "This task requires coordination across multiple teams and appears in multiple lists.",
+      "labelIds": [
+        "board-comprehensive-demo-label-orange",
+        "board-comprehensive-demo-label-purple"
+      ],
+      "createdBy": "cat",
+      "assignedTo": [
+        "cat",
+        "nicolas",
+        "deepak"
+      ],
+      "createdAt": "2030-03-14T12:00:00.000-05:00",
+      "isMirror": true,
+      "mirrorOf": "card-mirrored",
+      "customFields": [
+        {
+          "id": "board-comprehensive-demo-field-priority"
+        },
+        {
+          "id": "board-comprehensive-demo-field-effort"
+        },
+        {
+          "id": "board-comprehensive-demo-field-status"
+        }
+      ]
+    },
+    "card-with-media": {
+      "id": "card-with-media",
+      "boardId": "board-comprehensive-demo",
+      "title": "Design Review with Mockups",
+      "description": "Review the new design mockups and provide feedback.",
+      "image": "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=400",
+      "attachments": [
+        "design-mockup-v1.png",
+        "user-flow-diagram.pdf",
+        "style-guide.sketch"
+      ],
+      "labelIds": [
+        "board-comprehensive-demo-label-pink",
+        "board-comprehensive-demo-label-yellow"
+      ],
+      "createdBy": "cat",
+      "assignedTo": [
+        "cat",
+        "shaya",
+        "nicholas"
+      ],
+      "joined": true,
+      "createdAt": "2030-03-12T15:14:00.000-05:00",
+      "watched": true,
+      "customFields": [
+        {
+          "id": "board-comprehensive-demo-field-priority"
+        },
+        {
+          "id": "board-comprehensive-demo-field-effort"
+        },
+        {
+          "id": "board-comprehensive-demo-field-status"
+        }
+      ]
+    },
+    "card-inbox-item": {
+      "id": "card-inbox-item",
+      "boardId": "board-comprehensive-demo",
+      "title": "New Feature Request from Customer",
+      "description": "Customer requested ability to export data in CSV format.",
+      "labelIds": [
+        "board-comprehensive-demo-label-purple"
+      ],
+      "createdBy": "nicolas",
+      "createdAt": "2030-03-14T07:14:00.000-05:00",
+      "customFields": [
+        {
+          "id": "board-comprehensive-demo-field-priority"
+        },
+        {
+          "id": "board-comprehensive-demo-field-effort"
+        },
+        {
+          "id": "board-comprehensive-demo-field-status"
+        }
+      ]
+    },
+    "feature-backlog-1": {
+      "id": "feature-backlog-1",
+      "boardId": "board-development",
+      "title": "Advanced Analytics Dashboard",
+      "description": "Create comprehensive analytics dashboard with real-time metrics and custom reports",
+      "labelIds": [
+        "label-feature",
+        "label-analytics"
+      ],
+      "attachments": [],
+      "completed": false,
+      "createdBy": "deepak",
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "assignedTo": [
+        "deepak"
+      ],
+      "listId": "backlog"
+    },
+    "feature-backlog-2": {
+      "id": "feature-backlog-2",
+      "boardId": "board-development",
+      "title": "Mobile App Push Notifications",
+      "description": "Implement push notification system for mobile app with user preferences",
+      "labelIds": [
+        "label-feature",
+        "label-mobile"
+      ],
+      "attachments": [],
+      "completed": false,
+      "createdBy": "nicholas",
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "assignedTo": [
+        "nicholas"
+      ],
+      "listId": "backlog"
+    },
+    "feature-backlog-3": {
+      "id": "feature-backlog-3",
+      "boardId": "board-development",
+      "title": "API Rate Limiting",
+      "description": "Add rate limiting to API endpoints to prevent abuse",
+      "labelIds": [
+        "label-feature",
+        "label-backend"
+      ],
+      "attachments": [],
+      "completed": false,
+      "createdBy": "xavier",
+      "createdAt": "2030-02-28T15:14:00.000-06:00",
+      "assignedTo": [
+        "xavier"
+      ],
+      "listId": "backlog"
+    },
+    "feature-dev-1": {
+      "id": "feature-dev-1",
+      "boardId": "board-development",
+      "title": "User Authentication 2.0",
+      "description": "Upgrade authentication system with OAuth2 and multi-factor authentication",
+      "labelIds": [
+        "label-feature",
+        "label-security"
+      ],
+      "attachments": [],
+      "completed": false,
+      "createdBy": "xavier",
+      "createdAt": "2030-02-21T15:14:00.000-06:00",
+      "assignedTo": [
+        "xavier",
+        "deepak"
+      ],
+      "listId": "in-development"
+    },
+    "feature-dev-2": {
+      "id": "feature-dev-2",
+      "boardId": "board-development",
+      "title": "Dark Mode Theme",
+      "description": "Implement dark mode theme across the entire application",
+      "labelIds": [
+        "label-feature",
+        "label-ui"
+      ],
+      "attachments": [],
+      "completed": false,
+      "createdBy": "nicholas",
+      "createdAt": "2030-02-28T15:14:00.000-06:00",
+      "assignedTo": [
+        "nicholas",
+        "cat"
+      ],
+      "listId": "in-development"
+    },
+    "feature-test-1": {
+      "id": "feature-test-1",
+      "boardId": "board-development",
+      "title": "Payment Gateway Integration",
+      "description": "Integrate new payment gateway with enhanced security features",
+      "labelIds": [
+        "label-feature",
+        "label-payment"
+      ],
+      "attachments": [],
+      "completed": false,
+      "createdBy": "deepak",
+      "createdAt": "2030-03-07T15:14:00.000-06:00",
+      "assignedTo": [
+        "deepak"
+      ],
+      "listId": "testing"
+    },
+    "feature-test-2": {
+      "id": "feature-test-2",
+      "boardId": "board-development",
+      "title": "Email Template System",
+      "description": "Create customizable email template system with dynamic content",
+      "labelIds": [
+        "label-feature",
+        "label-email"
+      ],
+      "attachments": [],
+      "completed": false,
+      "createdBy": "cat",
+      "createdAt": "2030-03-07T15:14:00.000-06:00",
+      "assignedTo": [
+        "cat"
+      ],
+      "listId": "testing"
+    },
+    "feature-launch-ready": {
+      "id": "feature-launch-ready",
+      "boardId": "board-development",
+      "title": "AI-Powered Search Engine",
+      "description": "Advanced search functionality with machine learning algorithms for better results and recommendations. Features include natural language processing, semantic search, and personalized recommendations based on user behavior.",
+      "labelIds": [
+        "label-feature",
+        "label-ai",
+        "label-search",
+        "label-ready-for-launch"
+      ],
+      "attachments": [],
+      "completed": true,
+      "createdBy": "deepak",
+      "createdAt": "2030-02-28T15:14:00.000-06:00",
+      "assignedTo": [
+        "deepak",
+        "xavier"
+      ],
+      "dueDate": "2030-03-14T15:14:00.000-05:00",
+      "listId": "ready-for-launch"
+    },
+    "feature-launched-1": {
+      "id": "feature-launched-1",
+      "boardId": "board-development",
+      "title": "User Profile Management",
+      "description": "Comprehensive user profile system with avatar upload and preferences",
+      "labelIds": [
+        "label-feature",
+        "label-launched"
+      ],
+      "attachments": [],
+      "completed": true,
+      "createdBy": "nicholas",
+      "createdAt": "2030-01-13T15:14:00.000-06:00",
+      "assignedTo": [
+        "nicholas"
+      ],
+      "dueDate": "2030-01-13T15:14:00.000-06:00",
+      "listId": "launched"
+    },
+    "feature-launched-2": {
+      "id": "feature-launched-2",
+      "boardId": "board-development",
+      "title": "Real-time Chat System",
+      "description": "Real-time messaging system with file sharing and group chat",
+      "labelIds": [
+        "label-feature",
+        "label-launched"
+      ],
+      "attachments": [],
+      "completed": true,
+      "createdBy": "cat",
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "assignedTo": [
+        "cat",
+        "deepak"
+      ],
+      "dueDate": "2030-02-12T15:14:00.000-06:00",
+      "listId": "launched"
+    },
+    "campaign-plan-1": {
+      "id": "campaign-plan-1",
+      "boardId": "board-marketing",
+      "title": "Q4 Holiday Campaign",
+      "description": "Plan holiday season marketing campaign with special offers and promotions",
+      "labelIds": [
+        "label-campaign",
+        "label-planning"
+      ],
+      "attachments": [],
+      "completed": false,
+      "createdBy": "cat",
+      "createdAt": "2030-03-07T15:14:00.000-06:00",
+      "assignedTo": [
+        "cat",
+        "nicholas"
+      ],
+      "listId": "campaign-planning"
+    },
+    "campaign-plan-2": {
+      "id": "campaign-plan-2",
+      "boardId": "board-marketing",
+      "title": "User Onboarding Campaign",
+      "description": "Design campaign to improve new user onboarding experience",
+      "labelIds": [
+        "label-campaign",
+        "label-onboarding"
+      ],
+      "attachments": [],
+      "completed": false,
+      "createdBy": "nicholas",
+      "createdAt": "2030-02-28T15:14:00.000-06:00",
+      "assignedTo": [
+        "nicholas"
+      ],
+      "listId": "campaign-planning"
+    },
+    "campaign-active-1": {
+      "id": "campaign-active-1",
+      "boardId": "board-marketing",
+      "title": "Social Media Awareness",
+      "description": "Ongoing social media campaign to increase brand awareness",
+      "labelIds": [
+        "label-campaign",
+        "label-social"
+      ],
+      "attachments": [],
+      "completed": false,
+      "createdBy": "cat",
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "assignedTo": [
+        "cat"
+      ],
+      "listId": "active-campaigns"
+    },
+    "campaign-active-2": {
+      "id": "campaign-active-2",
+      "boardId": "board-marketing",
+      "title": "Email Newsletter",
+      "description": "Weekly email newsletter to engage existing users",
+      "labelIds": [
+        "label-campaign",
+        "label-email"
+      ],
+      "attachments": [],
+      "completed": false,
+      "createdBy": "nicholas",
+      "createdAt": "2030-01-13T15:14:00.000-06:00",
+      "assignedTo": [
+        "nicholas"
+      ],
+      "listId": "active-campaigns"
+    },
+    "campaign-complete-1": {
+      "id": "campaign-complete-1",
+      "boardId": "board-marketing",
+      "title": "Beta Launch Campaign",
+      "description": "Successfully launched beta version with 1000+ signups",
+      "labelIds": [
+        "label-campaign",
+        "label-completed"
+      ],
+      "attachments": [],
+      "completed": true,
+      "createdBy": "cat",
+      "createdAt": "2029-12-14T15:14:00.000-06:00",
+      "assignedTo": [
+        "cat",
+        "nicholas"
+      ],
+      "dueDate": "2029-12-14T15:14:00.000-06:00",
+      "listId": "campaigns-complete"
+    },
+    "campaign-complete-2": {
+      "id": "campaign-complete-2",
+      "boardId": "board-marketing",
+      "title": "Product Demo Webinar",
+      "description": "Hosted successful product demo webinar with 500+ attendees",
+      "labelIds": [
+        "label-campaign",
+        "label-completed"
+      ],
+      "attachments": [],
+      "completed": true,
+      "createdBy": "nicholas",
+      "createdAt": "2030-01-13T15:14:00.000-06:00",
+      "assignedTo": [
+        "nicholas"
+      ],
+      "dueDate": "2030-01-13T15:14:00.000-06:00",
+      "listId": "campaigns-complete"
+    }
+  },
+  "comments": {
+    "comment-1": {
+      "id": "comment-1",
+      "cardId": "card-with-checklists",
+      "userId": "nicholas",
+      "boardId": "board-comprehensive-demo",
+      "content": "Great breakdown of the tasks! I think we should prioritize the mockup creation first.",
+      "createdAt": "2030-03-14T03:14:00.000-05:00"
+    },
+    "comment-2": {
+      "id": "comment-2",
+      "cardId": "card-with-checklists",
+      "userId": "cat",
+      "boardId": "board-comprehensive-demo",
+      "content": "I can start working on the mockups today. Should be ready by the due date.",
+      "createdAt": "2030-03-14T05:14:00.000-05:00"
+    },
+    "comment-3": {
+      "id": "comment-3",
+      "cardId": "card-overdue",
+      "userId": "nicolas",
+      "boardId": "board-comprehensive-demo",
+      "content": "This is taking longer than expected. The issue is more complex than initially thought.",
+      "createdAt": "2030-03-14T09:14:00.000-05:00"
+    },
+    "comment-4": {
+      "id": "comment-4",
+      "cardId": "card-overdue",
+      "userId": "shaya",
+      "boardId": "board-comprehensive-demo",
+      "content": "Let's schedule a quick call to discuss this. I might be able to help.",
+      "createdAt": "2030-03-14T11:14:00.000-05:00"
+    },
+    "comment-5": {
+      "id": "comment-5",
+      "cardId": "card-with-media",
+      "userId": "shaya",
+      "boardId": "board-comprehensive-demo",
+      "content": "The mockups look great! Just a few minor adjustments needed on the color scheme.",
+      "createdAt": "2030-03-14T13:14:00.000-05:00"
+    },
+    "comment-6": {
+      "id": "comment-6",
+      "cardId": "card-mirrored",
+      "userId": "deepak",
+      "boardId": "board-comprehensive-demo",
+      "content": "This will require coordination with the API team. I'll reach out to them.",
+      "createdAt": "2030-03-14T07:14:00.000-05:00"
+    },
+    "comment1": {
+      "id": "comment1",
+      "cardId": "feature-launch-ready",
+      "userId": "deepak",
+      "boardId": "board-development",
+      "content": "AI search engine is fully tested and ready for launch. All performance benchmarks met.",
+      "createdAt": "2030-03-13T15:14:00.000-05:00"
+    },
+    "comment2": {
+      "id": "comment2",
+      "cardId": "feature-launch-ready",
+      "userId": "xavier",
+      "boardId": "board-development",
+      "content": "Security review completed. No vulnerabilities found.",
+      "createdAt": "2030-03-14T15:14:00.000-05:00"
+    },
+    "comment3": {
+      "id": "comment3",
+      "cardId": "campaign-complete-1",
+      "userId": "cat",
+      "boardId": "board-marketing",
+      "content": "Beta launch exceeded expectations! Great work team.",
+      "createdAt": "2029-12-14T15:14:00.000-06:00"
+    },
+    "comment4": {
+      "id": "comment4",
+      "cardId": "campaign-active-1",
+      "userId": "nicholas",
+      "boardId": "board-marketing",
+      "content": "Social media engagement is up 25% this month.",
+      "createdAt": "2030-03-13T15:14:00.000-05:00"
+    }
+  },
+  "activities": {
+    "activity-1": {
+      "id": "activity-1",
+      "cardId": "card-simple",
+      "userId": "shaya",
+      "boardId": "board-comprehensive-demo",
+      "type": "create",
+      "details": {},
+      "createdAt": "2030-03-09T15:14:00.000-06:00"
+    },
+    "activity-2": {
+      "id": "activity-2",
+      "cardId": "card-with-labels",
+      "userId": "nicholas",
+      "boardId": "board-comprehensive-demo",
+      "type": "create",
+      "details": {},
+      "createdAt": "2030-03-10T15:14:00.000-05:00"
+    },
+    "activity-3": {
+      "id": "activity-3",
+      "cardId": "card-with-labels",
+      "userId": "cat",
+      "boardId": "board-comprehensive-demo",
+      "type": "join",
+      "details": {},
+      "createdAt": "2030-03-11T15:14:00.000-05:00"
+    },
+    "activity-4": {
+      "id": "activity-4",
+      "cardId": "card-completed",
+      "userId": "shaya",
+      "boardId": "board-comprehensive-demo",
+      "type": "complete",
+      "details": {},
+      "createdAt": "2030-03-13T15:14:00.000-05:00"
+    },
+    "activity-5": {
+      "id": "activity-5",
+      "cardId": "card-archived",
+      "userId": "xavier",
+      "boardId": "board-comprehensive-demo",
+      "type": "archive",
+      "details": {},
+      "createdAt": "2030-03-06T15:14:00.000-06:00"
+    },
+    "activity-6": {
+      "id": "activity-6",
+      "cardId": "card-mirrored",
+      "userId": "cat",
+      "boardId": "board-comprehensive-demo",
+      "type": "create",
+      "details": {},
+      "createdAt": "2030-03-06T15:14:00.000-06:00"
+    },
+    "activity-7": {
+      "id": "activity-7",
+      "cardId": "card-template",
+      "userId": "deepak",
+      "boardId": "board-comprehensive-demo",
+      "type": "template",
+      "details": {},
+      "createdAt": "2030-02-22T15:14:00.000-06:00"
+    }
+  },
+  "labels": {
+    "board-comprehensive-demo-label-green": {
+      "id": "board-comprehensive-demo-label-green",
+      "title": "Priority: High",
+      "color": "green",
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "boardId": "board-comprehensive-demo"
+    },
+    "board-comprehensive-demo-label-yellow": {
+      "id": "board-comprehensive-demo-label-yellow",
+      "title": "In Review",
+      "color": "yellow",
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "boardId": "board-comprehensive-demo"
+    },
+    "board-comprehensive-demo-label-orange": {
+      "id": "board-comprehensive-demo-label-orange",
+      "title": "Blocked",
+      "color": "orange",
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "boardId": "board-comprehensive-demo"
+    },
+    "board-comprehensive-demo-label-red": {
+      "id": "board-comprehensive-demo-label-red",
+      "title": "Bug",
+      "color": "red",
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "boardId": "board-comprehensive-demo"
+    },
+    "board-comprehensive-demo-label-purple": {
+      "id": "board-comprehensive-demo-label-purple",
+      "title": "Feature",
+      "color": "purple",
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "boardId": "board-comprehensive-demo"
+    },
+    "board-comprehensive-demo-label-blue": {
+      "id": "board-comprehensive-demo-label-blue",
+      "title": "Documentation",
+      "color": "blue",
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "boardId": "board-comprehensive-demo"
+    },
+    "board-comprehensive-demo-label-sky": {
+      "id": "board-comprehensive-demo-label-sky",
+      "title": "Research",
+      "color": "sky",
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "boardId": "board-comprehensive-demo"
+    },
+    "board-comprehensive-demo-label-lime": {
+      "id": "board-comprehensive-demo-label-lime",
+      "title": "Testing",
+      "color": "lime",
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "boardId": "board-comprehensive-demo"
+    },
+    "board-comprehensive-demo-label-pink": {
+      "id": "board-comprehensive-demo-label-pink",
+      "title": "Design",
+      "color": "pink",
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "boardId": "board-comprehensive-demo"
+    },
+    "board-comprehensive-demo-label-black": {
+      "id": "board-comprehensive-demo-label-black",
+      "title": "Technical Debt",
+      "color": "black",
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "boardId": "board-comprehensive-demo"
+    },
+    "label-feature": {
+      "id": "label-feature",
+      "title": "feature",
+      "color": "blue",
+      "createdAt": "2030-03-14T15:14:00.000-05:00",
+      "createdBy": "shaya",
+      "boardId": "board-development"
+    },
+    "label-analytics": {
+      "id": "label-analytics",
+      "title": "analytics",
+      "color": "green",
+      "createdAt": "2030-03-14T15:14:00.000-05:00",
+      "createdBy": "shaya",
+      "boardId": "board-development"
+    },
+    "label-mobile": {
+      "id": "label-mobile",
+      "title": "mobile",
+      "color": "purple",
+      "createdAt": "2030-03-14T15:14:00.000-05:00",
+      "createdBy": "shaya",
+      "boardId": "board-development"
+    },
+    "label-backend": {
+      "id": "label-backend",
+      "title": "backend",
+      "color": "orange",
+      "createdAt": "2030-03-14T15:14:00.000-05:00",
+      "createdBy": "shaya",
+      "boardId": "board-development"
+    },
+    "label-security": {
+      "id": "label-security",
+      "title": "security",
+      "color": "red",
+      "createdAt": "2030-03-14T15:14:00.000-05:00",
+      "createdBy": "shaya",
+      "boardId": "board-development"
+    },
+    "label-ui": {
+      "id": "label-ui",
+      "title": "UI",
+      "color": "pink",
+      "createdAt": "2030-03-14T15:14:00.000-05:00",
+      "createdBy": "shaya",
+      "boardId": "board-development"
+    },
+    "label-payment": {
+      "id": "label-payment",
+      "title": "payment",
+      "color": "green",
+      "createdAt": "2030-03-14T15:14:00.000-05:00",
+      "createdBy": "shaya",
+      "boardId": "board-development"
+    },
+    "label-email": {
+      "id": "label-email",
+      "title": "email",
+      "color": "blue",
+      "createdAt": "2030-03-14T15:14:00.000-05:00",
+      "createdBy": "shaya",
+      "boardId": "board-development"
+    },
+    "label-ai": {
+      "id": "label-ai",
+      "title": "AI",
+      "color": "purple",
+      "createdAt": "2030-03-14T15:14:00.000-05:00",
+      "createdBy": "shaya",
+      "boardId": "board-development"
+    },
+    "label-search": {
+      "id": "label-search",
+      "title": "search",
+      "color": "sky",
+      "createdAt": "2030-03-14T15:14:00.000-05:00",
+      "createdBy": "shaya",
+      "boardId": "board-development"
+    },
+    "label-ready-for-launch": {
+      "id": "label-ready-for-launch",
+      "title": "ready-for-launch",
+      "color": "green",
+      "createdAt": "2030-03-14T15:14:00.000-05:00",
+      "createdBy": "shaya",
+      "boardId": "board-development"
+    },
+    "label-launched": {
+      "id": "label-launched",
+      "title": "launched",
+      "color": "green",
+      "createdAt": "2030-03-14T15:14:00.000-05:00",
+      "createdBy": "shaya",
+      "boardId": "board-development"
+    },
+    "label-campaign": {
+      "id": "label-campaign",
+      "title": "campaign",
+      "color": "purple",
+      "createdAt": "2030-03-14T15:14:00.000-05:00",
+      "createdBy": "cat",
+      "boardId": "board-marketing"
+    },
+    "label-planning": {
+      "id": "label-planning",
+      "title": "planning",
+      "color": "blue",
+      "createdAt": "2030-03-14T15:14:00.000-05:00",
+      "createdBy": "cat",
+      "boardId": "board-marketing"
+    },
+    "label-onboarding": {
+      "id": "label-onboarding",
+      "title": "onboarding",
+      "color": "green",
+      "createdAt": "2030-03-14T15:14:00.000-05:00",
+      "createdBy": "cat",
+      "boardId": "board-marketing"
+    },
+    "label-social": {
+      "id": "label-social",
+      "title": "social",
+      "color": "pink",
+      "createdAt": "2030-03-14T15:14:00.000-05:00",
+      "createdBy": "cat",
+      "boardId": "board-marketing"
+    },
+    "label-completed": {
+      "id": "label-completed",
+      "title": "completed",
+      "color": "green",
+      "createdAt": "2030-03-14T15:14:00.000-05:00",
+      "createdBy": "cat",
+      "boardId": "board-marketing"
+    }
+  },
+  "checklists": {
+    "checklist-planning": {
+      "id": "checklist-planning",
+      "cardId": "card-with-checklists",
+      "title": "📋 Planning Phase",
+      "items": [
+        {
+          "label": "Define requirements",
+          "checked": true
+        },
+        {
+          "label": "Create user stories",
+          "checked": true
+        },
+        {
+          "label": "Design mockups",
+          "checked": false,
+          "assignedTo": "cat",
+          "dueDate": "2030-03-16T15:14:00.000-05:00"
+        },
+        {
+          "label": "Review with stakeholders",
+          "checked": false,
+          "dueDate": "2030-03-18T15:14:00.000-05:00"
+        }
+      ]
+    },
+    "checklist-development": {
+      "id": "checklist-development",
+      "cardId": "card-with-checklists",
+      "title": "💻 Development Phase",
+      "items": [
+        {
+          "label": "Set up development environment",
+          "checked": false,
+          "assignedTo": "deepak"
+        },
+        {
+          "label": "Implement core functionality",
+          "checked": false,
+          "assignedTo": "xavier"
+        },
+        {
+          "label": "Add error handling",
+          "checked": false
+        },
+        {
+          "label": "Write unit tests",
+          "checked": false,
+          "assignedTo": "nicolas",
+          "dueDate": "2030-03-21T15:14:00.000-05:00"
+        }
+      ]
+    },
+    "checklist-deployment": {
+      "id": "checklist-deployment",
+      "cardId": "card-with-checklists",
+      "title": "🚀 Deployment Phase",
+      "items": [
+        {
+          "label": "Deploy to staging",
+          "checked": false
+        },
+        {
+          "label": "Run integration tests",
+          "checked": false
+        },
+        {
+          "label": "Deploy to production",
+          "checked": false
+        },
+        {
+          "label": "Monitor for issues",
+          "checked": false,
+          "dueDate": "2030-03-24T15:14:00.000-05:00"
+        }
+      ]
+    },
+    "checklist-completed": {
+      "id": "checklist-completed",
+      "cardId": "card-completed",
+      "title": "✅ Completed Tasks",
+      "items": [
+        {
+          "label": "Initial implementation",
+          "checked": true
+        },
+        {
+          "label": "Code review",
+          "checked": true
+        },
+        {
+          "label": "Testing",
+          "checked": true
+        },
+        {
+          "label": "Documentation",
+          "checked": true
+        },
+        {
+          "label": "Deployment",
+          "checked": true
+        }
+      ]
+    },
+    "checklist-bug-template": {
+      "id": "checklist-bug-template",
+      "cardId": "card-template",
+      "title": "🐛 Bug Investigation Checklist",
+      "items": [
+        {
+          "label": "Reproduce the issue",
+          "checked": false
+        },
+        {
+          "label": "Check logs for errors",
+          "checked": false
+        },
+        {
+          "label": "Identify root cause",
+          "checked": false
+        },
+        {
+          "label": "Implement fix",
+          "checked": false
+        },
+        {
+          "label": "Test fix",
+          "checked": false
+        },
+        {
+          "label": "Update documentation",
+          "checked": false
+        }
+      ]
+    }
+  },
+  "currentBoardId": "board-comprehensive-demo",
+  "lastCardAction": null,
+  "suggestedFieldTemplates": [
+    {
+      "id": "priority-template",
+      "name": "Priority",
+      "type": "list",
+      "options": [
+        {
+          "label": "Highest",
+          "color": "#EB5A46"
+        },
+        {
+          "label": "High",
+          "color": "#FF9F1A"
+        },
+        {
+          "label": "Medium",
+          "color": "#F2D600"
+        },
+        {
+          "label": "Low",
+          "color": "#00C2E0"
+        },
+        {
+          "label": "Lowest",
+          "color": "#0079BF"
+        },
+        {
+          "label": "Not sure",
+          "color": ""
+        }
+      ],
+      "showOnFront": true,
+      "description": "Set task priority levels",
+      "category": "productivity"
+    },
+    {
+      "id": "status-template",
+      "name": "Status",
+      "type": "list",
+      "options": [
+        {
+          "label": "To do",
+          "color": "#FF9F1A"
+        },
+        {
+          "label": "In progress",
+          "color": "#00C2E0"
+        },
+        {
+          "label": "Done",
+          "color": "#0079BF"
+        },
+        {
+          "label": "In review",
+          "color": "#FF78CB"
+        },
+        {
+          "label": "Approved",
+          "color": "#C377E0"
+        },
+        {
+          "label": "Not sure",
+          "color": ""
+        }
+      ],
+      "showOnFront": true,
+      "description": "Track task status",
+      "category": "productivity"
+    },
+    {
+      "id": "risk-template",
+      "name": "Risk",
+      "type": "list",
+      "options": [
+        {
+          "label": "Highest",
+          "color": "#EB5A46"
+        },
+        {
+          "label": "High",
+          "color": "#FF9F1A"
+        },
+        {
+          "label": "Medium",
+          "color": "#F2D600"
+        },
+        {
+          "label": "Low",
+          "color": "#00C2E0"
+        },
+        {
+          "label": "Lowest",
+          "color": "#0079BF"
+        },
+        {
+          "label": "Not sure",
+          "color": ""
+        }
+      ],
+      "showOnFront": true,
+      "description": "Assess task risk level",
+      "category": "tracking"
+    },
+    {
+      "id": "effort-template",
+      "name": "Effort",
+      "type": "list",
+      "options": [
+        {
+          "label": "XL",
+          "color": "#B04632"
+        },
+        {
+          "label": "L",
+          "color": "#EB5A46"
+        },
+        {
+          "label": "M",
+          "color": "#FF9F1A"
+        },
+        {
+          "label": "S",
+          "color": "#F2D600"
+        },
+        {
+          "label": "XS",
+          "color": "#61BD4F"
+        }
+      ],
+      "showOnFront": true,
+      "description": "Estimate effort required",
+      "category": "tracking"
+    }
+  ],
+  "search": {
+    "query": "",
+    "isActive": false,
+    "recentSearches": [],
+    "recentBoards": [
+      {
+        "id": "board-comprehensive-demo",
+        "title": "Comprehensive Feature Demo",
+        "lastViewed": "2030-03-14T15:14:00.000-05:00",
+        "starred": true
+      }
+    ],
+    "results": {
+      "cards": [],
+      "lists": [],
+      "boards": [],
+      "totalCount": 0
+    }
+  },
+  "boardFilters": {
+    "keyword": "",
+    "members": {
+      "noMembers": false,
+      "assignedToMe": false,
+      "selectedMembers": [],
+      "enableDropdown": false
+    },
+    "cardStatus": {
+      "markedComplete": false,
+      "notMarkedComplete": false
+    },
+    "dueDate": {
+      "noDates": false,
+      "overdue": false,
+      "nextDay": false,
+      "nextWeek": false,
+      "nextMonth": false
+    },
+    "labels": {
+      "noLabels": false,
+      "selectedLabels": [],
+      "enableDropdown": false
+    },
+    "activity": {
+      "lastWeek": false,
+      "lastTwoWeeks": false,
+      "lastFourWeeks": false,
+      "withoutActivity": false
+    }
+  },
+  "customFieldDefinitions": {
+    "board-comprehensive-demo-field-priority": {
+      "id": "board-comprehensive-demo-field-priority",
+      "name": "Priority Level",
+      "type": "list",
+      "options": [
+        {
+          "label": "Critical",
+          "color": "#f87168"
+        },
+        {
+          "label": "High",
+          "color": "#fca701"
+        },
+        {
+          "label": "Medium",
+          "color": "#eed12a"
+        },
+        {
+          "label": "Low",
+          "color": "#4cce97"
+        }
+      ],
+      "showOnFront": true,
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "order": 0,
+      "boardId": "board-comprehensive-demo"
+    },
+    "board-comprehensive-demo-field-effort": {
+      "id": "board-comprehensive-demo-field-effort",
+      "name": "Story Points",
+      "type": "number",
+      "showOnFront": true,
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "order": 1,
+      "boardId": "board-comprehensive-demo"
+    },
+    "board-comprehensive-demo-field-status": {
+      "id": "board-comprehensive-demo-field-status",
+      "name": "Development Status",
+      "type": "list",
+      "options": [
+        {
+          "label": "Not Started",
+          "color": "#8b8f97"
+        },
+        {
+          "label": "In Progress",
+          "color": "#659df1"
+        },
+        {
+          "label": "Code Review",
+          "color": "#eed12a"
+        },
+        {
+          "label": "Testing",
+          "color": "#fca701"
+        },
+        {
+          "label": "Done",
+          "color": "#4cce97"
+        }
+      ],
+      "showOnFront": false,
+      "createdAt": "2030-02-12T15:14:00.000-06:00",
+      "createdBy": "shaya",
+      "order": 2,
+      "boardId": "board-comprehensive-demo"
+    }
+  }
+}

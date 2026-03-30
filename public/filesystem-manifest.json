@@ -32,6 +32,12 @@
               "type": "folder",
               "name": "Desktop",
               "children": {
+                "Trello.link": {
+                  "type": "file",
+                  "name": "Trello.link",
+                  "fileType": "link",
+                  "url": "/trello"
+                },
                 "Wordle.app": {
                   "type": "file",
                   "name": "Wordle.app",

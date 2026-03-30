@@ -1,0 +1,238 @@
+{
+  "currentUser": {
+    "id": "shaya",
+    "email": "shaya@anthropic.com",
+    "displayName": "Shaya Zarkesh",
+    "avatar": "/avatars/shaya.jpg",
+    "timezone": "America/Los_Angeles"
+  },
+  "users": {
+    "shaya": {
+      "id": "shaya",
+      "email": "shaya@anthropic.com",
+      "displayName": "Shaya Zarkesh",
+      "avatar": "/avatars/shaya.jpg"
+    },
+    "nicholas": {
+      "id": "nicholas",
+      "email": "nicholas@anthropic.com",
+      "displayName": "Nicholas Marwell",
+      "avatar": "/avatars/nicholas.jpg"
+    },
+    "deepak": {
+      "id": "deepak",
+      "email": "deepak@anthropic.com",
+      "displayName": "Deepak Moparthi",
+      "avatar": "/avatars/deepak.jpg"
+    },
+    "xavier": {
+      "id": "xavier",
+      "email": "xavier@anthropic.com",
+      "displayName": "Xavier Garcia",
+      "avatar": "/avatars/xavier.jpg"
+    },
+    "cat": {
+      "id": "cat",
+      "email": "cat@anthropic.com",
+      "displayName": "Cat Wu",
+      "avatar": "/avatars/cat.jpg"
+    },
+    "nicolas": {
+      "id": "nicolas",
+      "email": "nicolas@anthropic.com",
+      "displayName": "Nicolas Thiébaud",
+      "avatar": "/avatars/nicolas.jpg"
+    }
+  },
+  "workspaces": {},
+  "boards": {
+    "board-basic": {
+      "id": "board-basic",
+      "title": "Basic Board",
+      "createdAt": "2030-03-14T15:14:00.000-05:00",
+      "createdBy": "shaya",
+      "labelIds": [
+        "board-basic-label-green",
+        "board-basic-label-yellow",
+        "board-basic-label-orange",
+        "board-basic-label-red",
+        "board-basic-label-purple",
+        "board-basic-label-blue"
+      ],
+      "customFieldDefinitionIds": [],
+      "collapsedListIds": [],
+      "commentIds": [],
+      "activityIds": []
+    }
+  },
+  "lists": {
+    "inbox": {
+      "id": "inbox",
+      "boardId": "board-basic",
+      "title": "Inbox",
+      "cardRefs": [],
+      "order": 0,
+      "isDraggable": false
+    }
+  },
+  "cards": {},
+  "comments": {},
+  "activities": {},
+  "labels": {
+    "board-basic-label-green": {
+      "id": "board-basic-label-green",
+      "title": "",
+      "color": "green",
+      "createdAt": "2030-03-14T15:14:00.000-05:00",
+      "createdBy": "shaya",
+      "boardId": "board-basic"
+    },
+    "board-basic-label-yellow": {
+      "id": "board-basic-label-yellow",
+      "title": "",
+      "color": "yellow",
+      "createdAt": "2030-03-14T15:14:00.000-05:00",
+      "createdBy": "shaya",
+      "boardId": "board-basic"
+    },
+    "board-basic-label-orange": {
+      "id": "board-basic-label-orange",
+      "title": "",
+      "color": "orange",
+      "createdAt": "2030-03-14T15:14:00.000-05:00",
+      "createdBy": "shaya",
+      "boardId": "board-basic"
+    },
+    "board-basic-label-red": {
+      "id": "board-basic-label-red",
+      "title": "",
+      "color": "red",
+      "createdAt": "2030-03-14T15:14:00.000-05:00",
+      "createdBy": "shaya",
+      "boardId": "board-basic"
+    },
+    "board-basic-label-purple": {
+      "id": "board-basic-label-purple",
+      "title": "",
+      "color": "purple",
+      "createdAt": "2030-03-14T15:14:00.000-05:00",
+      "createdBy": "shaya",
+      "boardId": "board-basic"
+    },
+    "board-basic-label-blue": {
+      "id": "board-basic-label-blue",
+      "title": "",
+      "color": "blue",
+      "createdAt": "2030-03-14T15:14:00.000-05:00",
+      "createdBy": "shaya",
+      "boardId": "board-basic"
+    }
+  },
+  "checklists": {},
+  "customFieldDefinitions": {},
+
+  "currentBoardId": "board-basic",
+  "lastCardAction": null,
+
+  "suggestedFieldTemplates": [
+    {
+      "id": "priority-template",
+      "name": "Priority",
+      "type": "list",
+      "options": [
+        { "label": "Highest", "color": "#EB5A46" },
+        { "label": "High", "color": "#FF9F1A" },
+        { "label": "Medium", "color": "#F2D600" },
+        { "label": "Low", "color": "#00C2E0" },
+        { "label": "Lowest", "color": "#0079BF" },
+        { "label": "Not sure", "color": "" }
+      ],
+      "showOnFront": true,
+      "description": "Set task priority levels",
+      "category": "productivity"
+    },
+    {
+      "id": "status-template",
+      "name": "Status",
+      "type": "list",
+      "options": [
+        { "label": "To do", "color": "#FF9F1A" },
+        { "label": "In progress", "color": "#00C2E0" },
+        { "label": "Done", "color": "#0079BF" },
+        { "label": "In review", "color": "#FF78CB" },
+        { "label": "Approved", "color": "#C377E0" },
+        { "label": "Not sure", "color": "" }
+      ],
+      "showOnFront": true,
+      "description": "Track task status",
+      "category": "productivity"
+    },
+    {
+      "id": "risk-template",
+      "name": "Risk",
+      "type": "list",
+      "options": [
+        { "label": "Highest", "color": "#EB5A46" },
+        { "label": "High", "color": "#FF9F1A" },
+        { "label": "Medium", "color": "#F2D600" },
+        { "label": "Low", "color": "#00C2E0" },
+        { "label": "Lowest", "color": "#0079BF" },
+        { "label": "Not sure", "color": "" }
+      ],
+      "showOnFront": true,
+      "description": "Assess task risk level",
+      "category": "tracking"
+    },
+    {
+      "id": "effort-template",
+      "name": "Effort",
+      "type": "list",
+      "options": [
+        { "label": "XL", "color": "#B04632" },
+        { "label": "L", "color": "#EB5A46" },
+        { "label": "M", "color": "#FF9F1A" },
+        { "label": "S", "color": "#F2D600" },
+        { "label": "XS", "color": "#00C2E0" }
+      ],
+      "showOnFront": true,
+      "description": "Estimate effort required",
+      "category": "tracking"
+    }
+  ],
+
+  "search": {
+    "query": "",
+    "isActive": false,
+    "recentSearches": [],
+    "recentBoards": [],
+    "results": { "cards": [], "lists": [], "boards": [], "totalCount": 0 }
+  },
+  "boardFilters": {
+    "keyword": "",
+    "members": {
+      "noMembers": false,
+      "assignedToMe": false,
+      "selectedMembers": [],
+      "enableDropdown": false
+    },
+    "cardStatus": { "markedComplete": false, "notMarkedComplete": false },
+    "dueDate": {
+      "noDates": false,
+      "overdue": false,
+      "nextDay": false,
+      "nextWeek": false,
+      "nextMonth": false
+    },
+    "labels": {
+      "noLabels": false,
+      "selectedLabels": [],
+      "enableDropdown": false
+    },
+    "activity": {
+      "lastWeek": false,
+      "lastTwoWeeks": false,
+      "lastFourWeeks": false,
+      "withoutActivity": false
+    }
+  }
+}

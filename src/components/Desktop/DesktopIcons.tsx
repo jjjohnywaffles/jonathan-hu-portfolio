@@ -30,7 +30,12 @@ export const DesktopIcons = () => {
   const desktopNode = fsContext.getNode(DESKTOP_PATH);
   if (!desktopNode || desktopNode.type !== 'folder') return null;
 
-  const items = Object.values(desktopNode.children);
+  const items = Object.values(desktopNode.children).sort((a, b) => {
+    // Sort .app files before .link files so apps appear on top
+    const aIsApp = a.name.endsWith('.app') ? 0 : 1;
+    const bIsApp = b.name.endsWith('.app') ? 0 : 1;
+    return aIsApp - bIsApp || a.name.localeCompare(b.name);
+  });
   if (items.length === 0) return null;
 
   const handleClick = (item: FSNode) => {
@@ -83,7 +88,7 @@ export const DesktopIcons = () => {
                 isSelected ? 'text-white bg-accent/50' : 'text-text-primary'
               }`}
             >
-              {item.name.replace('.app', '')}
+              {item.name.replace('.app', '').replace('.link', '')}
             </span>
           </button>
         );
