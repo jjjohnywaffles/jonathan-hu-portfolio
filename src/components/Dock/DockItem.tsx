@@ -14,20 +14,20 @@ export const DockItem = ({ icon, name, isRunning, onClick }: DockItemProps) => {
   const [showTooltip, setShowTooltip] = useState(false);
 
   return (
-    <button
-      className="w-12 h-12 flex items-center justify-center relative bg-transparent border border-accent cursor-pointer p-0 rounded-[10px] transition-colors duration-200 hover:bg-white/10"
-      onClick={onClick}
-      onMouseEnter={() => setShowTooltip(true)}
-      onMouseLeave={() => setShowTooltip(false)}
-    >
-      <Tooltip text={name} visible={showTooltip} />
-      <span className="text-2xl leading-none font-mono text-text-primary flex items-center justify-center">
-        {icon}
-      </span>
-      {isRunning && (
-        <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 bg-accent rounded-full" />
-      )}
-    </button>
+    <div className="flex flex-col items-center">
+      <button
+        className="w-12 h-12 flex items-center justify-center relative bg-transparent border border-accent cursor-pointer p-0 rounded-[10px] transition-colors duration-200 hover:bg-white/10"
+        onClick={onClick}
+        onMouseEnter={() => setShowTooltip(true)}
+        onMouseLeave={() => setShowTooltip(false)}
+      >
+        <Tooltip text={name} visible={showTooltip} />
+        <span className="text-2xl leading-none font-mono text-text-primary flex items-center justify-center">
+          {icon}
+        </span>
+      </button>
+      <span className={`mt-1 w-1 h-1 rounded-full ${isRunning ? 'bg-accent' : 'bg-transparent'}`} />
+    </div>
   );
 };
 

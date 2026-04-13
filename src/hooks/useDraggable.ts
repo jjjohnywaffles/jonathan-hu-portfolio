@@ -16,12 +16,14 @@ export function useDraggable({ initialPosition }: UseDraggableOptions) {
   const elementRef = useRef<HTMLDivElement>(null);
   const offsetRef = useRef({ x: 0, y: 0 });
   const posRef = useRef(initialPosition);
+  const dragStartPosRef = useRef(initialPosition);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     if (e.button !== 0) return;
     e.preventDefault();
     setWasDragged(false);
     setIsDragging(true);
+    dragStartPosRef.current = posRef.current;
     offsetRef.current = {
       x: e.clientX - posRef.current.x,
       y: e.clientY - posRef.current.y,
@@ -36,7 +38,6 @@ export function useDraggable({ initialPosition }: UseDraggableOptions) {
       const newY = e.clientY - offsetRef.current.y;
       posRef.current = { x: newX, y: newY };
 
-      // Direct DOM update for smooth dragging
       const el = elementRef.current;
       if (el) {
         el.style.left = `${newX}px`;
@@ -45,12 +46,12 @@ export function useDraggable({ initialPosition }: UseDraggableOptions) {
     };
 
     const handleMouseUp = () => {
-      const startX = posRef.current.x;
-      const startY = posRef.current.y;
-      const movedDistance = Math.abs(startX - position.x) + Math.abs(startY - position.y);
+      const start = dragStartPosRef.current;
+      const end = posRef.current;
+      const movedDistance = Math.abs(end.x - start.x) + Math.abs(end.y - start.y);
 
       setIsDragging(false);
-      setPosition(posRef.current);
+      setPosition(end);
 
       if (movedDistance > 3) {
         setWasDragged(true);
